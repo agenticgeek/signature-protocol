@@ -1,0 +1,78 @@
+/* METCARE® — shared design tokens & base reset */
+
+@import "./styles/shared-layout.css";
+@import "./styles/nav.css";
+@import "./styles/section-media.css";
+
+:root {
+  --snow: #ecebe9;
+  --beige: #decdbb;
+  --silver-blue: #6a88a4;
+  --silver-blue-soft: #6a88a422;
+  --silver-dark: #536a7c;
+  --cherry: #2b1517;
+  --cherry-hover: #3a1d1f;
+  --shadow-soft: 0 18px 60px -28px rgba(43, 21, 23, 0.25);
+  --shadow-card: 0 24px 72px -32px rgba(43, 21, 23, 0.28);
+  --ease-cinematic: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --container: 1240px;
+  --gutter: 24px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--snow);
+  color: var(--cherry);
+  font-family: var(--font-raleway), "Raleway", system-ui, -apple-system, sans-serif;
+  font-size: 16px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+body {
+  min-height: 100vh;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+.heading,
+.cta {
+  font-family: var(--font-poppins), "Poppins", system-ui, sans-serif;
+  font-weight: 700;
+  color: var(--cherry);
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: 0;
+  background: none;
+}

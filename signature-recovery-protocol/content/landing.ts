@@ -1,0 +1,129 @@
+export const landingContent = {
+  hero: {
+    title: "SIGNATURE RECOVERY PROTOCOL™",
+    tagline: "La récupération esthétique nouvelle génération.",
+    paragraphs: [
+      "Parce qu'une intervention esthétique ne se résume pas uniquement à l'acte chirurgical,",
+      "METCARE® a imaginé une approche globale pensée pour accompagner votre corps,",
+      "votre peau et votre confort avant, pendant et après votre intervention.",
+      "",
+      "Le SIGNATURE RECOVERY PROTOCOL™ associe nutrition ciblée, confort tissulaire,",
+      "récupération cutanée et stratégie de récupération pensée sur 24 heures",
+      "afin de transformer cette phase souvent inconfortable en une véritable expérience de soin.",
+    ],
+    mantra: ["Préparer. Soutenir. Accompagner. Récupérer."],
+    closing: "La récupération fait partie du résultat.",
+    ctaLabel: "Découvrir le protocole SRP™",
+  },
+  notAlone: {
+    sectionNum: "§ 02",
+    title: "Vous n'êtes pas seule",
+    intro: "Une intervention esthétique représente souvent bien plus qu'un simple geste technique.",
+    listIntro: "C'est aussi :",
+    listItems: [
+      "une phase de transformation,",
+      "une période de vulnérabilité,",
+      "un moment où le corps a besoin d'attention,",
+      "où la peau devient plus sensible,",
+      "où le repos, le confort et le ressenti prennent une place essentielle.",
+    ],
+    paragraphs: [
+      "Chez METCARE®, nous avons voulu créer un protocole pensé pour accompagner cette période",
+      "avec plus de douceur, de sérénité et de cohérence.",
+      "Parce que vous ne devriez jamais vivre votre récupération seule.",
+    ],
+  },
+  philosophy: {
+    sectionNum: "§ 03",
+    title: "La Philosophie METCARE®",
+    intro:
+      "Chez METCARE®, nous croyons qu'un beau résultat ne dépend pas uniquement du geste technique.",
+    listIntro: "Il dépend aussi :",
+    listItems: [
+      "de la manière dont le corps est préparé,",
+      "du confort ressenti pendant la récupération,",
+      "de la qualité du sommeil,",
+      "du soutien nutritionnel,",
+      "de l'équilibre cutané,",
+      "et de l'accompagnement global de chaque étape du parcours.",
+    ],
+    paragraphs: [
+      "Parce qu'une récupération esthétique est aussi une expérience physique, émotionnelle et personnelle,",
+      "nous avons imaginé un protocole pensé pour accompagner chaque étape du parcours",
+      "avec plus de confort, de sérénité et de cohérence.",
+    ],
+    closing: ["Plus qu'une gamme de produits.", "Une véritable expérience de récupération."],
+  },
+  phases: {
+    sectionNum: "§ 04",
+    title: "Une approche pensée en plusieurs phases",
+    items: [
+      "Préparer le corps avant l'intervention.",
+      "Accompagner les tissus après l'intervention.",
+      "Soutenir la peau jour et nuit.",
+      "Favoriser le confort et la récupération.",
+      "Construire une routine cohérente sur 24 heures.",
+    ],
+    paragraphs: [
+      "Chaque produit du protocole SRP™ a été développé pour répondre à un moment spécifique",
+      "du parcours péri-opératoire esthétique.",
+      "Le SIGNATURE RECOVERY PROTOCOL™ transforme la récupération esthétique",
+      "en un véritable rituel de soin et d'accompagnement.",
+    ],
+  },
+  actives: {
+    sectionNum: "§ 05",
+    title: "Nos actifs",
+    intro: [
+      "Chez METCARE®, chaque formulation est pensée comme une partie intégrante",
+      "du parcours de récupération esthétique.",
+    ],
+    listIntro: "Certaines plantes et actifs sélectionnés :",
+    ingredients: [
+      "Centella Asiatica",
+      "Bromélaïne",
+      "Acide hyaluronique",
+      "Magnésium bisglycinate",
+      "Camomille et Magnolia",
+      "Niacinamide et Panthénol",
+      "Peptides biomimétiques",
+      "Orthosiphon, piloselle, bouleau et pissenlit",
+    ],
+  },
+  dayNight: {
+    sectionNum: "§ 06",
+    title: "Le Rituel Day & Night™",
+    subtitle: "Une récupération pensée sur 24 heures.",
+    day: {
+      name: "DAY COLLAGEN™",
+      lines: [
+        "DAY COLLAGEN™ accompagne les phases actives de la journée",
+        "avec une approche pensée autour du soutien physiologique,",
+        "du confort tissulaire et de la qualité de peau.",
+      ],
+    },
+    night: {
+      name: "NIGHT COLLAGEN™",
+      lines: [
+        "NIGHT COLLAGEN™ accompagne les phases nocturnes de récupération",
+        "grâce à une approche pensée autour du repos, du confort et de la récupération profonde.",
+      ],
+    },
+    closing: "Parce qu'une récupération optimale se construit aussi pendant la nuit.",
+  },
+  sensory: {
+    sectionNum: "§ 07",
+    title: "L'Expérience Sensorielle",
+    features: [
+      "Textures enveloppantes.",
+      "Sensation de fraîcheur.",
+      "Patchs ciblés.",
+      "Routines jour & nuit.",
+      "Parfums réconfortants.",
+    ],
+    closing: [
+      "Chaque détail a été pensé pour apporter plus de douceur, de confort et de sérénité",
+      "pendant cette période de récupération.",
+    ],
+  },
+} as const;

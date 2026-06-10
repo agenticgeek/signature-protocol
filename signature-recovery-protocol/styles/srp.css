@@ -1,0 +1,2926 @@
+/* Signature Recovery Protocol™ — scoped funnel styles */
+
+@import "./srp-reveal.css";
+
+.srp-funnel {
+  --srp-max: 1120px;
+  --srp-pad: clamp(20px, 4vw, 40px);
+  --srp-section-y: clamp(56px, 8vw, 96px);
+  background: var(--snow);
+  color: var(--cherry);
+  min-height: 100svh;
+  overflow-x: hidden;
+}
+
+.srp-funnel .topbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.srp-funnel .srp-main {
+  width: 100%;
+}
+
+.srp-funnel .srp-container {
+  width: min(var(--srp-max), 100% - var(--srp-pad) * 2);
+  margin-inline: auto;
+}
+
+.srp-funnel .srp-divider {
+  height: 1px;
+  width: min(var(--srp-max), calc(100% - var(--srp-pad) * 2));
+  margin: 0 auto;
+  background: rgba(43, 21, 23, 0.08);
+}
+
+/* ---------- Section ---------- */
+.srp-funnel .srp-section {
+  padding-block: var(--srp-section-y);
+  position: relative;
+}
+
+.srp-funnel .srp-section--tinted {
+  background: color-mix(in srgb, var(--beige) 28%, var(--snow));
+}
+
+.srp-funnel .srp-section--beige {
+  background: color-mix(in srgb, var(--beige) 42%, var(--snow));
+}
+
+.srp-funnel .srp-section-head {
+  display: grid;
+  gap: 12px;
+  margin-bottom: clamp(28px, 5vw, 48px);
+  max-width: 720px;
+}
+
+.srp-funnel .srp-section-num {
+  font-family: var(--font-raleway), "Raleway", sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--silver-blue);
+}
+
+.srp-funnel .srp-section-num .slash {
+  opacity: 0.4;
+  margin-inline: 8px;
+}
+
+.srp-funnel .srp-section-title {
+  margin: 0;
+  font-family: var(--font-poppins), "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: clamp(28px, 5vw, 48px);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  color: var(--cherry);
+  text-wrap: balance;
+}
+
+.srp-funnel .srp-lede,
+.srp-funnel .srp-body {
+  margin: 0;
+  font-family: var(--font-raleway), "Raleway", sans-serif;
+  font-size: clamp(15px, 1.2vw, 17px);
+  line-height: 1.7;
+  color: var(--cherry);
+  opacity: 0.82;
+  max-width: 62ch;
+}
+
+.srp-funnel .srp-body {
+  font-size: clamp(14px, 1.1vw, 16px);
+}
+
+/* ---------- Hero ---------- */
+.srp-funnel .srp-hero {
+  position: relative;
+  overflow: hidden;
+  min-height: auto;
+  padding-block: clamp(48px, 6vw, 72px);
+  padding-top: clamp(64px, 8vw, 88px);
+  background:
+    radial-gradient(
+      ellipse 90% 60% at 100% 0%,
+      color-mix(in srgb, var(--silver-blue) 14%, transparent),
+      transparent 58%
+    ),
+    radial-gradient(
+      ellipse 70% 50% at 0% 100%,
+      color-mix(in srgb, var(--beige) 38%, transparent),
+      transparent 62%
+    ),
+    linear-gradient(
+      168deg,
+      var(--snow) 0%,
+      color-mix(in srgb, var(--beige) 22%, var(--snow)) 48%,
+      var(--snow) 100%
+    );
+}
+
+.srp-funnel .srp-hero-ambient {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      circle at 78% 22%,
+      color-mix(in srgb, var(--silver-blue) 12%, transparent) 0%,
+      transparent 42%
+    ),
+    radial-gradient(
+      circle at 12% 78%,
+      color-mix(in srgb, var(--beige) 32%, transparent) 0%,
+      transparent 48%
+    );
+}
+
+.srp-funnel .srp-hero-ghost {
+  position: absolute;
+  top: clamp(64px, 8vw, 88px);
+  right: -0.04em;
+  margin: 0;
+  font-family: var(--font-poppins), "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: clamp(56px, 11vw, 140px);
+  line-height: 0.85;
+  letter-spacing: -0.05em;
+  text-transform: uppercase;
+  color: transparent;
+  -webkit-text-stroke: 1px color-mix(in srgb, var(--silver-blue) 16%, transparent);
+  opacity: 0.55;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+}
+
+.srp-funnel .srp-hero-intro {
+  position: relative;
+  z-index: 1;
+  margin-bottom: clamp(20px, 3vw, 28px);
+}
+
+.srp-funnel .srp-hero-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  font-family: var(--font-raleway), "Raleway", sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--silver-blue);
+  margin-bottom: clamp(18px, 3vw, 28px);
+}
+
+.srp-funnel .srp-hero-title {
+  display: flex;
+  flex-direction: column;
+  margin: 0 0 clamp(16px, 2.5vw, 24px);
+  line-height: 0.88;
+  letter-spacing: -0.04em;
+  text-wrap: balance;
+}
+
+.srp-funnel .srp-hero-title-line {
+  display: block;
+  font-family: var(--font-poppins), "Poppins", sans-serif;
+  text-transform: uppercase;
+}
+
+.srp-funnel .srp-hero-title-line--signature {
+  font-weight: 700;
+  font-size: clamp(32px, 7.5vw, 72px);
+  color: var(--cherry);
+}
+
+.srp-funnel .srp-hero-title-line--recovery {
+  font-weight: 500;
+  font-size: clamp(28px, 6.8vw, 64px);
+  color: color-mix(in srgb, var(--silver-blue) 82%, var(--cherry));
+  margin-left: clamp(0px, 3vw, 36px);
+}
+
+.srp-funnel .srp-hero-title-line--protocol {
+  font-weight: 700;
+  font-size: clamp(26px, 6vw, 58px);
+  color: var(--cherry);
+  margin-left: clamp(8px, 5vw, 72px);
+}
+
+.srp-funnel .srp-hero-title .tm {
+  font-size: 0.38em;
+  vertical-align: super;
+  font-weight: 700;
+  opacity: 0.55;
+}
+
+.srp-funnel .srp-hero-tagline {
+  margin: 0;
+  max-width: 22ch;
+  font-family: var(--font-raleway), "Raleway", sans-serif;
+  font-weight: 300;
+  font-size: clamp(18px, 2.2vw, 28px);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: color-mix(in srgb, var(--cherry) 78%, var(--silver-blue));
+}
+
+.srp-funnel .srp-hero-rail {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  margin-bottom: clamp(24px, 3.5vw, 36px);
+  padding: 12px 0;
+  border-block: 1px solid color-mix(in srgb, var(--silver-blue) 22%, transparent);
+  font-family: var(--font-poppins), "Poppins", sans-serif;
+  font-size: clamp(10px, 1vw, 12px);
+  font-weight: 700;
+  letter-spacing: 0.34em;
+  color: var(--silver-blue);
+  white-space: nowrap;
+}
+
+.srp-funnel .srp-hero-rail-inner {
+  display: inline-flex;
+  gap: 36px;
+  animation: srp-rail-scroll 32s linear infinite;
+}
+
+.srp-funnel .srp-hero-rail .sep {
+  opacity: 0.35;
+  font-weight: 400;
+}
+
+@keyframes srp-rail-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.srp-funnel .srp-hero-story {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: clamp(24px, 3.5vw, 36px);
+  margin-bottom: clamp(28px, 4vw, 44px);
+}
+
+@media (min-width: 900px) {
+  .srp-funnel .srp-hero-story {
+    grid-template-columns: minmax(0, 1.12fr) minmax(0, 0.88fr);
+    gap: clamp(28px, 4vw, 48px);
+    align-items: start;
+  }
+}
+
+.srp-funnel .srp-hero-story-text {
+  margin: 0;
+  font-family: var(--font-raleway), "Raleway", sans-serif;
+  font-weight: 400;
+  font-size: clamp(17px, 1.55vw, 21px);
+  line-height: 1.72;
+  color: color-mix(in srgb, var(--cherry) 88%, var(--silver-blue));
+}
+
+.srp-funnel .srp-hero-story-lead .srp-hero-story-text {
+  font-size: clamp(17px, 1.6vw, 21px);
+  font-weight: 300;
+  line-height: 1.58;
+  letter-spacing: -0.01em;
+}
+
+.srp-funnel .srp-hero-story-mark {
+  font-family: var(--font-poppins), "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: 1.12em;
+  letter-spacing: 0.04em;
+  color: var(--silver-blue);
+}
+
+.srp-funnel .srp-hero-story-em {
+  font-weight: 600;
+  font-style: italic;
+  color: var(--cherry);
+}
+
+.srp-funnel .srp-hero-story-accent {
+  display: grid;
+  gap: clamp(16px, 2.5vw, 24px);
+}
+
+@media (min-width: 900px) {
+  .srp-funnel .srp-hero-story-accent {
+    padding-top: clamp(8px, 1.5vw, 20px);
+    border-top: 1px solid color-mix(in srgb, var(--silver-blue) 24%, transparent);
+  }
+}
+
+.srp-funnel .srp-hero-story-kicker {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  margin: 0;
+  line-height: 1;
+}
+
+.srp-funnel .srp-hero-story-kicker-num {
+  font-family: var(--font-poppins), "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: clamp(40px, 5.5vw, 64px);
+  letter-spacing: -0.05em;
+  color: color-mix(in srgb, var(--silver-blue) 70%, var(--cherry));
+}
+
+.srp-funnel .srp-hero-story-kicker-unit {
+  font-family: var(--font-raleway), "Raleway", sans-serif;
+  font-weight: 500;
+  font-size: clamp(14px, 1.4vw, 18px);
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--silver-blue);
+}
+
+.srp-funnel .srp-hero-story-text--secondary {
+  font-size: clamp(15px, 1.35vw, 18px);
+  line-height: 1.78;
+  opacity: 0.92;
+}
+
+.srp-funnel .srp-hero-story-protocol {
+  font-family: var(--font-poppins), "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: 0.95em;
+  letter-spacing: 0.02em;
+  color: var(--cherry);
+}
+
+.srp-funnel .srp-hero-mantra {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 0;
+  max-width: 640px;
+  margin: 0 0 clamp(24px, 3.5vw, 36px);
+  padding-block: 0;
+}
+
+.srp-funnel .srp-hero-mantra-line {
+  display: flex;
+  align-items: baseline;
+  gap: clamp(10px, 1.5vw, 16px);
+  margin: 0;
+  padding: 2px 0;
+}
+
+.srp-funnel .srp-hero-mantra-idx {
+  flex: 0 0 auto;
+  font-family: var(--font-raleway), "Raleway", sans-serif;
+  font-size: clamp(10px, 1vw, 12px);
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  color: var(--silver-blue);
+  opacity: 0.75;
+}
+
+.srp-funnel .srp-hero-mantra-word {
+  font-family: var(--font-poppins), "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: clamp(28px, 4.8vw, 52px);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  color: var(--cherry);
+}
+
+.srp-funnel .srp-hero-mantra-line:nth-child(even) .srp-hero-mantra-word {
+  font-weight: 500;
+  color: color-mix(in srgb, var(--silver-blue) 75%, var(--cherry));
+  margin-left: clamp(12px, 2.5vw, 36px);
+}
+
+.srp-funnel .srp-hero-mantra-line:nth-child(odd) .srp-hero-mantra-word {
+  margin-left: 0;
+}
+
+.srp-funnel .srp-hero-outro {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+  max-width: 720px;
+}
+
+@media (min-width: 720px) {
+  .srp-funnel .srp-hero-outro {
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px 32px;
+  }
+}
+
+.srp-funnel .srp-hero-closing {
+  margin: 0;
+  max-width: 14ch;
+  font-family: var(--font-poppins), "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: clamp(17px, 2vw, 24px);
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  color: var(--cherry);
+}
+
+.srp-funnel .srp-hero-cta.srp-cta {
+  flex: 0 0 auto;
+  width: auto;
+  max-width: none;
+  min-width: 0;
+  padding: 14px 24px;
+  white-space: nowrap;
+}
+
+@media (max-width: 719px) {
+  .srp-funnel .srp-hero-ghost {
+    font-size: clamp(56px, 22vw, 120px);
+    top: 120px;
+    right: -0.02em;
+    opacity: 0.35;
+  }
+
+  .srp-funnel .srp-hero-title-line--recovery,
+  .srp-funnel .srp-hero-title-line--protocol {
+    margin-left: 0;
+  }
+
+  .srp-funnel .srp-hero-mantra-line:nth-child(even) .srp-hero-mantra-word {
+    margin-left: 16px;
+  }
+
+  .srp-funnel .srp-hero-cta.srp-cta {
+    width: 100%;
+    white-space: normal;
+    text-align: center;
+  }
+}
+
+.srp-funnel .srp-quote {
+  margin: 0;
+  padding: 24px;
+  border-radius: 16px;
+  border: 1px solid rgba(43, 21, 23, 0.08);
+  background: rgba(255, 255, 255, 0.75);
+  box-shadow: 0 16px 40px -24px rgba(43, 21, 23, 0.12);
+}
+
+.srp-funnel .srp-panel {
+  padding: 24px;
+  border-radius: 16px;
+  border: 1px solid rgba(43, 21, 23, 0.08);
+  background: linear-gradient(165deg, rgba(255, 255, 255, 0.95), rgba(236, 235, 233, 0.9));
+  display: grid;
+  gap: 20px;
+}
+
+.srp-funnel .srp-mantra {
+  display: grid;
+  gap: 8px;
+  font-family: var(--font-poppins), "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: clamp(14px, 1.3vw, 16px);
+  line-height: 1.45;
+  color: var(--cherry);
+}
+
+.srp-funnel .srp-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  max-width: 100%;
+  padding: 16px 22px;
+  border-radius: 999px;
+  border: 0;
+  background: var(--cherry);
+  color: var(--snow);
+  font-family: var(--font-poppins), "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.srp-funnel .srp-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px -12px rgba(43, 21, 23, 0.35);
+  color: var(--snow);
+}
+
+.srp-funnel .srp-cta--ghost {
+  background: transparent;
+  color: var(--cherry);
+  border: 1px solid rgba(43, 21, 23, 0.15);
+}
+
+/* ---------- Lists ---------- */
+.srp-funnel .srp-list {
+  display: grid;
+  gap: 0;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(43, 21, 23, 0.08);
+  background: var(--beige);
+}
+
+.srp-funnel .srp-list-item {
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  gap: 12px;
+  align-items: start;
+  padding: 16px 20px;
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+.srp-funnel .srp-list-item + .srp-list-item {
+  border-top: 1px solid rgba(43, 21, 23, 0.08);
+}
+
+.srp-funnel .srp-list-idx {
+  font-family: var(--font-raleway), "Raleway", sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  color: var(--silver-blue);
+  padding-top: 3px;
+}
+
+/* ---------- Pills / ingredients ---------- */
+.srp-funnel .srp-pill-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+@media (min-width: 560px) {
+  .srp-funnel .srp-pill-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 900px) {
+  .srp-funnel .srp-pill-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.srp-funnel .srp-pill {
+  padding: 18px 20px;
+  border-radius: 14px;
+  border: 1px solid rgba(43, 21, 23, 0.08);
+  background: var(--snow);
+}
+
+.srp-funnel .srp-pill-idx {
+  display: block;
+  margin-bottom: 8px;
+  font-family: var(--font-raleway), "Raleway", sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--silver-blue);
+}
+
+.srp-funnel .srp-pill-name {
+  margin: 0;
+  font-family: var(--font-poppins), "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 1.35;
+  color: var(--cherry);
+}
+
+/* ---------- § 06 — Day & Night (3D ritual) ---------- */
+.srp-funnel .srp-section--day-night {
+  position: relative;
+  overflow: hidden;
+}
+
+.srp-funnel .srp-daynight-ambient {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.srp-funnel .srp-daynight-ambient__sun,
+.srp-funnel .srp-daynight-ambient__moon {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+}
+
+.srp-funnel .srp-daynight-ambient__sun {
+  top: 18%;
+  left: -6%;
+  width: min(48vw, 420px);
+  height: min(48vw, 420px);
+  background: radial-gradient(
+    circle,
+    color-mix(in srgb, var(--beige) 70%, #fff) 0%,
+    transparent 72%
+  );
+  opacity: 0.75;
+}
+
+.srp-funnel .srp-daynight-ambient__moon {
+  top: 22%;
+  right: -8%;
+  width: min(44vw, 380px);
+  height: min(44vw, 380px);
+  background: radial-gradient(
+    circle,
+    color-mix(in srgb, var(--silver-blue) 35%, var(--cherry)) 0%,
+    transparent 74%
+  );
+  opacity: 0.45;
+}
+
+.srp-funnel .srp-daynight-stage {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: clamp(20px, 4vw, 28px);
+  margin-bottom: clamp(28px, 5vw, 40px);
+  perspective: 1600px;
+}
+
+@media (min-width: 900px) {
+  .srp-funnel .srp-daynight-stage {
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    gap: clamp(12px, 2vw, 20px);
+    align-items: stretch;
+  }
+}
+
+.srp-funnel .srp-daynight-panel {
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (min-width: 900px) {
+  .srp-funnel .srp-daynight-panel--day {
+    transform: rotateY(5deg) rotateX(2deg) translateZ(0);
+  }
+
+  .srp-funnel .srp-daynight-panel--night {
+    transform: rotateY(-5deg) rotateX(2deg) translateZ(0);
+  }
+
+  .srp-funnel .srp-daynight-panel--day:hover {
+    transform: rotateY(0deg) rotateX(0deg) translateZ(28px);
+  }
+
+  .srp-funnel .srp-daynight-panel--night:hover {
+    transform: rotateY(0deg) rotateX(0deg) translateZ(28px);
+  }
+}
+
+.srp-funnel .srp-daynight-panel__glow {
+  position: absolute;
+  inset: 8% 6% -4%;
+  border-radius: 28px;
+  opacity: 0.55;
+  filter: blur(28px);
+  pointer-events: none;
+  transition: opacity 0.45s ease;
+}
+
+.srp-funnel .srp-daynight-panel--day .srp-daynight-panel__glow {
+  background: linear-gradient(
+    160deg,
+    color-mix(in srgb, var(--beige) 80%, white),
+    color-mix(in srgb, var(--silver-blue) 25%, transparent)
+  );
+}
+
+.srp-funnel .srp-daynight-panel--night .srp-daynight-panel__glow {
+  background: linear-gradient(
+    200deg,
+    color-mix(in srgb, var(--cherry) 55%, #000),
+    color-mix(in srgb, var(--silver-blue) 30%, transparent)
+  );
+}
+
+.srp-funnel .srp-daynight-panel:hover .srp-daynight-panel__glow {
+  opacity: 0.85;
+}
+
+.srp-funnel .srp-daynight-panel__frame {
+  position: relative;
+  height: 100%;
+  padding: clamp(18px, 2.5vw, 26px);
+  border-radius: 24px;
+  overflow: hidden;
+  transform-style: preserve-3d;
+  transition:
+    box-shadow 0.5s ease,
+    border-color 0.45s ease;
+  --spot-x: 50%;
+  --spot-y: 50%;
+}
+
+.srp-funnel .srp-daynight-panel__spotlight {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.srp-funnel .srp-daynight-panel--spotlight .srp-daynight-panel__spotlight {
+  opacity: 1;
+}
+
+.srp-funnel .srp-daynight-panel--day .srp-daynight-panel__spotlight {
+  background: radial-gradient(
+    circle 240px at var(--spot-x) var(--spot-y),
+    rgba(255, 255, 255, 0.72) 0%,
+    rgba(255, 255, 255, 0.28) 22%,
+    rgba(106, 136, 164, 0.1) 38%,
+    transparent 62%
+  );
+  mix-blend-mode: soft-light;
+}
+
+.srp-funnel .srp-daynight-panel--night .srp-daynight-panel__spotlight {
+  background: radial-gradient(
+    circle 240px at var(--spot-x) var(--spot-y),
+    rgba(255, 255, 255, 0.34) 0%,
+    rgba(106, 136, 164, 0.2) 24%,
+    rgba(255, 255, 255, 0.06) 40%,
+    transparent 62%
+  );
+  mix-blend-mode: screen;
+}
+
+.srp-funnel .srp-daynight-panel--day .srp-daynight-panel__frame {
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  background: linear-gradient(
+    155deg,
+    rgba(255, 255, 255, 0.92) 0%,
+    rgba(236, 235, 233, 0.72) 48%,
+    rgba(222, 205, 187, 0.35) 100%
+  );
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.95),
+    inset 0 -18px 36px -24px rgba(43, 21, 23, 0.06),
+    0 28px 72px -28px rgba(43, 21, 23, 0.22),
+    0 12px 32px -16px rgba(106, 136, 164, 0.18);
+  backdrop-filter: blur(14px);
+}
+
+.srp-funnel .srp-daynight-panel--night .srp-daynight-panel__frame {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: linear-gradient(
+    155deg,
+    color-mix(in srgb, var(--cherry) 92%, #1a0c0e) 0%,
+    color-mix(in srgb, var(--cherry) 78%, #000) 55%,
+    color-mix(in srgb, var(--cherry) 65%, var(--silver-blue)) 100%
+  );
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.12),
+    inset 0 -20px 40px -24px rgba(0, 0, 0, 0.35),
+    0 32px 80px -24px rgba(0, 0, 0, 0.45),
+    0 16px 40px -20px rgba(106, 136, 164, 0.2);
+  backdrop-filter: blur(16px);
+}
+
+.srp-funnel .srp-daynight-panel:hover .srp-daynight-panel__frame {
+  border-color: rgba(106, 136, 164, 0.35);
+}
+
+.srp-funnel .srp-daynight-panel--day:hover .srp-daynight-panel__frame {
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 1),
+    inset 0 -18px 36px -24px rgba(43, 21, 23, 0.04),
+    0 40px 96px -32px rgba(43, 21, 23, 0.28),
+    0 20px 48px -20px rgba(106, 136, 164, 0.28);
+}
+
+.srp-funnel .srp-daynight-panel--night:hover .srp-daynight-panel__frame {
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.18),
+    inset 0 -20px 40px -24px rgba(0, 0, 0, 0.28),
+    0 44px 104px -28px rgba(0, 0, 0, 0.55),
+    0 20px 48px -20px rgba(106, 136, 164, 0.3);
+}
+
+.srp-funnel .srp-daynight-panel__visual {
+  position: relative;
+  z-index: 1;
+  margin-bottom: clamp(16px, 2.5vw, 22px);
+  transform: translateZ(18px);
+}
+
+.srp-funnel .srp-daynight-panel__visual .section-media {
+  margin: 0;
+}
+
+.srp-funnel .srp-daynight-panel__visual .section-media__frame {
+  border-radius: 16px;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.5),
+    0 20px 48px -24px rgba(43, 21, 23, 0.28);
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.srp-funnel .srp-daynight-panel:hover .srp-daynight-panel__visual .section-media__frame {
+  transform: translateZ(8px) scale(1.01);
+}
+
+.srp-funnel .srp-daynight-panel__body {
+  position: relative;
+  z-index: 1;
+  transform: translateZ(12px);
+}
+
+.srp-funnel .srp-daynight-panel__tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-family: var(--font-raleway), "Raleway", sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+.srp-funnel .srp-daynight-panel--day .srp-daynight-panel__tag {
+  color: var(--silver-blue);
+  background: rgba(255, 255, 255, 0.65);
+  border: 1px solid rgba(106, 136, 164, 0.2);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+.srp-funnel .srp-daynight-panel--night .srp-daynight-panel__tag {
+  color: rgba(236, 235, 233, 0.85);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.srp-funnel .srp-daynight-panel h3 {
+  margin: 0 0 14px;
+  font-family: var(--font-poppins), "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: clamp(20px, 2.4vw, 26px);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.srp-funnel .srp-daynight-panel--day h3 {
+  color: var(--cherry);
+}
+
+.srp-funnel .srp-daynight-panel--night h3 {
+  color: var(--snow);
+}
+
+.srp-funnel .srp-daynight-panel--day .srp-body {
+  color: var(--cherry);
+  opacity: 0.84;
+}
+
+.srp-funnel .srp-daynight-panel--night .srp-body {
+  color: rgba(236, 235, 233, 0.82);
+  opacity: 1;
+}
+
+.srp-funnel .srp-daynight-axis {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 8px 0;
+}
+
+@media (max-width: 899px) {
+  .srp-funnel .srp-daynight-axis {
+    flex-direction: row;
+    justify-content: center;
+    padding: 4px 0;
+  }
+}
+
+.srp-funnel .srp-daynight-axis__line {
+  display: block;
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--beige) 40%, var(--silver-blue)),
+    color-mix(in srgb, var(--cherry) 50%, var(--silver-blue))
+  );
+  border-radius: 999px;
+  opacity: 0.45;
+}
+
+@media (min-width: 900px) {
+  .srp-funnel .srp-daynight-axis__line {
+    width: 2px;
+    flex: 1;
+    min-height: 48px;
+    max-height: 120px;
+  }
+}
+
+@media (max-width: 899px) {
+  .srp-funnel .srp-daynight-axis__line {
+    width: min(120px, 28vw);
+    height: 2px;
+  }
+}
+
+.srp-funnel .srp-daynight-axis__dial {
+  position: relative;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  transform-style: preserve-3d;
+  transform: translateZ(24px);
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.95),
+    rgba(236, 235, 233, 0.75)
+  );
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  box-shadow:
+    inset 0 2px 4px rgba(255, 255, 255, 0.9),
+    inset 0 -4px 8px rgba(43, 21, 23, 0.06),
+    0 16px 40px -12px rgba(43, 21, 23, 0.25),
+    0 4px 12px rgba(106, 136, 164, 0.2);
+}
+
+.srp-funnel .srp-daynight-axis__dial-ring {
+  position: absolute;
+  inset: 6px;
+  border-radius: 50%;
+  border: 1px solid color-mix(in srgb, var(--silver-blue) 35%, transparent);
+}
+
+.srp-funnel .srp-daynight-axis__dial-core {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: linear-gradient(
+    145deg,
+    var(--silver-blue),
+    color-mix(in srgb, var(--cherry) 40%, var(--silver-blue))
+  );
+  box-shadow:
+    0 0 0 3px rgba(106, 136, 164, 0.15),
+    0 2px 8px rgba(43, 21, 23, 0.2);
+}
+
+.srp-funnel .srp-daynight-axis__label {
+  font-family: var(--font-raleway), "Raleway", sans-serif;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--silver-blue);
+  opacity: 0.8;
+}
+
+.srp-funnel .srp-daynight-closing {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  padding: clamp(20px, 3vw, 28px) clamp(20px, 3vw, 32px);
+  padding-left: clamp(24px, 4vw, 36px);
+  border-left: 2px solid color-mix(in srgb, var(--silver-blue) 50%, var(--beige));
+  font-family: var(--font-poppins), "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: clamp(16px, 1.9vw, 21px);
+  line-height: 1.45;
+  letter-spacing: -0.02em;
+  color: var(--cherry);
+  max-width: 52ch;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .srp-funnel .srp-daynight-panel,
+  .srp-funnel .srp-daynight-panel__visual .section-media__frame {
+    transition: none;
+    transform: none;
+  }
+
+  .srp-funnel .srp-daynight-panel--day,
+  .srp-funnel .srp-daynight-panel--night {
+    transform: none;
+  }
+
+  .srp-funnel .srp-daynight-panel__spotlight {
+    display: none;
+  }
+}
+
+/* ---------- Protocole — The SRP™ Experience (editorial) ---------- */
+.srp-funnel .srp-section--experience {
+  position: relative;
+  overflow: hidden;
+}
+
+.srp-funnel .srp-experience-ambient {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.srp-funnel .srp-experience-ambient__warm,
+.srp-funnel .srp-experience-ambient__cool {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(70px);
+}
+
+.srp-funnel .srp-experience-ambient__warm {
+  top: 8%;
+  left: -8%;
+  width: min(50vw, 440px);
+  height: min(50vw, 440px);
+  background: radial-gradient(
+    circle,
+    color-mix(in srgb, var(--beige) 65%, white),
+    transparent 72%
+  );
+  opacity: 0.65;
+}
+
+.srp-funnel .srp-experience-ambient__cool {
+  bottom: 10%;
+  right: -6%;
+  width: min(44vw, 400px);
+  height: min(44vw, 400px);
+  background: radial-gradient(
+    circle,
+    color-mix(in srgb, var(--silver-blue) 22%, transparent),
+    transparent 74%
+  );
+  opacity: 0.5;
+}
+
+.srp-funnel .srp-experience-stage {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: clamp(24px, 4vw, 40px);
+  margin-bottom: clamp(28px, 5vw, 44px);
+}
+
+@media (min-width: 900px) {
+  .srp-funnel .srp-experience-stage {
+    grid-template-columns: minmax(0, 0.4fr) minmax(0, 0.6fr);
+    gap: clamp(32px, 4vw, 56px);
+    align-items: start;
+  }
+
+  .srp-funnel .srp-experience-visual {
+    position: sticky;
+    top: calc(72px + 24px);
+  }
+}
+
+.srp-funnel .srp-experience-visual .section-media {
+  margin: 0;
+}
+
+@media (min-width: 900px) {
+  .srp-funnel .srp-experience-visual .section-media {
+    transform-style: preserve-3d;
+    transform: rotateY(4deg) rotateX(1deg);
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .srp-funnel .srp-experience-visual:hover .section-media {
+    transform: rotateY(0deg) rotateX(0deg) translateZ(12px);
+  }
+}
+
+@media (max-width: 899px) {
+  .srp-funnel .srp-experience-media.section-media--portrait .section-media__frame {
+    aspect-ratio: 16 / 10;
+    max-height: min(42vh, 320px);
+  }
+}
+
+.srp-funnel .srp-experience-visual .section-media__frame {
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.65),
+    0 24px 64px -28px rgba(43, 21, 23, 0.2);
+}
+
+.srp-funnel .srp-experience-content {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(22px, 3.5vw, 32px);
+  min-width: 0;
+}
+
+.srp-funnel .srp-experience-manifest {
+  display: grid;
+  gap: 8px;
+}
+
+.srp-funnel .srp-experience-manifest__hook {
+  margin: 0;
+  font-family: var(--font-poppins), "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: clamp(24px, 3.8vw, 40px);
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  color: var(--cherry);
+}
+
+.srp-funnel .srp-experience-manifest__line {
+  margin: 0;
+  font-family: var(--font-poppins), "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: clamp(15px, 1.8vw, 19px);
+  line-height: 1.4;
+  letter-spacing: -0.02em;
+  color: color-mix(in srgb, var(--cherry) 78%, var(--silver-blue));
+}
+
+.srp-funnel .srp-experience-body {
+  max-width: none;
+  margin: 0;
+  line-height: 1.75;
+}
+
+.srp-funnel .srp-experience-reuse {
+  display: grid;
+  gap: clamp(16px, 2.5vw, 22px);
+  padding-top: clamp(8px, 1.5vw, 12px);
+  border-top: 1px solid rgba(43, 21, 23, 0.08);
+}
+
+.srp-funnel .srp-experience-reuse-lead {
+  margin: 0;
+  max-width: none;
+  line-height: 1.7;
+}
+
+.srp-funnel .srp-experience-uses {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+@media (min-width: 520px) {
+  .srp-funnel .srp-experience-uses {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .srp-funnel .srp-experience-use--5 {
+    grid-column: 1 / -1;
+  }
+}
+
+.srp-funnel .srp-experience-use {
+  display: grid;
+  grid-template-columns: 36px 1fr;
+  gap: 10px;
+  align-items: start;
+  padding: 14px 16px;
+  border-radius: 14px;
+  border: 1px solid rgba(43, 21, 23, 0.08);
+  background: linear-gradient(
+    150deg,
+    rgba(255, 255, 255, 0.92) 0%,
+    rgba(236, 235, 233, 0.75) 100%
+  );
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.88),
+    0 12px 32px -22px rgba(43, 21, 23, 0.14);
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
+}
+
+.srp-funnel .srp-experience-use:hover {
+  transform: translateY(-2px);
+  border-color: rgba(106, 136, 164, 0.26);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.95),
+    0 18px 40px -18px rgba(43, 21, 23, 0.18);
+}
+
+.srp-funnel .srp-experience-use--5 {
+  grid-template-columns: 36px 1fr;
+  padding: 16px 18px;
+  background: linear-gradient(
+    150deg,
+    color-mix(in srgb, var(--beige) 32%, white) 0%,
+    rgba(236, 235, 233, 0.88) 100%
+  );
+}
+
+.srp-funnel .srp-experience-use-idx {
+  margin-top: 2px;
+  font-family: var(--font-raleway), "Raleway", sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--silver-blue);
+}
+
+.srp-funnel .srp-experience-use-text {
+  margin: 0;
+  font-family: var(--font-raleway), "Raleway", sans-serif;
+  font-size: clamp(14px, 1.3vw, 15px);
+  line-height: 1.5;
+  color: var(--cherry);
+  opacity: 0.9;
+}
+
+.srp-funnel .srp-experience-signature {
+  position: relative;
+  z-index: 1;
+  padding: clamp(22px, 3vw, 30px) clamp(22px, 3vw, 32px);
+  padding-left: clamp(32px, 4vw, 48px);
+  border-radius: 18px;
+  border: 1px solid rgba(43, 21, 23, 0.08);
+  background: rgba(255, 255, 255, 0.78);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    0 20px 48px -28px rgba(43, 21, 23, 0.14);
+  border-left: 3px solid var(--silver-blue);
+}
+
+.srp-funnel .srp-experience-signature-orbit {
+  position: absolute;
+  top: clamp(22px, 3vw, 28px);
+  left: clamp(14px, 2vw, 18px);
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 1px solid color-mix(in srgb, var(--silver-blue) 45%, var(--beige));
+}
+
+.srp-funnel .srp-experience-signature-orbit::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--silver-blue);
+  transform: translate(-50%, -50%);
+}
+
+.srp-funnel .srp-experience-signature-text {
+  margin: 0;
+  font-family: var(--font-poppins), "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: clamp(16px, 1.9vw, 21px);
+  line-height: 1.45;
+  letter-spacing: -0.02em;
+  color: var(--cherry);
+  max-width: 52ch;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .srp-funnel .srp-experience-visual .section-media,
+  .srp-funnel .srp-experience-use {
+    transition: none;
+    transform: none;
+  }
+}
+
+/* ---------- Protocole — Produits à l'unité ---------- */
+.srp-funnel .srp-section--individual {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--beige) 40%, var(--snow)) 0%,
+    var(--snow) 100%
+  );
+}
+
+.srp-funnel .srp-individual-ambient {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse 60% 50% at 20% 30%,
+    color-mix(in srgb, var(--beige) 45%, transparent),
+    transparent 70%
+  );
+}
+
+.srp-funnel .srp-individual-stage {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 14px;
+}
+
+@media (min-width: 768px) {
+  .srp-funnel .srp-individual-stage {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(16px, 2.5vw, 24px);
+    align-items: stretch;
+  }
+}
+
+.srp-funnel .srp-individual-pillar {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: clamp(22px, 3vw, 32px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  background: linear-gradient(
+    152deg,
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(236, 235, 233, 0.8) 100%
+  );
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.92),
+    0 20px 52px -28px rgba(43, 21, 23, 0.16),
+    0 8px 24px -12px rgba(106, 136, 164, 0.12);
+  transition:
+    transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.4s ease;
+}
+
+.srp-funnel .srp-individual-pillar:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 1),
+    0 28px 64px -24px rgba(43, 21, 23, 0.2),
+    0 12px 32px -14px rgba(106, 136, 164, 0.18);
+}
+
+.srp-funnel .srp-individual-pillar--2 {
+  background: linear-gradient(
+    152deg,
+    color-mix(in srgb, var(--beige) 30%, white) 0%,
+    rgba(236, 235, 233, 0.9) 100%
+  );
+}
+
+@media (min-width: 768px) {
+  .srp-funnel .srp-individual-pillar--2 {
+    transform: translateY(12px);
+  }
+
+  .srp-funnel .srp-individual-pillar--2:hover {
+    transform: translateY(8px);
+  }
+}
+
+.srp-funnel .srp-individual-pillar-idx {
+  font-family: var(--font-raleway), "Raleway", sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--silver-blue);
+}
+
+.srp-funnel .srp-individual-pillar-text {
+  margin: 0;
+  font-family: var(--font-poppins), "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: clamp(16px, 1.8vw, 20px);
+  line-height: 1.45;
+  letter-spacing: -0.02em;
+  color: var(--cherry);
+  text-wrap: balance;
+}
+
+/* ---------- Protocole — Accompagnement Expert ---------- */
+.srp-funnel .srp-section--expert {
+  position: relative;
+  overflow: hidden;
+}
+
+.srp-funnel .srp-expert-ambient {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.srp-funnel .srp-expert-ambient__glow {
+  position: absolute;
+  top: 0;
+  right: -8%;
+  width: min(50vw, 420px);
+  height: min(50vw, 420px);
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    color-mix(in srgb, var(--silver-blue) 16%, transparent),
+    transparent 72%
+  );
+  filter: blur(60px);
+}
+
+.srp-funnel .srp-expert-stage {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: clamp(28px, 4vw, 40px);
+}
+
+@media (min-width: 900px) {
+  .srp-funnel .srp-expert-stage {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 0.88fr);
+    gap: clamp(32px, 5vw, 56px);
+    align-items: end;
+  }
+}
+
+.srp-funnel .srp-expert-narrative {
+  padding-left: clamp(16px, 2.5vw, 24px);
+  border-left: 2px solid color-mix(in srgb, var(--silver-blue) 40%, var(--beige));
+}
+
+.srp-funnel .srp-expert-body {
+  max-width: none;
+  margin: 0;
+  font-size: clamp(15px, 1.25vw, 17px);
+  line-height: 1.75;
+}
+
+.srp-funnel .srp-expert-footer {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(20px, 3vw, 28px);
+}
+
+.srp-funnel .srp-expert-emphasis {
+  position: relative;
+  padding: clamp(22px, 3vw, 30px) clamp(22px, 3vw, 28px);
+  padding-left: clamp(32px, 4vw, 44px);
+  border-radius: 20px;
+  border: 1px solid rgba(43, 21, 23, 0.1);
+  background: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--cherry) 90%, #1a0c0e) 0%,
+    color-mix(in srgb, var(--cherry) 75%, var(--silver-blue)) 100%
+  );
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.12),
+    0 24px 64px -24px rgba(43, 21, 23, 0.35);
+}
+
+.srp-funnel .srp-expert-emphasis-orbit {
+  position: absolute;
+  top: clamp(22px, 3vw, 28px);
+  left: clamp(14px, 2vw, 18px);
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.srp-funnel .srp-expert-emphasis-orbit::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: rgba(236, 235, 233, 0.9);
+  transform: translate(-50%, -50%);
+}
+
+.srp-funnel .srp-expert-emphasis-text {
+  margin: 0;
+  font-family: var(--font-poppins), "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: clamp(17px, 2vw, 22px);
+  line-height: 1.4;
+  letter-spacing: -0.02em;
+  color: var(--snow);
+  text-wrap: balance;
+}
+
+.srp-funnel .srp-expert-cta {
+  width: 100%;
+  max-width: 100%;
+}
+
+@media (min-width: 480px) {
+  .srp-funnel .srp-expert-cta {
+    width: auto;
+    align-self: flex-start;
+    min-width: min(100%, 360px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .srp-funnel .srp-individual-pillar {
+    transition: none;
+    transform: none;
+  }
+
+  .srp-funnel .srp-individual-pillar--2 {
+    transform: none;
+  }
+}
+
+/* ---------- Protocole — Ce que contient le protocole ---------- */
+.srp-funnel .srp-section--protocol-contents {
+  position: relative;
+}
+
+.srp-funnel .srp-protocol-catalog {
+  position: relative;
+}
+
+.srp-funnel .srp-protocol-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+@media (min-width: 560px) {
+  .srp-funnel .srp-protocol-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+}
+
+@media (min-width: 900px) {
+  .srp-funnel .srp-protocol-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+  }
+}
+
+.srp-funnel .srp-protocol-product {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (hover: hover) {
+  .srp-funnel .srp-protocol-product:hover {
+    transform: translateY(-3px);
+  }
+}
+
+.srp-funnel .srp-protocol-product--signature,
+.srp-funnel .srp-protocol-product--finale {
+  grid-column: 1 / -1;
+}
+
+.srp-funnel .srp-protocol-product__frame {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0;
+  height: 100%;
+  min-height: 88px;
+  overflow: hidden;
+  border-radius: 4px 14px 14px 4px;
+  border: 1px solid rgba(43, 21, 23, 0.1);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.82), rgba(236, 235, 233, 0.45));
+  transition:
+    border-color 0.35s ease,
+    box-shadow 0.35s ease,
+    background 0.35s ease;
+}
+
+.srp-funnel .srp-protocol-product:hover .srp-protocol-product__frame {
+  border-color: rgba(106, 136, 164, 0.35);
+  box-shadow: 0 22px 48px -28px rgba(43, 21, 23, 0.22);
+}
+
+.srp-funnel .srp-protocol-product__spine {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 40px;
+  padding: 10px 6px;
+  font-family: var(--font-poppins), "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: clamp(16px, 1.8vw, 20px);
+  line-height: 1;
+  letter-spacing: -0.04em;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  color: rgba(255, 255, 255, 0.92);
+  background: var(--cherry);
+}
+
+.srp-funnel .srp-protocol-product__body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 14px 16px;
+  min-width: 0;
+}
+
+.srp-funnel .srp-protocol-product--signature .srp-protocol-product__frame {
+  min-height: 96px;
+  border-radius: 16px;
+  border-color: rgba(106, 136, 164, 0.28);
+  background: linear-gradient(
+    128deg,
+    color-mix(in srgb, var(--cherry) 88%, #120809) 0%,
+    color-mix(in srgb, var(--cherry) 68%, var(--silver-blue)) 100%
+  );
+  box-shadow: 0 16px 40px -24px rgba(43, 21, 23, 0.32);
+}
+
+.srp-funnel .srp-protocol-product--signature .srp-protocol-product__spine {
+  min-width: 48px;
+  font-size: clamp(18px, 2vw, 24px);
+  background: rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.85);
+  border-right: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.srp-funnel .srp-protocol-product--signature .srp-protocol-product__idx {
+  color: rgba(236, 235, 233, 0.65);
+}
+
+.srp-funnel .srp-protocol-product--signature .srp-protocol-product__name {
+  font-size: clamp(15px, 1.8vw, 20px);
+  letter-spacing: 0.04em;
+  color: var(--snow);
+}
+
+.srp-funnel .srp-protocol-product--finale .srp-protocol-product__frame {
+  min-height: 88px;
+  border-color: rgba(106, 136, 164, 0.22);
+  background: linear-gradient(
+    100deg,
+    color-mix(in srgb, var(--beige) 42%, white) 0%,
+    rgba(255, 255, 255, 0.88) 38%,
+    rgba(236, 235, 233, 0.92) 100%
+  );
+}
+
+.srp-funnel .srp-protocol-product--finale .srp-protocol-product__spine {
+  background: color-mix(in srgb, var(--cherry) 82%, var(--silver-blue));
+}
+
+.srp-funnel .srp-protocol-product--finale .srp-protocol-product__name {
+  font-size: clamp(13px, 1.3vw, 15px);
+  letter-spacing: 0.04em;
+  max-width: none;
+}
+
+.srp-funnel .srp-protocol-product__idx {
+  display: block;
+  margin-bottom: 8px;
+  font-family: var(--font-raleway), "Raleway", sans-serif;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--silver-blue);
+}
+
+.srp-funnel .srp-protocol-product__name {
+  margin: 0;
+  font-family: var(--font-poppins), "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: clamp(12px, 1.25vw, 14px);
+  line-height: 1.35;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--cherry);
+  text-wrap: balance;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .srp-funnel .srp-protocol-product {
+    transition: none;
+    transform: none;
+  }
+}
+
+/* ---------- § 04 — Phases (editorial) ---------- */
+.srp-funnel .srp-section--phases {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--beige) 42%, var(--snow)) 0%,
+    color-mix(in srgb, var(--beige) 28%, var(--snow)) 50%,
+    var(--snow) 100%
+  );
+}
+
+.srp-funnel .srp-phases-glow {
+  position: absolute;
+  top: 8%;
+  right: -8%;
+  width: min(50vw, 440px);
+  height: min(50vw, 440px);
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    color-mix(in srgb, var(--silver-blue) 14%, transparent),
+    transparent 72%
+  );
+  pointer-events: none;
+}
+
+.srp-funnel .srp-phases-banner {
+  position: relative;
+  z-index: 1;
+  margin-bottom: clamp(28px, 5vw, 44px);
+}
+
+.srp-funnel .srp-phases-stage {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  margin-bottom: clamp(32px, 6vw, 56px);
+}
+
+@media (min-width: 560px) {
+  .srp-funnel .srp-phases-stage {
+    grid-template-columns: repeat(6, 1fr);
+    gap: 14px;
+  }
+
+  .srp-funnel .srp-phases-step--1 { grid-column: span 3; }
+  .srp-funnel .srp-phases-step--2 { grid-column: span 3; }
+  .srp-funnel .srp-phases-step--3 { grid-column: span 2; }
+  .srp-funnel .srp-phases-step--4 { grid-column: span 2; }
+  .srp-funnel .srp-phases-step--5 { grid-column: span 2; }
+}
+
+.srp-funnel .srp-phases-step {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(18px, 2.5vw, 24px) clamp(18px, 2.5vw, 22px);
+  border-radius: 18px;
+  border: 1px solid rgba(43, 21, 23, 0.08);
+  background: linear-gradient(
+    155deg,
+    rgba(255, 255, 255, 0.94) 0%,
+    rgba(236, 235, 233, 0.82) 100%
+  );
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.88),
+    0 16px 40px -28px rgba(43, 21, 23, 0.14);
+  transition:
+    transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.4s ease,
+    border-color 0.35s ease;
+}
+
+.srp-funnel .srp-phases-step:hover {
+  transform: translateY(-4px);
+  border-color: rgba(106, 136, 164, 0.28);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.95),
+    0 24px 48px -24px rgba(43, 21, 23, 0.18);
+}
+
+.srp-funnel .srp-phases-step--5 {
+  background: linear-gradient(
+    155deg,
+    color-mix(in srgb, var(--beige) 35%, white) 0%,
+    rgba(236, 235, 233, 0.92) 100%
+  );
+}
+
+.srp-funnel .srp-phases-step-ghost {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  font-family: var(--font-poppins), "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: clamp(40px, 6vw, 64px);
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: transparent;
+  background: linear-gradient(
+    135deg,
+    rgba(43, 21, 23, 0.07),
+    rgba(106, 136, 164, 0.04)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  pointer-events: none;
+  user-select: none;
+}
+
+.srp-funnel .srp-phases-step-idx {
+  display: block;
+  margin-bottom: 10px;
+  font-family: var(--font-raleway), "Raleway", sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--silver-blue);
+}
+
+.srp-funnel .srp-phases-step-text {
+  margin: 0;
+  position: relative;
+  z-index: 1;
+  font-family: var(--font-raleway), "Raleway", sans-serif;
+  font-size: clamp(14px, 1.4vw, 16px);
+  line-height: 1.6;
+  color: var(--cherry);
+  opacity: 0.88;
+}
+
+.srp-funnel .srp-phases-signature {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: clamp(20px, 4vw, 32px);
+  padding-top: clamp(8px, 2vw, 16px);
+  border-top: 1px solid rgba(43, 21, 23, 0.08);
+}
+
+@media (min-width: 768px) {
+  .srp-funnel .srp-phases-signature {
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    gap: clamp(24px, 4vw, 48px);
+    align-items: end;
+    padding-top: clamp(24px, 4vw, 36px);
+  }
+}
+
+.srp-funnel .srp-phases-signature-copy p {
+  margin: 0 0 10px;
+  font-family: var(--font-raleway), "Raleway", sans-serif;
+  font-size: clamp(14px, 1.3vw, 16px);
+  line-height: 1.75;
+  color: var(--cherry);
+  opacity: 0.82;
+}
+
+.srp-funnel .srp-phases-signature-copy p:last-child {
+  margin-bottom: 0;
+}
+
+.srp-funnel .srp-phases-signature-em-wrap {
+  position: relative;
+  padding-left: clamp(0px, 2vw, 24px);
+}
+
+@media (min-width: 768px) {
+  .srp-funnel .srp-phases-signature-em-wrap {
+    padding-left: clamp(16px, 3vw, 32px);
+    border-left: 1px solid color-mix(in srgb, var(--silver-blue) 28%, transparent);
+  }
+}
+
+.srp-funnel .srp-phases-signature-orbit {
+  position: absolute;
+  top: 4px;
+  left: clamp(-12px, -1vw, 0px);
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid color-mix(in srgb, var(--silver-blue) 45%, var(--beige));
+}
+
+.srp-funnel .srp-phases-signature-orbit::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--silver-blue);
+  transform: translate(-50%, -50%);
+}
+
+@media (min-width: 768px) {
+  .srp-funnel .srp-phases-signature-orbit {
+    left: -14px;
+  }
+}
+
+.srp-funnel .srp-phases-signature-em p {
+  margin: 0 0 6px;
+  padding-right: clamp(0px, 2vw, 40px);
+  font-family: var(--font-poppins), "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: clamp(16px, 1.9vw, 21px);
+  line-height: 1.4;
+  letter-spacing: -0.02em;
+  color: var(--cherry);
+}
+
+.srp-funnel .srp-phases-signature-em p:last-child {
+  margin-bottom: 0;
+  font-size: clamp(17px, 2.1vw, 23px);
+  color: color-mix(in srgb, var(--cherry) 88%, var(--silver-blue));
+}
+
+/* ---------- Checkout / funnel pages ---------- */
+.srp-funnel .srp-checkout {
+  padding: clamp(96px, 12vw, 120px) var(--srp-pad) clamp(48px, 8vw, 72px);
+  max-width: var(--srp-max);
+  margin-inline: auto;
+}
+
+.srp-funnel .srp-checkout-title {
+  margin: 0 0 12px;
+  font-family: var(--font-poppins), "Poppins", sans-serif;
+  font-size: clamp(28px, 5vw, 40px);
+  line-height: 1.1;
+}
+
+.srp-funnel .srp-checkout-grid {
+  display: grid;
+  gap: 28px;
+  margin-top: 32px;
+}
+
+@media (min-width: 960px) {
+  .srp-funnel .srp-checkout-grid {
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 40px;
+    align-items: start;
+  }
+}
+
+.srp-funnel .srp-trust-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 24px;
+}
+
+.srp-funnel .srp-trust-badge {
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(43, 21, 23, 0.08);
+  background: rgba(255, 255, 255, 0.7);
+  font-size: 12px;
+  line-height: 1.3;
+}
+
+.srp-funnel .srp-form-card {
+  padding: 24px;
+  border-radius: 16px;
+  border: 1px solid rgba(43, 21, 23, 0.08);
+  background: var(--snow);
+  margin-bottom: 16px;
+}
+
+.srp-funnel .srp-form-card h3 {
+  margin: 0 0 16px;
+  font-size: 16px;
+}
+
+.srp-funnel .srp-field {
+  display: grid;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+
+.srp-funnel .srp-field label {
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--silver-blue);
+}
+
+.srp-funnel .srp-field input,
+.srp-funnel .srp-field select {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(43, 21, 23, 0.12);
+  background: #fff;
+  font: inherit;
+}
+
+.srp-funnel .srp-field-row {
+  display: grid;
+  gap: 12px;
+}
+
+@media (min-width: 600px) {
+  .srp-funnel .srp-field-row {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .srp-funnel .srp-field-row--three {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+.srp-funnel .srp-summary {
+  padding: 24px;
+  border-radius: 16px;
+  border: 1px solid rgba(43, 21, 23, 0.08);
+  background: color-mix(in srgb, var(--beige) 30%, var(--snow));
+  position: sticky;
+  top: 100px;
+}
+
+.srp-funnel .srp-summary-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding-block: 12px;
+  border-bottom: 1px solid rgba(43, 21, 23, 0.08);
+  font-size: 14px;
+}
+
+.srp-funnel .srp-summary-total {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 16px;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.srp-funnel .srp-error {
+  margin-top: 12px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  background: rgba(211, 47, 47, 0.08);
+  color: #b71c1c;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.srp-funnel .srp-upsell-card {
+  max-width: 560px;
+  margin-top: 28px;
+  padding: 28px;
+  border-radius: 16px;
+  border: 1px solid rgba(43, 21, 23, 0.08);
+  background: var(--snow);
+}
+
+.srp-funnel .srp-upsell-card h2 {
+  margin: 0 0 12px;
+  font-size: clamp(20px, 3vw, 26px);
+  line-height: 1.25;
+}
+
+.srp-funnel .srp-placeholder {
+  margin-top: 12px;
+  padding: 16px;
+  border-radius: 10px;
+  border: 1px dashed rgba(43, 21, 23, 0.2);
+  font-size: 12px;
+  color: var(--silver-blue);
+  line-height: 1.5;
+}
+
+.srp-funnel .srp-ty-grid {
+  display: grid;
+  gap: 16px;
+  margin-top: 28px;
+}
+
+@media (min-width: 768px) {
+  .srp-funnel .srp-ty-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.srp-funnel .srp-ty-card {
+  padding: 24px;
+  border-radius: 16px;
+  border: 1px solid rgba(43, 21, 23, 0.08);
+  background: var(--snow);
+}
+
+.srp-funnel .srp-ty-card h3 {
+  margin: 0 0 12px;
+  font-size: 16px;
+}
+
+/* ---------- § 02 — Vous n'êtes pas seule (editorial) ---------- */
+.srp-funnel .srp-section--not-alone {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(
+    165deg,
+    color-mix(in srgb, var(--beige) 38%, var(--snow)) 0%,
+    var(--snow) 42%,
+    color-mix(in srgb, var(--silver-blue) 8%, var(--snow)) 100%
+  );
+}
+
+.srp-funnel .srp-not-alone-glow {
+  position: absolute;
+  top: -20%;
+  right: -10%;
+  width: min(60vw, 520px);
+  height: min(60vw, 520px);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(106, 136, 164, 0.14), transparent 68%);
+  pointer-events: none;
+}
+
+.srp-funnel .srp-not-alone-stage {
+  display: grid;
+  gap: clamp(28px, 5vw, 48px);
+  margin-bottom: clamp(32px, 6vw, 56px);
+}
+
+@media (min-width: 900px) {
+  .srp-funnel .srp-not-alone-stage {
+    grid-template-columns: minmax(0, 0.42fr) minmax(0, 0.58fr);
+    gap: clamp(32px, 4vw, 56px);
+    align-items: start;
+  }
+
+  .srp-funnel .srp-not-alone-visual {
+    position: sticky;
+    top: calc(72px + 24px);
+  }
+}
+
+.srp-funnel .srp-not-alone-visual .section-media {
+  margin: 0;
+}
+
+.srp-funnel .srp-not-alone-lead {
+  margin: 0 0 clamp(20px, 3vw, 28px);
+  font-family: var(--font-poppins), "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: clamp(18px, 2.2vw, 26px);
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  color: var(--cherry);
+}
+
+.srp-funnel .srp-not-alone-moments {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+@media (min-width: 560px) {
+  .srp-funnel .srp-not-alone-moments {
+    grid-template-columns: repeat(6, 1fr);
+    gap: 14px;
+  }
+
+  .srp-funnel .srp-not-alone-moment--1 { grid-column: span 3; }
+  .srp-funnel .srp-not-alone-moment--2 { grid-column: span 3; }
+  .srp-funnel .srp-not-alone-moment--3 { grid-column: span 2; }
+  .srp-funnel .srp-not-alone-moment--4 { grid-column: span 2; }
+  .srp-funnel .srp-not-alone-moment--5 { grid-column: span 2; }
+}
+
+.srp-funnel .srp-not-alone-moment {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(18px, 2.5vw, 24px) clamp(18px, 2.5vw, 22px);
+  border-radius: 18px;
+  border: 1px solid rgba(43, 21, 23, 0.08);
+  background: linear-gradient(
+    155deg,
+    rgba(255, 255, 255, 0.92) 0%,
+    rgba(236, 235, 233, 0.78) 100%
+  );
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.85),
+    0 16px 40px -28px rgba(43, 21, 23, 0.14);
+  transition:
+    transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.4s ease,
+    border-color 0.35s ease;
+}
+
+.srp-funnel .srp-not-alone-moment:hover {
+  transform: translateY(-4px);
+  border-color: rgba(106, 136, 164, 0.28);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.95),
+    0 24px 48px -24px rgba(43, 21, 23, 0.18);
+}
+
+.srp-funnel .srp-not-alone-moment-ghost {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  font-family: var(--font-poppins), "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: clamp(40px, 6vw, 64px);
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: transparent;
+  background: linear-gradient(
+    135deg,
+    rgba(43, 21, 23, 0.07),
+    rgba(106, 136, 164, 0.04)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  pointer-events: none;
+  user-select: none;
+}
+
+.srp-funnel .srp-not-alone-moment-idx {
+  display: block;
+  margin-bottom: 10px;
+  font-family: var(--font-raleway), "Raleway", sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--silver-blue);
+}
+
+.srp-funnel .srp-not-alone-moment-text {
+  margin: 0;
+  position: relative;
+  z-index: 1;
+  font-family: var(--font-raleway), "Raleway", sans-serif;
+  font-size: clamp(14px, 1.4vw, 16px);
+  line-height: 1.6;
+  color: var(--cherry);
+  opacity: 0.88;
+}
+
+.srp-funnel .srp-not-alone-moment--5 {
+  background: linear-gradient(
+    155deg,
+    color-mix(in srgb, var(--beige) 35%, white) 0%,
+    rgba(236, 235, 233, 0.9) 100%
+  );
+}
+
+.srp-funnel .srp-not-alone-signature {
+  display: grid;
+  gap: clamp(20px, 4vw, 32px);
+  padding: clamp(24px, 4vw, 36px);
+  border-radius: 20px;
+  border: 1px solid rgba(43, 21, 23, 0.08);
+  background: rgba(255, 255, 255, 0.82);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    0 24px 56px -32px rgba(43, 21, 23, 0.14);
+  border-left: 3px solid var(--silver-blue);
+}
+
+@media (min-width: 768px) {
+  .srp-funnel .srp-not-alone-signature {
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    gap: clamp(24px, 4vw, 40px);
+    align-items: center;
+  }
+}
+
+.srp-funnel .srp-not-alone-signature-copy p {
+  margin: 0 0 10px;
+  font-family: var(--font-raleway), "Raleway", sans-serif;
+  font-size: clamp(14px, 1.3vw, 16px);
+  line-height: 1.75;
+  color: var(--cherry);
+  opacity: 0.8;
+}
+
+.srp-funnel .srp-not-alone-signature-copy p:last-child {
+  margin-bottom: 0;
+}
+
+.srp-funnel .srp-not-alone-signature-em-wrap {
+  position: relative;
+  padding-left: clamp(0px, 2vw, 24px);
+}
+
+@media (min-width: 768px) {
+  .srp-funnel .srp-not-alone-signature-em-wrap {
+    border-left: 1px solid rgba(106, 136, 164, 0.22);
+    padding-left: clamp(24px, 3vw, 36px);
+  }
+}
+
+.srp-funnel .srp-not-alone-signature-orbit {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(106, 136, 164, 0.25);
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.srp-funnel .srp-not-alone-signature-orbit::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--silver-blue);
+  box-shadow: 0 0 16px rgba(106, 136, 164, 0.45);
+  transform: translate(-50%, -50%);
+}
+
+.srp-funnel .srp-not-alone-signature-em {
+  margin: 0;
+  padding-right: 56px;
+  font-family: var(--font-poppins), "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: clamp(17px, 2vw, 22px);
+  line-height: 1.4;
+  letter-spacing: -0.02em;
+  color: var(--cherry);
+}
+
+/* ---------- § 03 — La Philosophie METCARE® (editorial) ---------- */
+.srp-funnel .srp-section--philosophy {
+  position: relative;
+  overflow: hidden;
+}
+
+.srp-funnel .srp-philosophy-glow {
+  position: absolute;
+  top: 10%;
+  left: -12%;
+  width: min(55vw, 480px);
+  height: min(55vw, 480px);
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    color-mix(in srgb, var(--beige) 55%, transparent),
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+.srp-funnel .srp-philosophy-stage {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: clamp(28px, 5vw, 48px);
+  margin-bottom: clamp(32px, 6vw, 56px);
+}
+
+@media (min-width: 900px) {
+  .srp-funnel .srp-philosophy-stage {
+    grid-template-columns: minmax(0, 0.58fr) minmax(0, 0.42fr);
+    gap: clamp(32px, 4vw, 56px);
+    align-items: start;
+  }
+
+  .srp-funnel .srp-philosophy-visual {
+    order: 2;
+    position: sticky;
+    top: calc(72px + 24px);
+  }
+
+  .srp-funnel .srp-philosophy-content {
+    order: 1;
+  }
+}
+
+.srp-funnel .srp-philosophy-visual .section-media {
+  margin: 0;
+}
+
+.srp-funnel .srp-philosophy-lead {
+  margin: 0 0 clamp(20px, 3vw, 28px);
+  font-family: var(--font-poppins), "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: clamp(18px, 2.2vw, 26px);
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  color: var(--cherry);
+}
+
+.srp-funnel .srp-philosophy-factors {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+@media (min-width: 560px) {
+  .srp-funnel .srp-philosophy-factors {
+    grid-template-columns: repeat(6, 1fr);
+    gap: 14px;
+  }
+
+  .srp-funnel .srp-philosophy-factor--1 { grid-column: span 3; }
+  .srp-funnel .srp-philosophy-factor--2 { grid-column: span 3; }
+  .srp-funnel .srp-philosophy-factor--3 { grid-column: span 2; }
+  .srp-funnel .srp-philosophy-factor--4 { grid-column: span 2; }
+  .srp-funnel .srp-philosophy-factor--5 { grid-column: span 2; }
+  .srp-funnel .srp-philosophy-factor--6 { grid-column: span 6; }
+}
+
+.srp-funnel .srp-philosophy-factor {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(18px, 2.5vw, 24px) clamp(18px, 2.5vw, 22px);
+  border-radius: 18px;
+  border: 1px solid rgba(43, 21, 23, 0.08);
+  background: linear-gradient(
+    155deg,
+    rgba(255, 255, 255, 0.94) 0%,
+    rgba(236, 235, 233, 0.8) 100%
+  );
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.88),
+    0 16px 40px -28px rgba(43, 21, 23, 0.14);
+  transition:
+    transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.4s ease,
+    border-color 0.35s ease;
+}
+
+.srp-funnel .srp-philosophy-factor:hover {
+  transform: translateY(-4px);
+  border-color: rgba(106, 136, 164, 0.28);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.95),
+    0 24px 48px -24px rgba(43, 21, 23, 0.18);
+}
+
+.srp-funnel .srp-philosophy-factor--6 {
+  background: linear-gradient(
+    155deg,
+    color-mix(in srgb, var(--beige) 32%, white) 0%,
+    rgba(236, 235, 233, 0.92) 100%
+  );
+}
+
+.srp-funnel .srp-philosophy-factor-ghost {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  font-family: var(--font-poppins), "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: clamp(40px, 6vw, 64px);
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: transparent;
+  background: linear-gradient(
+    135deg,
+    rgba(43, 21, 23, 0.07),
+    rgba(106, 136, 164, 0.04)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  pointer-events: none;
+  user-select: none;
+}
+
+.srp-funnel .srp-philosophy-factor-idx {
+  display: block;
+  margin-bottom: 10px;
+  font-family: var(--font-raleway), "Raleway", sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--silver-blue);
+}
+
+.srp-funnel .srp-philosophy-factor-text {
+  margin: 0;
+  position: relative;
+  z-index: 1;
+  font-family: var(--font-raleway), "Raleway", sans-serif;
+  font-size: clamp(14px, 1.4vw, 16px);
+  line-height: 1.6;
+  color: var(--cherry);
+  opacity: 0.88;
+}
+
+.srp-funnel .srp-philosophy-signature {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: clamp(20px, 4vw, 32px);
+  padding-top: clamp(8px, 2vw, 16px);
+  border-top: 1px solid rgba(43, 21, 23, 0.08);
+}
+
+@media (min-width: 768px) {
+  .srp-funnel .srp-philosophy-signature {
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+    gap: clamp(24px, 4vw, 48px);
+    align-items: end;
+    padding-top: clamp(24px, 4vw, 36px);
+  }
+}
+
+.srp-funnel .srp-philosophy-signature-copy p {
+  margin: 0 0 10px;
+  font-family: var(--font-raleway), "Raleway", sans-serif;
+  font-size: clamp(14px, 1.3vw, 16px);
+  line-height: 1.75;
+  color: var(--cherry);
+  opacity: 0.82;
+}
+
+.srp-funnel .srp-philosophy-signature-copy p:last-child {
+  margin-bottom: 0;
+}
+
+.srp-funnel .srp-philosophy-signature-em-wrap {
+  position: relative;
+  padding-left: clamp(0px, 2vw, 24px);
+}
+
+@media (min-width: 768px) {
+  .srp-funnel .srp-philosophy-signature-em-wrap {
+    padding-left: clamp(16px, 3vw, 32px);
+    border-left: 1px solid color-mix(in srgb, var(--silver-blue) 28%, transparent);
+  }
+}
+
+.srp-funnel .srp-philosophy-signature-orbit {
+  position: absolute;
+  top: 4px;
+  left: clamp(-12px, -1vw, 0px);
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid color-mix(in srgb, var(--silver-blue) 45%, var(--beige));
+}
+
+.srp-funnel .srp-philosophy-signature-orbit::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--silver-blue);
+  transform: translate(-50%, -50%);
+}
+
+@media (min-width: 768px) {
+  .srp-funnel .srp-philosophy-signature-orbit {
+    left: -14px;
+  }
+}
+
+.srp-funnel .srp-philosophy-signature-em p {
+  margin: 0 0 6px;
+  padding-right: clamp(0px, 2vw, 40px);
+  font-family: var(--font-poppins), "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: clamp(17px, 2vw, 22px);
+  line-height: 1.35;
+  letter-spacing: -0.02em;
+  color: var(--cherry);
+}
+
+.srp-funnel .srp-philosophy-signature-em p:last-child {
+  margin-bottom: 0;
+  font-size: clamp(18px, 2.2vw, 24px);
+  color: color-mix(in srgb, var(--cherry) 88%, var(--silver-blue));
+}
+
+/* ---------- § 07 — Expérience Sensorielle (3D editorial) ---------- */
+.srp-funnel .srp-section--sensory {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--beige) 38%, var(--snow)) 0%,
+    var(--snow) 55%,
+    color-mix(in srgb, var(--silver-blue) 6%, var(--snow)) 100%
+  );
+}
+
+.srp-funnel .srp-sensory-ambient {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.srp-funnel .srp-sensory-ambient__sheen,
+.srp-funnel .srp-sensory-ambient__mist {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(70px);
+}
+
+.srp-funnel .srp-sensory-ambient__sheen {
+  top: 12%;
+  right: -4%;
+  width: min(52vw, 460px);
+  height: min(52vw, 460px);
+  background: radial-gradient(
+    circle,
+    color-mix(in srgb, var(--beige) 65%, white),
+    transparent 70%
+  );
+  opacity: 0.7;
+}
+
+.srp-funnel .srp-sensory-ambient__mist {
+  bottom: 8%;
+  left: -10%;
+  width: min(44vw, 380px);
+  height: min(44vw, 380px);
+  background: radial-gradient(
+    circle,
+    color-mix(in srgb, var(--silver-blue) 22%, transparent),
+    transparent 72%
+  );
+  opacity: 0.55;
+}
+
+.srp-funnel .srp-sensory-stage {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: clamp(28px, 5vw, 48px);
+  margin-bottom: clamp(32px, 6vw, 56px);
+  perspective: 1400px;
+}
+
+@media (min-width: 900px) {
+  .srp-funnel .srp-sensory-stage {
+    grid-template-columns: minmax(0, 0.56fr) minmax(0, 0.44fr);
+    gap: clamp(32px, 4vw, 56px);
+    align-items: start;
+  }
+
+  .srp-funnel .srp-sensory-visual {
+    order: 2;
+    position: sticky;
+    top: calc(72px + 24px);
+  }
+
+  .srp-funnel .srp-sensory-content {
+    order: 1;
+  }
+}
+
+.srp-funnel .srp-sensory-visual .section-media {
+  margin: 0;
+  transform-style: preserve-3d;
+  transform: rotateY(-3deg) rotateX(1.5deg);
+  transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.srp-funnel .srp-sensory-visual:hover .section-media {
+  transform: rotateY(0deg) rotateX(0deg) translateZ(16px);
+}
+
+.srp-funnel .srp-sensory-visual .section-media__frame {
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.65),
+    0 28px 72px -28px rgba(43, 21, 23, 0.24);
+}
+
+.srp-funnel .srp-sensory-senses {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+@media (min-width: 560px) {
+  .srp-funnel .srp-sensory-senses {
+    grid-template-columns: repeat(6, 1fr);
+    gap: 14px;
+  }
+
+  .srp-funnel .srp-sensory-sense--1 { grid-column: span 3; }
+  .srp-funnel .srp-sensory-sense--2 { grid-column: span 3; }
+  .srp-funnel .srp-sensory-sense--3 { grid-column: span 2; }
+  .srp-funnel .srp-sensory-sense--4 { grid-column: span 2; }
+  .srp-funnel .srp-sensory-sense--5 { grid-column: span 2; }
+}
+
+.srp-funnel .srp-sensory-sense {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(18px, 2.5vw, 24px) clamp(18px, 2.5vw, 22px);
+  border-radius: 20px;
+  transform-style: preserve-3d;
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  background: linear-gradient(
+    150deg,
+    rgba(255, 255, 255, 0.94) 0%,
+    rgba(236, 235, 233, 0.78) 52%,
+    rgba(222, 205, 187, 0.28) 100%
+  );
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.92),
+    inset 0 -14px 28px -18px rgba(43, 21, 23, 0.05),
+    0 18px 48px -26px rgba(43, 21, 23, 0.16),
+    0 8px 24px -12px rgba(106, 136, 164, 0.14);
+  backdrop-filter: blur(12px);
+  transition:
+    transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.45s ease,
+    border-color 0.4s ease;
+}
+
+.srp-funnel .srp-sensory-sense:hover {
+  transform: translateY(-5px) translateZ(12px);
+  border-color: rgba(106, 136, 164, 0.32);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 1),
+    inset 0 -14px 28px -18px rgba(43, 21, 23, 0.03),
+    0 28px 64px -24px rgba(43, 21, 23, 0.22),
+    0 14px 32px -14px rgba(106, 136, 164, 0.22);
+}
+
+.srp-funnel .srp-sensory-sense--5 {
+  background: linear-gradient(
+    150deg,
+    color-mix(in srgb, var(--beige) 38%, white) 0%,
+    rgba(236, 235, 233, 0.9) 100%
+  );
+}
+
+.srp-funnel .srp-sensory-sense-ghost {
+  position: absolute;
+  top: 6px;
+  right: 10px;
+  font-family: var(--font-poppins), "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: clamp(36px, 5.5vw, 58px);
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: transparent;
+  background: linear-gradient(
+    135deg,
+    rgba(43, 21, 23, 0.07),
+    rgba(106, 136, 164, 0.05)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  pointer-events: none;
+  user-select: none;
+}
+
+.srp-funnel .srp-sensory-sense-idx {
+  display: block;
+  margin-bottom: 10px;
+  font-family: var(--font-raleway), "Raleway", sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--silver-blue);
+}
+
+.srp-funnel .srp-sensory-sense-text {
+  margin: 0;
+  position: relative;
+  z-index: 1;
+  font-family: var(--font-poppins), "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: clamp(14px, 1.45vw, 17px);
+  line-height: 1.45;
+  letter-spacing: -0.01em;
+  color: var(--cherry);
+}
+
+.srp-funnel .srp-sensory-signature {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: clamp(20px, 4vw, 32px);
+  padding-top: clamp(8px, 2vw, 16px);
+  border-top: 1px solid rgba(43, 21, 23, 0.08);
+}
+
+@media (min-width: 768px) {
+  .srp-funnel .srp-sensory-signature {
+    grid-template-columns: minmax(0, 1.12fr) minmax(0, 0.88fr);
+    gap: clamp(24px, 4vw, 48px);
+    align-items: end;
+    padding-top: clamp(24px, 4vw, 36px);
+  }
+}
+
+.srp-funnel .srp-sensory-signature-copy p {
+  margin: 0;
+  font-family: var(--font-raleway), "Raleway", sans-serif;
+  font-size: clamp(14px, 1.3vw, 16px);
+  line-height: 1.75;
+  color: var(--cherry);
+  opacity: 0.82;
+}
+
+.srp-funnel .srp-sensory-signature-em-wrap {
+  position: relative;
+  padding-left: clamp(0px, 2vw, 24px);
+}
+
+@media (min-width: 768px) {
+  .srp-funnel .srp-sensory-signature-em-wrap {
+    padding-left: clamp(16px, 3vw, 32px);
+    border-left: 1px solid color-mix(in srgb, var(--silver-blue) 28%, transparent);
+  }
+}
+
+.srp-funnel .srp-sensory-signature-orbit {
+  position: absolute;
+  top: 4px;
+  left: clamp(-12px, -1vw, 0px);
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid color-mix(in srgb, var(--silver-blue) 45%, var(--beige));
+}
+
+.srp-funnel .srp-sensory-signature-orbit::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--silver-blue);
+  transform: translate(-50%, -50%);
+}
+
+@media (min-width: 768px) {
+  .srp-funnel .srp-sensory-signature-orbit {
+    left: -14px;
+  }
+}
+
+.srp-funnel .srp-sensory-signature-em p {
+  margin: 0;
+  padding-right: clamp(0px, 2vw, 40px);
+  font-family: var(--font-poppins), "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: clamp(17px, 2.1vw, 23px);
+  line-height: 1.38;
+  letter-spacing: -0.02em;
+  color: color-mix(in srgb, var(--cherry) 88%, var(--silver-blue));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .srp-funnel .srp-sensory-visual .section-media,
+  .srp-funnel .srp-sensory-sense {
+    transition: none;
+    transform: none;
+  }
+}
+
+/* ---------- Section media layouts ---------- */
+.srp-funnel .srp-section-stage {
+  margin-top: 8px;
+}
+
+.srp-funnel .section-editorial.srp-section-stage {
+  margin-bottom: 0;
+}
+
+.srp-funnel .srp-actives-stage .section-editorial__content {
+  gap: 20px;
+}
+
+/* ---------- Footer override ---------- */
+.srp-funnel .metcare-footer {
+  margin-top: 0;
+}
+
+/* ---------- Navbar: ensure CTA visible on mobile ---------- */
+@media (max-width: 899px) {
+  .srp-funnel .srp-hero .srp-cta {
+    position: relative;
+    z-index: 2;
+  }
+}

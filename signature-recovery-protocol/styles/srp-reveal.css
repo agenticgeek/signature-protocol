@@ -1,0 +1,352 @@
+/* Scroll reveal — text rise + card pop (enabled after hydration) */
+
+.srp-funnel.srp-reveal-enabled .srp-section:not(.srp-reveal--active) .srp-section-head > *,
+.srp-funnel.srp-reveal-enabled .srp-section:not(.srp-reveal--active) .srp-hero-meta,
+.srp-funnel.srp-reveal-enabled .srp-section:not(.srp-reveal--active) .srp-hero-title-line,
+.srp-funnel.srp-reveal-enabled .srp-section:not(.srp-reveal--active) .srp-hero-tagline,
+.srp-funnel.srp-reveal-enabled .srp-section:not(.srp-reveal--active) .srp-hero-rail,
+.srp-funnel.srp-reveal-enabled .srp-section:not(.srp-reveal--active) .srp-hero-story-lead,
+.srp-funnel.srp-reveal-enabled .srp-section:not(.srp-reveal--active) .srp-hero-story-accent,
+.srp-funnel.srp-reveal-enabled .srp-section:not(.srp-reveal--active) .srp-hero-outro,
+.srp-funnel.srp-reveal-enabled .srp-section:not(.srp-reveal--active) .srp-philosophy-lead,
+.srp-funnel.srp-reveal-enabled .srp-section:not(.srp-reveal--active) .srp-not-alone-lead,
+.srp-funnel.srp-reveal-enabled .srp-section:not(.srp-reveal--active) .srp-experience-manifest > *,
+.srp-funnel.srp-reveal-enabled .srp-section:not(.srp-reveal--active) .srp-experience-body,
+.srp-funnel.srp-reveal-enabled .srp-section:not(.srp-reveal--active) .srp-experience-reuse-lead,
+.srp-funnel.srp-reveal-enabled .srp-section:not(.srp-reveal--active) .srp-expert-body,
+.srp-funnel.srp-reveal-enabled .srp-section:not(.srp-reveal--active) .srp-daynight-closing,
+.srp-funnel.srp-reveal-enabled .srp-checkout:not(.srp-reveal--active) > .srp-checkout-title,
+.srp-funnel.srp-reveal-enabled .srp-checkout:not(.srp-reveal--active) > .srp-lede,
+.srp-funnel.srp-reveal-enabled .srp-checkout:not(.srp-reveal--active) > .srp-trust-strip,
+.srp-funnel.srp-reveal-enabled .srp-checkout:not(.srp-reveal--active) > h2,
+.srp-funnel.srp-reveal-enabled .srp-checkout:not(.srp-reveal--active) .srp-placeholder,
+.srp-funnel.srp-reveal-enabled .srp-checkout:not(.srp-reveal--active) .srp-quote {
+  opacity: 0;
+  transform: translateY(32px);
+}
+
+.srp-funnel.srp-reveal-enabled .srp-section:not(.srp-reveal--active) .srp-hero-mantra-line,
+.srp-funnel.srp-reveal-enabled .srp-section:not(.srp-reveal--active) .srp-phases-step,
+.srp-funnel.srp-reveal-enabled .srp-section:not(.srp-reveal--active) .srp-not-alone-moment,
+.srp-funnel.srp-reveal-enabled .srp-section:not(.srp-reveal--active) .srp-philosophy-factor,
+.srp-funnel.srp-reveal-enabled .srp-section:not(.srp-reveal--active) .srp-sensory-sense,
+.srp-funnel.srp-reveal-enabled .srp-section:not(.srp-reveal--active) .srp-pill,
+.srp-funnel.srp-reveal-enabled .srp-section:not(.srp-reveal--active) .srp-daynight-panel,
+.srp-funnel.srp-reveal-enabled .srp-section:not(.srp-reveal--active) .srp-daynight-axis,
+.srp-funnel.srp-reveal-enabled .srp-section:not(.srp-reveal--active) .srp-protocol-product,
+.srp-funnel.srp-reveal-enabled .srp-section:not(.srp-reveal--active) .srp-individual-pillar,
+.srp-funnel.srp-reveal-enabled .srp-section:not(.srp-reveal--active) .srp-experience-use,
+.srp-funnel.srp-reveal-enabled .srp-section:not(.srp-reveal--active) figure.section-media,
+.srp-funnel.srp-reveal-enabled .srp-section:not(.srp-reveal--active) .srp-phases-signature,
+.srp-funnel.srp-reveal-enabled .srp-section:not(.srp-reveal--active) .srp-not-alone-signature,
+.srp-funnel.srp-reveal-enabled .srp-section:not(.srp-reveal--active) .srp-philosophy-signature,
+.srp-funnel.srp-reveal-enabled .srp-section:not(.srp-reveal--active) .srp-sensory-signature,
+.srp-funnel.srp-reveal-enabled .srp-section:not(.srp-reveal--active) .srp-experience-signature,
+.srp-funnel.srp-reveal-enabled .srp-section:not(.srp-reveal--active) .srp-expert-footer,
+.srp-funnel.srp-reveal-enabled .srp-section:not(.srp-reveal--active) .srp-phases-banner,
+.srp-funnel.srp-reveal-enabled .srp-checkout:not(.srp-reveal--active) .srp-form-card,
+.srp-funnel.srp-reveal-enabled .srp-checkout:not(.srp-reveal--active) .srp-summary,
+.srp-funnel.srp-reveal-enabled .srp-checkout:not(.srp-reveal--active) .srp-trust-badge,
+.srp-funnel.srp-reveal-enabled .srp-checkout:not(.srp-reveal--active) .srp-upsell-card,
+.srp-funnel.srp-reveal-enabled .srp-checkout:not(.srp-reveal--active) .srp-ty-card {
+  opacity: 0;
+  transform: translateY(52px) scale(0.96);
+}
+
+.srp-funnel.srp-reveal-enabled .srp-section .srp-section-head > *,
+.srp-funnel.srp-reveal-enabled .srp-section .srp-hero-meta,
+.srp-funnel.srp-reveal-enabled .srp-section .srp-hero-title-line,
+.srp-funnel.srp-reveal-enabled .srp-section .srp-hero-tagline,
+.srp-funnel.srp-reveal-enabled .srp-section .srp-hero-rail,
+.srp-funnel.srp-reveal-enabled .srp-section .srp-hero-story-lead,
+.srp-funnel.srp-reveal-enabled .srp-section .srp-hero-story-accent,
+.srp-funnel.srp-reveal-enabled .srp-section .srp-hero-outro,
+.srp-funnel.srp-reveal-enabled .srp-section .srp-philosophy-lead,
+.srp-funnel.srp-reveal-enabled .srp-section .srp-not-alone-lead,
+.srp-funnel.srp-reveal-enabled .srp-section .srp-experience-manifest > *,
+.srp-funnel.srp-reveal-enabled .srp-section .srp-experience-body,
+.srp-funnel.srp-reveal-enabled .srp-section .srp-experience-reuse-lead,
+.srp-funnel.srp-reveal-enabled .srp-section .srp-expert-body,
+.srp-funnel.srp-reveal-enabled .srp-section .srp-daynight-closing,
+.srp-funnel.srp-reveal-enabled .srp-section .srp-hero-mantra-line,
+.srp-funnel.srp-reveal-enabled .srp-section .srp-phases-step,
+.srp-funnel.srp-reveal-enabled .srp-section .srp-not-alone-moment,
+.srp-funnel.srp-reveal-enabled .srp-section .srp-philosophy-factor,
+.srp-funnel.srp-reveal-enabled .srp-section .srp-sensory-sense,
+.srp-funnel.srp-reveal-enabled .srp-section .srp-pill,
+.srp-funnel.srp-reveal-enabled .srp-section .srp-daynight-panel,
+.srp-funnel.srp-reveal-enabled .srp-section .srp-daynight-axis,
+.srp-funnel.srp-reveal-enabled .srp-section .srp-protocol-product,
+.srp-funnel.srp-reveal-enabled .srp-section .srp-individual-pillar,
+.srp-funnel.srp-reveal-enabled .srp-section .srp-experience-use,
+.srp-funnel.srp-reveal-enabled .srp-section figure.section-media,
+.srp-funnel.srp-reveal-enabled .srp-section .srp-phases-signature,
+.srp-funnel.srp-reveal-enabled .srp-section .srp-not-alone-signature,
+.srp-funnel.srp-reveal-enabled .srp-section .srp-philosophy-signature,
+.srp-funnel.srp-reveal-enabled .srp-section .srp-sensory-signature,
+.srp-funnel.srp-reveal-enabled .srp-section .srp-experience-signature,
+.srp-funnel.srp-reveal-enabled .srp-section .srp-expert-footer,
+.srp-funnel.srp-reveal-enabled .srp-section .srp-phases-banner,
+.srp-funnel.srp-reveal-enabled .srp-checkout > .srp-checkout-title,
+.srp-funnel.srp-reveal-enabled .srp-checkout > .srp-lede,
+.srp-funnel.srp-reveal-enabled .srp-checkout > .srp-trust-strip,
+.srp-funnel.srp-reveal-enabled .srp-checkout > h2,
+.srp-funnel.srp-reveal-enabled .srp-checkout .srp-placeholder,
+.srp-funnel.srp-reveal-enabled .srp-checkout .srp-quote,
+.srp-funnel.srp-reveal-enabled .srp-checkout .srp-form-card,
+.srp-funnel.srp-reveal-enabled .srp-checkout .srp-summary,
+.srp-funnel.srp-reveal-enabled .srp-checkout .srp-trust-badge,
+.srp-funnel.srp-reveal-enabled .srp-checkout .srp-upsell-card,
+.srp-funnel.srp-reveal-enabled .srp-checkout .srp-ty-card {
+  transition:
+    opacity 0.85s var(--ease-cinematic),
+    transform 0.85s var(--ease-cinematic);
+  will-change: opacity, transform;
+}
+
+.srp-funnel.srp-reveal-enabled .srp-reveal--active .srp-section-head > *:nth-child(1) {
+  transition-delay: 0ms;
+}
+.srp-funnel.srp-reveal-enabled .srp-reveal--active .srp-section-head > *:nth-child(2) {
+  transition-delay: 90ms;
+}
+.srp-funnel.srp-reveal-enabled .srp-reveal--active .srp-section-head > *:nth-child(3) {
+  transition-delay: 180ms;
+}
+
+.srp-funnel.srp-reveal-enabled .srp-reveal--active .srp-hero-meta {
+  transition-delay: 0ms;
+}
+.srp-funnel.srp-reveal-enabled .srp-reveal--active .srp-hero-title-line--signature {
+  transition-delay: 60ms;
+}
+.srp-funnel.srp-reveal-enabled .srp-reveal--active .srp-hero-title-line--recovery {
+  transition-delay: 140ms;
+}
+.srp-funnel.srp-reveal-enabled .srp-reveal--active .srp-hero-title-line--protocol {
+  transition-delay: 220ms;
+}
+.srp-funnel.srp-reveal-enabled .srp-reveal--active .srp-hero-tagline {
+  transition-delay: 300ms;
+}
+.srp-funnel.srp-reveal-enabled .srp-reveal--active .srp-hero-rail {
+  transition-delay: 380ms;
+}
+.srp-funnel.srp-reveal-enabled .srp-reveal--active .srp-hero-story-lead {
+  transition-delay: 460ms;
+}
+.srp-funnel.srp-reveal-enabled .srp-reveal--active .srp-hero-story-accent {
+  transition-delay: 540ms;
+}
+
+.srp-funnel.srp-reveal-enabled .srp-reveal--active .srp-hero-mantra-line:nth-child(1) {
+  transition-delay: 620ms;
+}
+.srp-funnel.srp-reveal-enabled .srp-reveal--active .srp-hero-mantra-line:nth-child(2) {
+  transition-delay: 700ms;
+}
+.srp-funnel.srp-reveal-enabled .srp-reveal--active .srp-hero-mantra-line:nth-child(3) {
+  transition-delay: 780ms;
+}
+.srp-funnel.srp-reveal-enabled .srp-reveal--active .srp-hero-mantra-line:nth-child(4) {
+  transition-delay: 860ms;
+}
+
+.srp-funnel.srp-reveal-enabled .srp-reveal--active .srp-hero-outro {
+  transition-delay: 940ms;
+}
+
+.srp-funnel.srp-reveal-enabled .srp-reveal--active .srp-phases-banner {
+  transition-delay: 220ms;
+}
+
+.srp-funnel.srp-reveal-enabled .srp-reveal--active .srp-phases-step:nth-child(1),
+.srp-funnel.srp-reveal-enabled .srp-reveal--active .srp-not-alone-moment:nth-child(1),
+.srp-funnel.srp-reveal-enabled .srp-reveal--active .srp-philosophy-factor:nth-child(1),
+.srp-funnel.srp-reveal-enabled .srp-reveal--active .srp-sensory-sense:nth-child(1),
+.srp-funnel.srp-reveal-enabled .srp-reveal--active .srp-pill:nth-child(1),
+.srp-funnel.srp-reveal-enabled .srp-reveal--active .srp-individual-pillar:nth-child(1),
+.srp-funnel.srp-reveal-enabled .srp-reveal--active .srp-experience-use:nth-child(1),
+.srp-funnel.srp-reveal-enabled .srp-reveal--active .srp-protocol-product:nth-child(1) {
+  transition-delay: 260ms;
+}
+
+.srp-funnel.srp-reveal-enabled .srp-reveal--active .srp-phases-step:nth-child(2),
+.srp-funnel.srp-reveal-enabled .srp-reveal--active .srp-not-alone-moment:nth-child(2),
+.srp-funnel.srp-reveal-enabled .srp-reveal--active .srp-philosophy-factor:nth-child(2),
+.srp-funnel.srp-reveal-enabled .srp-reveal--active .srp-sensory-sense:nth-child(2),
+.srp-funnel.srp-reveal-enabled .srp-reveal--active .srp-pill:nth-child(2),
+.srp-funnel.srp-reveal-enabled .srp-reveal--active .srp-individual-pillar:nth-child(2),
+.srp-funnel.srp-reveal-enabled .srp-reveal--active .srp-experience-use:nth-child(2),
+.srp-funnel.srp-reveal-enabled .srp-reveal--active .srp-protocol-product:nth-child(2) {
+  transition-delay: 340ms;
+}
+
+.srp-funnel.srp-reveal-enabled .srp-reveal--active .srp-phases-step:nth-child(3),
+.srp-funnel.srp-reveal-enabled .srp-reveal--active .srp-not-alone-moment:nth-child(3),
+.srp-funnel.srp-reveal-enabled .srp-reveal--active .srp-philosophy-factor:nth-child(3),
+.srp-funnel.srp-reveal-enabled .srp-reveal--active .srp-sensory-sense:nth-child(3),
+.srp-funnel.srp-reveal-enabled .srp-reveal--active .srp-pill:nth-child(3),
+.srp-funnel.srp-reveal-enabled .srp-reveal--active .srp-individual-pillar:nth-child(3),
+.srp-funnel.srp-reveal-enabled .srp-reveal--active .srp-experience-use:nth-child(3),
+.srp-funnel.srp-reveal-enabled .srp-reveal--active .srp-protocol-product:nth-child(3) {
+  transition-delay: 420ms;
+}
+
+.srp-funnel.srp-reveal-enabled .srp-reveal--active .srp-phases-step:nth-child(4),
+.srp-funnel.srp-reveal-enabled .srp-reveal--active .srp-not-alone-moment:nth-child(4),
+.srp-funnel.srp-reveal-enabled .srp-reveal--active .srp-philosophy-factor:nth-child(4),
+.srp-funnel.srp-reveal-enabled .srp-reveal--active .srp-sensory-sense:nth-child(4),
+.srp-funnel.srp-reveal-enabled .srp-reveal--active .srp-pill:nth-child(4),
+.srp-funnel.srp-reveal-enabled .srp-reveal--active .srp-individual-pillar:nth-child(4),
+.srp-funnel.srp-reveal-enabled .srp-reveal--active .srp-experience-use:nth-child(4),
+.srp-funnel.srp-reveal-enabled .srp-reveal--active .srp-protocol-product:nth-child(4) {
+  transition-delay: 500ms;
+}
+
+.srp-funnel.srp-reveal-enabled .srp-reveal--active .srp-protocol-product:nth-child(5) {
+  transition-delay: 580ms;
+}
+.srp-funnel.srp-reveal-enabled .srp-reveal--active .srp-protocol-product:nth-child(6) {
+  transition-delay: 660ms;
+}
+.srp-funnel.srp-reveal-enabled .srp-reveal--active .srp-protocol-product:nth-child(7) {
+  transition-delay: 740ms;
+}
+.srp-funnel.srp-reveal-enabled .srp-reveal--active .srp-protocol-product:nth-child(8) {
+  transition-delay: 820ms;
+}
+.srp-funnel.srp-reveal-enabled .srp-reveal--active .srp-protocol-product:nth-child(9) {
+  transition-delay: 900ms;
+}
+.srp-funnel.srp-reveal-enabled .srp-reveal--active .srp-protocol-product--finale {
+  transition-delay: 980ms;
+}
+
+.srp-funnel.srp-reveal-enabled .srp-reveal--active .srp-daynight-panel--day {
+  transition-delay: 240ms;
+}
+.srp-funnel.srp-reveal-enabled .srp-reveal--active .srp-daynight-axis {
+  transition-delay: 360ms;
+}
+.srp-funnel.srp-reveal-enabled .srp-reveal--active .srp-daynight-panel--night {
+  transition-delay: 480ms;
+}
+
+.srp-funnel.srp-reveal-enabled .srp-reveal--active figure.section-media {
+  transition-delay: 200ms;
+}
+
+.srp-funnel.srp-reveal-enabled .srp-reveal--active .srp-phases-signature,
+.srp-funnel.srp-reveal-enabled .srp-reveal--active .srp-not-alone-signature,
+.srp-funnel.srp-reveal-enabled .srp-reveal--active .srp-philosophy-signature,
+.srp-funnel.srp-reveal-enabled .srp-reveal--active .srp-sensory-signature,
+.srp-funnel.srp-reveal-enabled .srp-reveal--active .srp-experience-signature,
+.srp-funnel.srp-reveal-enabled .srp-reveal--active .srp-expert-footer,
+.srp-funnel.srp-reveal-enabled .srp-reveal--active .srp-daynight-closing {
+  transition-delay: 560ms;
+}
+
+.srp-funnel.srp-reveal-enabled .srp-checkout.srp-reveal--active > .srp-checkout-title {
+  transition-delay: 0ms;
+}
+.srp-funnel.srp-reveal-enabled .srp-checkout.srp-reveal--active > .srp-lede:nth-of-type(1) {
+  transition-delay: 90ms;
+}
+.srp-funnel.srp-reveal-enabled .srp-checkout.srp-reveal--active > .srp-lede:nth-of-type(2) {
+  transition-delay: 160ms;
+}
+.srp-funnel.srp-reveal-enabled .srp-checkout.srp-reveal--active > .srp-lede:nth-of-type(3) {
+  transition-delay: 230ms;
+}
+.srp-funnel.srp-reveal-enabled .srp-checkout.srp-reveal--active > .srp-lede:nth-of-type(4) {
+  transition-delay: 300ms;
+}
+.srp-funnel.srp-reveal-enabled .srp-checkout.srp-reveal--active > .srp-trust-strip {
+  transition-delay: 180ms;
+}
+.srp-funnel.srp-reveal-enabled .srp-checkout.srp-reveal--active > h2 {
+  transition-delay: 340ms;
+}
+.srp-funnel.srp-reveal-enabled .srp-checkout.srp-reveal--active > .srp-placeholder {
+  transition-delay: 400ms;
+}
+.srp-funnel.srp-reveal-enabled .srp-reveal--active .srp-form-card:nth-of-type(1) {
+  transition-delay: 260ms;
+}
+.srp-funnel.srp-reveal-enabled .srp-reveal--active .srp-form-card:nth-of-type(2) {
+  transition-delay: 380ms;
+}
+.srp-funnel.srp-reveal-enabled .srp-reveal--active .srp-summary {
+  transition-delay: 300ms;
+}
+.srp-funnel.srp-reveal-enabled .srp-reveal--active .srp-upsell-card {
+  transition-delay: 260ms;
+}
+.srp-funnel.srp-reveal-enabled .srp-reveal--active .srp-ty-card:nth-child(1) {
+  transition-delay: 260ms;
+}
+.srp-funnel.srp-reveal-enabled .srp-reveal--active .srp-ty-card:nth-child(2) {
+  transition-delay: 380ms;
+}
+.srp-funnel.srp-reveal-enabled .srp-reveal--active .srp-ty-card:nth-child(3) {
+  transition-delay: 500ms;
+}
+
+.srp-funnel.srp-reveal-enabled .srp-reveal--active .srp-section-head > *,
+.srp-funnel.srp-reveal-enabled .srp-reveal--active .srp-hero-meta,
+.srp-funnel.srp-reveal-enabled .srp-reveal--active .srp-hero-title-line,
+.srp-funnel.srp-reveal-enabled .srp-reveal--active .srp-hero-tagline,
+.srp-funnel.srp-reveal-enabled .srp-reveal--active .srp-hero-rail,
+.srp-funnel.srp-reveal-enabled .srp-reveal--active .srp-hero-story-lead,
+.srp-funnel.srp-reveal-enabled .srp-reveal--active .srp-hero-story-accent,
+.srp-funnel.srp-reveal-enabled .srp-reveal--active .srp-hero-outro,
+.srp-funnel.srp-reveal-enabled .srp-reveal--active .srp-philosophy-lead,
+.srp-funnel.srp-reveal-enabled .srp-reveal--active .srp-not-alone-lead,
+.srp-funnel.srp-reveal-enabled .srp-reveal--active .srp-experience-manifest > *,
+.srp-funnel.srp-reveal-enabled .srp-reveal--active .srp-experience-body,
+.srp-funnel.srp-reveal-enabled .srp-reveal--active .srp-experience-reuse-lead,
+.srp-funnel.srp-reveal-enabled .srp-reveal--active .srp-expert-body,
+.srp-funnel.srp-reveal-enabled .srp-reveal--active .srp-daynight-closing,
+.srp-funnel.srp-reveal-enabled .srp-reveal--active .srp-hero-mantra-line,
+.srp-funnel.srp-reveal-enabled .srp-reveal--active .srp-phases-step,
+.srp-funnel.srp-reveal-enabled .srp-reveal--active .srp-not-alone-moment,
+.srp-funnel.srp-reveal-enabled .srp-reveal--active .srp-philosophy-factor,
+.srp-funnel.srp-reveal-enabled .srp-reveal--active .srp-sensory-sense,
+.srp-funnel.srp-reveal-enabled .srp-reveal--active .srp-pill,
+.srp-funnel.srp-reveal-enabled .srp-reveal--active .srp-daynight-panel,
+.srp-funnel.srp-reveal-enabled .srp-reveal--active .srp-daynight-axis,
+.srp-funnel.srp-reveal-enabled .srp-reveal--active .srp-protocol-product,
+.srp-funnel.srp-reveal-enabled .srp-reveal--active .srp-individual-pillar,
+.srp-funnel.srp-reveal-enabled .srp-reveal--active .srp-experience-use,
+.srp-funnel.srp-reveal-enabled .srp-reveal--active figure.section-media,
+.srp-funnel.srp-reveal-enabled .srp-reveal--active .srp-phases-signature,
+.srp-funnel.srp-reveal-enabled .srp-reveal--active .srp-not-alone-signature,
+.srp-funnel.srp-reveal-enabled .srp-reveal--active .srp-philosophy-signature,
+.srp-funnel.srp-reveal-enabled .srp-reveal--active .srp-sensory-signature,
+.srp-funnel.srp-reveal-enabled .srp-reveal--active .srp-experience-signature,
+.srp-funnel.srp-reveal-enabled .srp-reveal--active .srp-expert-footer,
+.srp-funnel.srp-reveal-enabled .srp-reveal--active .srp-phases-banner,
+.srp-funnel.srp-reveal-enabled .srp-checkout.srp-reveal--active .srp-checkout-title,
+.srp-funnel.srp-reveal-enabled .srp-checkout.srp-reveal--active > .srp-lede,
+.srp-funnel.srp-reveal-enabled .srp-checkout.srp-reveal--active > .srp-trust-strip,
+.srp-funnel.srp-reveal-enabled .srp-checkout.srp-reveal--active > h2,
+.srp-funnel.srp-reveal-enabled .srp-checkout.srp-reveal--active .srp-placeholder,
+.srp-funnel.srp-reveal-enabled .srp-checkout.srp-reveal--active .srp-form-card,
+.srp-funnel.srp-reveal-enabled .srp-checkout.srp-reveal--active .srp-summary,
+.srp-funnel.srp-reveal-enabled .srp-checkout.srp-reveal--active .srp-trust-badge,
+.srp-funnel.srp-reveal-enabled .srp-checkout.srp-reveal--active .srp-upsell-card,
+.srp-funnel.srp-reveal-enabled .srp-checkout.srp-reveal--active .srp-ty-card,
+.srp-funnel.srp-reveal-enabled .srp-checkout.srp-reveal--active .srp-quote {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .srp-funnel.srp-reveal-enabled .srp-section:not(.srp-reveal--active) *,
+  .srp-funnel.srp-reveal-enabled .srp-checkout:not(.srp-reveal--active) * {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}

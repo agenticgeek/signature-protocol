@@ -1,0 +1,83 @@
+"use client";
+
+import { Suspense, useEffect } from "react";
+import Link from "next/link";
+import { useSearchParams } from "next/navigation";
+import SrpPageShell from "@/signature-recovery-protocol/components/SrpPageShell";
+import { merciContent } from "@/signature-recovery-protocol/content/merci";
+import { SRP_ROUTES } from "@/signature-recovery-protocol/constants/routes";
+
+const STORAGE_KEY = "srp_merci_seen";
+
+function MerciContent() {
+  const searchParams = useSearchParams();
+  const sessionId = searchParams.get("session_id");
+
+  useEffect(() => {
+    if (!sessionId) return;
+
+    try {
+      const seenKey = `${STORAGE_KEY}:${sessionId}`;
+      sessionStorage.setItem(seenKey, "1");
+      history.pushState(null, "", window.location.href);
+      const onPopState = () => {
+        history.pushState(null, "", window.location.href);
+      };
+      window.addEventListener("popstate", onPopState);
+      return () => window.removeEventListener("popstate", onPopState);
+    } catch {
+      /* no-op */
+    }
+  }, [sessionId]);
+
+  if (!sessionId) {
+    return (
+      <SrpPageShell variant="thankyou" mainClassName="srp-checkout">
+        <p className="srp-lede">{merciContent.sessionMissing}</p>
+        <Link className="srp-cta srp-cta--ghost" href={SRP_ROUTES.landing}>
+          Retour à l&apos;accueil
+        </Link>
+      </SrpPageShell>
+    );
+  }
+
+  return (
+    <SrpPageShell variant="thankyou" mainClassName="srp-checkout">
+      <h1 className="srp-checkout-title">{merciContent.headline}</h1>
+      <p className="srp-lede">{merciContent.subline}</p>
+      <p className="srp-lede">{merciContent.emailNote}</p>
+      <p className="srp-lede">{merciContent.intro}</p>
+
+      <h2 className="srp-section-title" style={{ fontSize: "1.25rem", marginTop: 32 }}>
+        {merciContent.orderSummaryLabel}
+      </h2>
+
+      <p className="srp-placeholder">{merciContent.orderPlaceholder}</p>
+
+      <div className="srp-ty-grid">
+        {merciContent.blocks.map((block) => (
+          <article className="srp-ty-card" key={block.id}>
+            <h3>{block.title}</h3>
+            <p className="srp-placeholder">{block.placeholder}</p>
+          </article>
+        ))}
+      </div>
+
+      <div className="srp-quote" style={{ marginTop: 40 }}>
+        {merciContent.closing.map((line) => (
+          <p key={line} className="srp-body" style={{ margin: 0 }}>
+            {line}
+          </p>
+        ))}
+      </div>
+    </SrpPageShell>
+  );
+}
+
+export default function MerciClient() {
+  return (
+    <Suspense fallback={<div className="srp-checkout" />}>
+      <MerciContent />
+    </Suspense>
+  );
+}
