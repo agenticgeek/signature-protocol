@@ -1,0 +1,147 @@
+export const landingContent = {
+  hero: {
+    sectionNum: "§ 01",
+    title: "SIGNATURE RECOVERY PROTOCOL™",
+    tagline: "Next-generation aesthetic recovery.",
+    paragraphs: [
+      "Because an aesthetic procedure is not limited to the surgical act alone,",
+      "METCARE® designed a holistic approach to support your body,",
+      "your skin and your comfort before, during and after your procedure.",
+      "",
+      "The SIGNATURE RECOVERY PROTOCOL™ combines targeted nutrition, tissue comfort,",
+      "skin recovery and a 24-hour recovery strategy",
+      "to transform this often uncomfortable phase into a true care experience.",
+    ],
+    mantra: ["Prepare. Support. Guide. Recover."],
+    ghostWord: "Recover",
+    railWords: ["PREPARE", "SUPPORT", "GUIDE", "RECOVER"],
+    storyLeadBefore:
+      "Because an aesthetic procedure is not limited to the surgical act alone, ",
+    storyLeadMiddle:
+      " designed a holistic approach to support your body, your skin and your comfort ",
+    storyLeadEmphasis: "before, during and after",
+    storyLeadAfter: " your procedure.",
+    storyHoursValue: "24",
+    storyHoursUnit: "hours",
+    storySecondaryBefore: "The ",
+    storySecondaryProtocol: "SIGNATURE RECOVERY PROTOCOL™",
+    storySecondaryMiddle:
+      " combines targeted nutrition, tissue comfort, skin recovery and a 24-hour recovery strategy to transform this often uncomfortable phase into a ",
+    storySecondaryEmphasis: "true care experience",
+    storySecondaryAfter: ".",
+    closing: "Recovery is part of the result.",
+    ctaLabel: "Discover the SRP™ protocol",
+    pillarsAriaLabel: "The four pillars",
+  },
+  notAlone: {
+    sectionNum: "§ 02",
+    title: "You are not alone",
+    intro: "An aesthetic procedure often represents much more than a simple technical act.",
+    listIntro: "It is also:",
+    listItems: [
+      "a phase of transformation,",
+      "a period of vulnerability,",
+      "a moment when the body needs attention,",
+      "when the skin becomes more sensitive,",
+      "when rest, comfort and how you feel take on essential importance.",
+    ],
+    paragraphs: [
+      "At METCARE®, we wanted to create a protocol designed to support this period",
+      "with greater gentleness, serenity and coherence.",
+      "Because you should never go through your recovery alone.",
+    ],
+  },
+  philosophy: {
+    sectionNum: "§ 03",
+    title: "The METCARE® Philosophy",
+    intro:
+      "At METCARE®, we believe a beautiful result does not depend solely on the technical act.",
+    listIntro: "It also depends on:",
+    listItems: [
+      "how the body is prepared,",
+      "the comfort felt during recovery,",
+      "the quality of sleep,",
+      "nutritional support,",
+      "skin balance,",
+      "and holistic guidance through every step of the journey.",
+    ],
+    paragraphs: [
+      "Because aesthetic recovery is also a physical, emotional and personal experience,",
+      "we designed a protocol to support every step of the journey",
+      "with greater comfort, serenity and coherence.",
+    ],
+    closing: ["More than a product range.", "A true recovery experience."],
+  },
+  phases: {
+    sectionNum: "§ 04",
+    title: "An approach designed in several phases",
+    items: [
+      "Prepare the body before the procedure.",
+      "Support the tissues after the procedure.",
+      "Nourish the skin day and night.",
+      "Promote comfort and recovery.",
+      "Build a coherent 24-hour routine.",
+    ],
+    paragraphs: [
+      "Each product in the SRP™ protocol was developed to address a specific moment",
+      "in the aesthetic peri-operative journey.",
+      "The SIGNATURE RECOVERY PROTOCOL™ transforms aesthetic recovery",
+      "into a true ritual of care and support.",
+    ],
+  },
+  actives: {
+    sectionNum: "§ 05",
+    title: "The METCARE® Formulation Philosophy",
+    intro: [
+      "At METCARE®, each formulation is designed as an integral part",
+      "of the aesthetic recovery journey.",
+    ],
+    listIntro: "Selected plants and actives include:",
+    ingredients: [
+      "Centella Asiatica",
+      "Bromelain",
+      "Hyaluronic acid",
+      "Magnesium bisglycinate",
+      "Chamomile and Magnolia",
+      "Niacinamide and Panthenol",
+      "Biomimetic peptides",
+      "Orthosiphon, pilosella, birch and dandelion",
+    ],
+  },
+  dayNight: {
+    sectionNum: "§ 06",
+    title: "The Day & Night™ Ritual",
+    subtitle: "Recovery designed over 24 hours.",
+    day: {
+      name: "DAY COLLAGEN™",
+      lines: [
+        "DAY COLLAGEN™ supports the active phases of the day",
+        "with an approach focused on physiological support,",
+        "tissue comfort and skin quality.",
+      ],
+    },
+    night: {
+      name: "NIGHT COLLAGEN™",
+      lines: [
+        "NIGHT COLLAGEN™ supports the nocturnal phases of recovery",
+        "through an approach focused on rest, comfort and deep recovery.",
+      ],
+    },
+    closing: "Because optimal recovery is also built during the night.",
+  },
+  sensory: {
+    sectionNum: "§ 07",
+    title: "The Sensory Experience",
+    features: [
+      "Enveloping textures.",
+      "A sensation of freshness.",
+      "Targeted patches.",
+      "Day & night routines.",
+      "Comforting fragrances.",
+    ],
+    closing: [
+      "Every detail was designed to bring greater gentleness, comfort and serenity",
+      "during this recovery period.",
+    ],
+  },
+} as const;

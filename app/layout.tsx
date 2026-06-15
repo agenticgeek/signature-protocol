@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Poppins, Raleway } from "next/font/google";
 import "./globals.css";
 import "@/signature-recovery-protocol/styles/srp.css";
+import { LanguageProvider } from "@/signature-recovery-protocol/i18n/LanguageProvider";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -29,7 +30,9 @@ export default function RootLayout({
   return (
     <html lang="fr" className={`${poppins.variable} ${raleway.variable}`}>
       <body>
-        <div className="srp-funnel">{children}</div>
+        <LanguageProvider>
+          <div className="srp-funnel">{children}</div>
+        </LanguageProvider>
       </body>
     </html>
   );

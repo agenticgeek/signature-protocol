@@ -1,13 +1,15 @@
+"use client";
+
 import SrpSectionHead from "@/signature-recovery-protocol/components/SrpSectionHead";
 import SrpSectionMedia from "@/signature-recovery-protocol/components/SrpSectionMedia";
-import { landingContent } from "@/signature-recovery-protocol/content/landing";
-
-const { sensory } = landingContent;
-
-const signatureBody = sensory.closing.slice(0, 1);
-const signatureEmphasis = sensory.closing.slice(1);
+import { useSrpContent } from "@/signature-recovery-protocol/i18n/useSrpContent";
 
 export default function SensorySection() {
+  const { landing } = useSrpContent();
+  const { sensory } = landing;
+
+  const signatureBody = sensory.closing.slice(0, 1);
+  const signatureEmphasis = sensory.closing.slice(1);
   return (
     <section className="srp-section srp-section--sensory" id="section-sensory">
       <div className="srp-sensory-ambient" aria-hidden="true">

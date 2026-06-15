@@ -5,10 +5,11 @@ import { useRouter, useSearchParams } from "next/navigation";
 import CTAButton from "@/signature-recovery-protocol/components/CTAButton";
 import SrpPageShell from "@/signature-recovery-protocol/components/SrpPageShell";
 import VerbatimLines from "@/signature-recovery-protocol/components/VerbatimLines";
-import { upsellContent } from "@/signature-recovery-protocol/content/upsell";
 import { SRP_ROUTES } from "@/signature-recovery-protocol/constants/routes";
+import { useSrpContent } from "@/signature-recovery-protocol/i18n/useSrpContent";
 
 function UpsellContent() {
+  const { upsell, ui } = useSrpContent();
   const searchParams = useSearchParams();
   const router = useRouter();
   const sessionId = searchParams.get("session_id");
@@ -18,16 +19,16 @@ function UpsellContent() {
   if (!sessionId) {
     return (
       <SrpPageShell variant="upsell" mainClassName="srp-checkout">
-        <p className="srp-lede">{upsellContent.sessionMissing}</p>
+        <p className="srp-lede">{upsell.sessionMissing}</p>
         <div style={{ marginTop: 24, maxWidth: 320 }}>
-          <CTAButton href={SRP_ROUTES.landing} label="Retour à l'accueil" ghost />
+          <CTAButton href={SRP_ROUTES.landing} label={ui.nav.backHomeShort} ghost />
         </div>
       </SrpPageShell>
     );
   }
 
-  const current = upsellContent.items[activeIndex];
-  const isLast = activeIndex >= upsellContent.items.length - 1;
+  const current = upsell.items[activeIndex];
+  const isLast = activeIndex >= upsell.items.length - 1;
 
   const handleAccept = async () => {
     setLoading(true);
@@ -56,8 +57,8 @@ function UpsellContent() {
 
   return (
     <SrpPageShell variant="upsell" mainClassName="srp-checkout">
-      <h1 className="srp-checkout-title">{upsellContent.headline}</h1>
-      <VerbatimLines lines={upsellContent.intro} className="srp-lede" />
+      <h1 className="srp-checkout-title">{upsell.headline}</h1>
+      <VerbatimLines lines={upsell.intro} className="srp-lede" />
 
       <article className="srp-upsell-card">
         <h2>{current.headline}</h2>
@@ -84,7 +85,7 @@ function UpsellContent() {
         </div>
 
         <p className="srp-body" style={{ marginTop: 16, fontSize: 12, opacity: 0.6 }}>
-          {activeIndex + 1} / {upsellContent.items.length}
+          {activeIndex + 1} / {upsell.items.length}
         </p>
       </article>
 
@@ -94,7 +95,7 @@ function UpsellContent() {
         onClick={handleSkipAll}
         style={{ marginTop: 28, maxWidth: 420, cursor: "pointer" }}
       >
-        {upsellContent.skipAll}
+        {upsell.skipAll}
       </button>
     </SrpPageShell>
   );

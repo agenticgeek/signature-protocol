@@ -1,6 +1,10 @@
-import { FOOTER_DISCLAIMER } from "@/signature-recovery-protocol/constants/footer-disclaimer";
+"use client";
+
+import { useSrpContent } from "@/signature-recovery-protocol/i18n/useSrpContent";
 
 export default function SrpFooter() {
+  const { footerDisclaimer } = useSrpContent();
+
   return (
     <footer className="metcare-footer" data-screen-label="Footer">
       <div className="container">
@@ -11,7 +15,7 @@ export default function SrpFooter() {
           </span>
         </div>
         <p className="footer-disclaimer" style={{ whiteSpace: "pre-line" }}>
-          {FOOTER_DISCLAIMER}
+          {footerDisclaimer}
         </p>
         <div className="footer-meta">
           <span>© 2026 METCARE® — My Esthetic Travel®</span>

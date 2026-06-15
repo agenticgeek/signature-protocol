@@ -30,4 +30,9 @@ export const checkoutContent = {
   zipLabel: "Code postal",
   cityLabel: "Ville",
   countryLabel: "Pays",
+  paymentNotConfigured:
+    "Le paiement n'est pas encore configuré. Merci de réessayer ultérieurement.",
+  genericError: "Une erreur est survenue. Veuillez réessayer.",
+  guaranteesAriaLabel: "Garanties",
+  priceConfirmPlaceholder: "Prix à confirmer avant mise en ligne.",
 } as const;

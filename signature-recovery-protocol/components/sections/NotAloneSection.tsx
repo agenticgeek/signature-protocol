@@ -1,10 +1,12 @@
+"use client";
+
 import SrpSectionHead from "@/signature-recovery-protocol/components/SrpSectionHead";
 import SrpSectionMedia from "@/signature-recovery-protocol/components/SrpSectionMedia";
-import { landingContent } from "@/signature-recovery-protocol/content/landing";
-
-const { notAlone } = landingContent;
+import { useSrpContent } from "@/signature-recovery-protocol/i18n/useSrpContent";
 
 export default function NotAloneSection() {
+  const { landing } = useSrpContent();
+  const { notAlone } = landing;
   const closingBody = notAlone.paragraphs.slice(0, 2);
   const closingEmphasis = notAlone.paragraphs[2];
 

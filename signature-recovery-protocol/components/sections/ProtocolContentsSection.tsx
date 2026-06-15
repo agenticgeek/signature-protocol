@@ -1,12 +1,14 @@
-import SrpSectionHead from "@/signature-recovery-protocol/components/SrpSectionHead";
-import { protocoleContent } from "@/signature-recovery-protocol/content/protocole";
+"use client";
 
-const { contents } = protocoleContent;
+import SrpSectionHead from "@/signature-recovery-protocol/components/SrpSectionHead";
+import { useSrpContent } from "@/signature-recovery-protocol/i18n/useSrpContent";
 
 const SIGNATURE_INDEX = 6;
 const FINALE_INDEX = 9;
 
 export default function ProtocolContentsSection() {
+  const { protocole } = useSrpContent();
+  const { contents } = protocole;
   return (
     <section className="srp-section srp-section--protocol-contents" id="section-contents">
       <div className="srp-container">

@@ -1,5 +1,6 @@
 export const landingContent = {
   hero: {
+    sectionNum: "§ 01",
     title: "SIGNATURE RECOVERY PROTOCOL™",
     tagline: "La récupération esthétique nouvelle génération.",
     paragraphs: [
@@ -12,8 +13,25 @@ export const landingContent = {
       "afin de transformer cette phase souvent inconfortable en une véritable expérience de soin.",
     ],
     mantra: ["Préparer. Soutenir. Accompagner. Récupérer."],
+    ghostWord: "Récupérer",
+    railWords: ["PRÉPARER", "SOUTENIR", "ACCOMPAGNER", "RÉCUPÉRER"],
+    storyLeadBefore:
+      "Parce qu'une intervention esthétique ne se résume pas uniquement à l'acte chirurgical, ",
+    storyLeadMiddle:
+      " a imaginé une approche globale pensée pour accompagner votre corps, votre peau et votre confort ",
+    storyLeadEmphasis: "avant, pendant et après",
+    storyLeadAfter: " votre intervention.",
+    storyHoursValue: "24",
+    storyHoursUnit: "heures",
+    storySecondaryBefore: "Le ",
+    storySecondaryProtocol: "SIGNATURE RECOVERY PROTOCOL™",
+    storySecondaryMiddle:
+      " associe nutrition ciblée, confort tissulaire, récupération cutanée et stratégie de récupération pensée sur 24 heures afin de transformer cette phase souvent inconfortable en une ",
+    storySecondaryEmphasis: "véritable expérience de soin",
+    storySecondaryAfter: ".",
     closing: "La récupération fait partie du résultat.",
     ctaLabel: "Découvrir le protocole SRP™",
+    pillarsAriaLabel: "Les quatre piliers",
   },
   notAlone: {
     sectionNum: "§ 02",
@@ -73,7 +91,7 @@ export const landingContent = {
   },
   actives: {
     sectionNum: "§ 05",
-    title: "Nos actifs",
+    title: "La Philosophie de Formulation METCARE®",
     intro: [
       "Chez METCARE®, chaque formulation est pensée comme une partie intégrante",
       "du parcours de récupération esthétique.",

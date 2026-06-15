@@ -2,13 +2,16 @@
 
 import Link from "next/link";
 import { useCallback, useEffect, useState } from "react";
+import LanguageSwitch from "@/signature-recovery-protocol/components/LanguageSwitch";
 import { SRP_ROUTES } from "@/signature-recovery-protocol/constants/routes";
+import { useSrpContent } from "@/signature-recovery-protocol/i18n/useSrpContent";
 
 type SrpNavbarProps = {
   variant?: "home" | "checkout" | "thankyou" | "upsell";
 };
 
 export default function SrpNavbar({ variant = "home" }: SrpNavbarProps) {
+  const { ui } = useSrpContent();
   const [open, setOpen] = useState(false);
   const close = useCallback(() => setOpen(false), []);
   const toggle = useCallback(() => setOpen((v) => !v), []);
@@ -51,20 +54,40 @@ export default function SrpNavbar({ variant = "home" }: SrpNavbarProps) {
         </Link>
       )}
 
-      <button
-        type="button"
-        className="topbar-menu-btn"
-        aria-expanded={open}
-        aria-controls="srp-nav"
-        onClick={toggle}
-      >
-        <span className="visually-hidden">
-          {open ? "Fermer le menu" : "Ouvrir le menu"}
-        </span>
-        <span className="topbar-menu-icon" aria-hidden="true" />
-      </button>
+      <div className="topbar-end">
+        <LanguageSwitch />
 
-      <nav id="srp-nav" className="topbar-nav" aria-label="Navigation principale">
+        <button
+          type="button"
+          className="topbar-menu-btn"
+          aria-expanded={open}
+          aria-controls="srp-nav"
+          onClick={toggle}
+        >
+          <span className="visually-hidden">
+            {open ? ui.nav.closeMenu : ui.nav.openMenu}
+          </span>
+          <span className="topbar-menu-icon" aria-hidden="true" />
+        </button>
+
+        <nav className="topbar-right" aria-label={ui.nav.quickAriaLabel}>
+          {variant === "home" && (
+            <>
+              <a href="#section-philosophy">{ui.nav.philosophy}</a>
+              <Link href={SRP_ROUTES.protocole}>{ui.nav.protocol}</Link>
+              <Link href={SRP_ROUTES.checkout}>{ui.nav.order}</Link>
+            </>
+          )}
+          {(variant === "checkout" || variant === "upsell") && (
+            <Link href={SRP_ROUTES.landing}>{ui.nav.back}</Link>
+          )}
+          {variant === "thankyou" && (
+            <span style={{ opacity: 0.55 }}>{ui.nav.confirmation}</span>
+          )}
+        </nav>
+      </div>
+
+      <nav id="srp-nav" className="topbar-nav" aria-label={ui.nav.mainAriaLabel}>
         <div className="topbar-nav__panel">
           <ul className="topbar-nav__list">
             {variant === "home" && (
@@ -80,17 +103,17 @@ export default function SrpNavbar({ variant = "home" }: SrpNavbarProps) {
                       });
                     }}
                   >
-                    Philosophie
+                    {ui.nav.philosophy}
                   </a>
                 </li>
                 <li>
                   <Link href={SRP_ROUTES.protocole} onClick={close}>
-                    Le protocole
+                    {ui.nav.protocol}
                   </Link>
                 </li>
                 <li>
                   <Link className="topbar-nav__cta" href={SRP_ROUTES.checkout} onClick={close}>
-                    Commander
+                    {ui.nav.order}
                   </Link>
                 </li>
               </>
@@ -98,33 +121,19 @@ export default function SrpNavbar({ variant = "home" }: SrpNavbarProps) {
             {(variant === "checkout" || variant === "upsell") && (
               <li>
                 <Link href={SRP_ROUTES.landing} onClick={close}>
-                  ← Retour à l&apos;accueil
+                  {ui.nav.backHome}
                 </Link>
               </li>
             )}
             {variant === "thankyou" && (
               <li>
                 <Link href={SRP_ROUTES.landing} onClick={close}>
-                  Accueil
+                  {ui.nav.home}
                 </Link>
               </li>
             )}
           </ul>
         </div>
-      </nav>
-
-      <nav className="topbar-right" aria-label="Navigation rapide">
-        {variant === "home" && (
-          <>
-            <a href="#section-philosophy">Philosophie</a>
-            <Link href={SRP_ROUTES.protocole}>Le protocole</Link>
-            <Link href={SRP_ROUTES.checkout}>Commander</Link>
-          </>
-        )}
-        {(variant === "checkout" || variant === "upsell") && (
-          <Link href={SRP_ROUTES.landing}>← Retour</Link>
-        )}
-        {variant === "thankyou" && <span style={{ opacity: 0.55 }}>Confirmation</span>}
       </nav>
 
       <div className="topbar-backdrop" aria-hidden={!open} onClick={close} />

@@ -1,15 +1,17 @@
+"use client";
+
 import CTAButton from "@/signature-recovery-protocol/components/CTAButton";
 import SrpSectionHead from "@/signature-recovery-protocol/components/SrpSectionHead";
 import VerbatimLines from "@/signature-recovery-protocol/components/VerbatimLines";
-import { protocoleContent } from "@/signature-recovery-protocol/content/protocole";
 import { SRP_ROUTES } from "@/signature-recovery-protocol/constants/routes";
-
-const { expert } = protocoleContent;
-
-const expertBody = expert.lines.slice(0, 3);
-const expertClosing = expert.lines[3];
+import { useSrpContent } from "@/signature-recovery-protocol/i18n/useSrpContent";
 
 export default function ExpertSection() {
+  const { protocole } = useSrpContent();
+  const { expert } = protocole;
+
+  const expertBody = expert.lines.slice(0, 3);
+  const expertClosing = expert.lines[3];
   return (
     <section className="srp-section srp-section--expert" id="section-expert">
       <div className="srp-expert-ambient" aria-hidden="true">

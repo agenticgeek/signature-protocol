@@ -1,12 +1,14 @@
+"use client";
+
 import DayNightPanel from "@/signature-recovery-protocol/components/DayNightPanel";
 import SrpSectionHead from "@/signature-recovery-protocol/components/SrpSectionHead";
 import SrpSectionMedia from "@/signature-recovery-protocol/components/SrpSectionMedia";
 import VerbatimLines from "@/signature-recovery-protocol/components/VerbatimLines";
-import { landingContent } from "@/signature-recovery-protocol/content/landing";
-
-const { dayNight } = landingContent;
+import { useSrpContent } from "@/signature-recovery-protocol/i18n/useSrpContent";
 
 export default function DayNightSection() {
+  const { landing } = useSrpContent();
+  const { dayNight } = landing;
   return (
     <section className="srp-section srp-section--day-night" id="section-day-night">
       <div className="srp-daynight-ambient" aria-hidden="true">

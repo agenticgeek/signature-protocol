@@ -1,9 +1,11 @@
-import SrpSectionHead from "@/signature-recovery-protocol/components/SrpSectionHead";
-import { protocoleContent } from "@/signature-recovery-protocol/content/protocole";
+"use client";
 
-const { individual } = protocoleContent;
+import SrpSectionHead from "@/signature-recovery-protocol/components/SrpSectionHead";
+import { useSrpContent } from "@/signature-recovery-protocol/i18n/useSrpContent";
 
 export default function IndividualProductsSection() {
+  const { protocole } = useSrpContent();
+  const { individual } = protocole;
   return (
     <section className="srp-section srp-section--individual" id="section-individual">
       <div className="srp-individual-ambient" aria-hidden="true" />

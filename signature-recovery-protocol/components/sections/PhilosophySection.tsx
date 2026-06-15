@@ -1,10 +1,12 @@
+"use client";
+
 import SrpSectionHead from "@/signature-recovery-protocol/components/SrpSectionHead";
 import SrpSectionMedia from "@/signature-recovery-protocol/components/SrpSectionMedia";
-import { landingContent } from "@/signature-recovery-protocol/content/landing";
-
-const { philosophy } = landingContent;
+import { useSrpContent } from "@/signature-recovery-protocol/i18n/useSrpContent";
 
 export default function PhilosophySection() {
+  const { landing } = useSrpContent();
+  const { philosophy } = landing;
   return (
     <section className="srp-section srp-section--philosophy" id="section-philosophy">
       <div className="srp-philosophy-glow" aria-hidden="true" />

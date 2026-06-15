@@ -1,13 +1,15 @@
+"use client";
+
 import SrpSectionHead from "@/signature-recovery-protocol/components/SrpSectionHead";
 import SrpSectionMedia from "@/signature-recovery-protocol/components/SrpSectionMedia";
-import { landingContent } from "@/signature-recovery-protocol/content/landing";
-
-const { phases } = landingContent;
-
-const signatureBody = phases.paragraphs.slice(0, 2);
-const signatureEmphasis = phases.paragraphs.slice(2);
+import { useSrpContent } from "@/signature-recovery-protocol/i18n/useSrpContent";
 
 export default function PhasesSection() {
+  const { landing } = useSrpContent();
+  const { phases } = landing;
+
+  const signatureBody = phases.paragraphs.slice(0, 2);
+  const signatureEmphasis = phases.paragraphs.slice(2);
   return (
     <section className="srp-section srp-section--phases" id="section-phases">
       <div className="srp-phases-glow" aria-hidden="true" />

@@ -2,8 +2,10 @@
 
 import { useState } from "react";
 import SrpPageShell from "@/signature-recovery-protocol/components/SrpPageShell";
-import { checkoutContent } from "@/signature-recovery-protocol/content/checkout";
+import { useSrpContent } from "@/signature-recovery-protocol/i18n/useSrpContent";
+
 export default function CheckoutClient() {
+  const { checkout } = useSrpContent();
   const [stripeError, setStripeError] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -13,10 +15,10 @@ export default function CheckoutClient() {
 
     try {
       // Stripe Elements — wire before go-live
-      setStripeError("Le paiement n'est pas encore configuré. Merci de réessayer ultérieurement.");
+      setStripeError(checkout.paymentNotConfigured);
     } catch (err) {
       const message =
-        err instanceof Error ? err.message : "Une erreur est survenue. Veuillez réessayer.";
+        err instanceof Error ? err.message : checkout.genericError;
       setStripeError(message);
     } finally {
       setIsSubmitting(false);
@@ -25,11 +27,11 @@ export default function CheckoutClient() {
 
   return (
     <SrpPageShell variant="checkout" mainClassName="srp-checkout">
-      <h1 className="srp-checkout-title">{checkoutContent.headline}</h1>
-      <p className="srp-lede">{checkoutContent.subline}</p>
+      <h1 className="srp-checkout-title">{checkout.headline}</h1>
+      <p className="srp-lede">{checkout.subline}</p>
 
-      <div className="srp-trust-strip" aria-label="Garanties">
-        {checkoutContent.trustBadges.map((badge) => (
+      <div className="srp-trust-strip" aria-label={checkout.guaranteesAriaLabel}>
+        {checkout.trustBadges.map((badge) => (
           <span className="srp-trust-badge" key={badge}>
             {badge}
           </span>
@@ -39,43 +41,43 @@ export default function CheckoutClient() {
       <div className="srp-checkout-grid">
         <div>
           <section className="srp-form-card">
-            <h3>{checkoutContent.expressPaymentLabel}</h3>
+            <h3>{checkout.expressPaymentLabel}</h3>
             <div className="srp-trust-strip">
               <span className="srp-trust-badge">Apple Pay</span>
               <span className="srp-trust-badge">Google Pay</span>
             </div>
             <p className="srp-body" style={{ marginTop: 12, fontSize: 13 }}>
-              {checkoutContent.orCardLabel}
+              {checkout.orCardLabel}
             </p>
 
             <div className="srp-field" style={{ marginTop: 16 }}>
-              <label htmlFor="srp-email">{checkoutContent.emailLabel}</label>
+              <label htmlFor="srp-email">{checkout.emailLabel}</label>
               <input id="srp-email" type="email" autoComplete="email" />
             </div>
 
             <div className="srp-field-row">
               <div className="srp-field">
-                <label htmlFor="srp-fn">{checkoutContent.firstNameLabel}</label>
+                <label htmlFor="srp-fn">{checkout.firstNameLabel}</label>
                 <input id="srp-fn" type="text" autoComplete="given-name" />
               </div>
               <div className="srp-field">
-                <label htmlFor="srp-ln">{checkoutContent.lastNameLabel}</label>
+                <label htmlFor="srp-ln">{checkout.lastNameLabel}</label>
                 <input id="srp-ln" type="text" autoComplete="family-name" />
               </div>
             </div>
 
             <div className="srp-field">
-              <label>{checkoutContent.cardLabel}</label>
+              <label>{checkout.cardLabel}</label>
               <input type="text" inputMode="numeric" placeholder="•••• •••• •••• ••••" />
             </div>
 
             <div className="srp-field-row">
               <div className="srp-field">
-                <label>{checkoutContent.expiryLabel}</label>
+                <label>{checkout.expiryLabel}</label>
                 <input type="text" placeholder="MM / AA" />
               </div>
               <div className="srp-field">
-                <label>{checkoutContent.cvcLabel}</label>
+                <label>{checkout.cvcLabel}</label>
                 <input type="text" placeholder="•••" />
               </div>
             </div>
@@ -88,22 +90,22 @@ export default function CheckoutClient() {
           </section>
 
           <section className="srp-form-card">
-            <h3>{checkoutContent.deliverySectionLabel}</h3>
+            <h3>{checkout.deliverySectionLabel}</h3>
             <div className="srp-field">
-              <label htmlFor="srp-addr">{checkoutContent.addressLabel}</label>
+              <label htmlFor="srp-addr">{checkout.addressLabel}</label>
               <input id="srp-addr" type="text" autoComplete="street-address" />
             </div>
             <div className="srp-field-row srp-field-row--three">
               <div className="srp-field">
-                <label htmlFor="srp-zip">{checkoutContent.zipLabel}</label>
+                <label htmlFor="srp-zip">{checkout.zipLabel}</label>
                 <input id="srp-zip" type="text" autoComplete="postal-code" />
               </div>
               <div className="srp-field">
-                <label htmlFor="srp-city">{checkoutContent.cityLabel}</label>
+                <label htmlFor="srp-city">{checkout.cityLabel}</label>
                 <input id="srp-city" type="text" autoComplete="address-level2" />
               </div>
               <div className="srp-field">
-                <label htmlFor="srp-country">{checkoutContent.countryLabel}</label>
+                <label htmlFor="srp-country">{checkout.countryLabel}</label>
                 <select id="srp-country" defaultValue="France">
                   <option>France</option>
                 </select>
@@ -112,32 +114,32 @@ export default function CheckoutClient() {
           </section>
 
           <p className="srp-body" style={{ fontSize: 13 }}>
-            {checkoutContent.securityNote}
+            {checkout.securityNote}
           </p>
         </div>
 
-        <aside className="srp-summary" aria-label={checkoutContent.orderSummaryLabel}>
-          <h3 style={{ marginTop: 0 }}>{checkoutContent.orderSummaryLabel}</h3>
+        <aside className="srp-summary" aria-label={checkout.orderSummaryLabel}>
+          <h3 style={{ marginTop: 0 }}>{checkout.orderSummaryLabel}</h3>
 
           <div className="srp-summary-row">
             <div>
-              <strong>{checkoutContent.productName}</strong>
-              <div style={{ opacity: 0.7, fontSize: 13 }}>{checkoutContent.productMeta}</div>
+              <strong>{checkout.productName}</strong>
+              <div style={{ opacity: 0.7, fontSize: 13 }}>{checkout.productMeta}</div>
             </div>
-            <span>{checkoutContent.pricePlaceholder}</span>
+            <span>{checkout.pricePlaceholder}</span>
           </div>
 
           <div className="srp-summary-row">
             <div>
-              <strong>{checkoutContent.deliveryLabel}</strong>
-              <div style={{ opacity: 0.7, fontSize: 13 }}>{checkoutContent.deliveryMeta}</div>
+              <strong>{checkout.deliveryLabel}</strong>
+              <div style={{ opacity: 0.7, fontSize: 13 }}>{checkout.deliveryMeta}</div>
             </div>
-            <span>{checkoutContent.pricePlaceholder}</span>
+            <span>{checkout.pricePlaceholder}</span>
           </div>
 
           <div className="srp-summary-total">
-            <span>{checkoutContent.totalLabel}</span>
-            <span>{checkoutContent.pricePlaceholder}</span>
+            <span>{checkout.totalLabel}</span>
+            <span>{checkout.pricePlaceholder}</span>
           </div>
 
           <button
@@ -147,11 +149,11 @@ export default function CheckoutClient() {
             onClick={handleSubmit}
             style={{ marginTop: 20, border: 0, cursor: "pointer" }}
           >
-            {checkoutContent.ctaLabel} →
+            {checkout.ctaLabel} →
           </button>
 
           <p className="srp-placeholder" style={{ marginTop: 16 }}>
-            Prix à confirmer avant mise en ligne.
+            {checkout.priceConfirmPlaceholder}
           </p>
         </aside>
       </div>

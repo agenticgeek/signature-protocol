@@ -1,29 +1,30 @@
+"use client";
+
 import { Fragment } from "react";
 import CTAButton from "@/signature-recovery-protocol/components/CTAButton";
-import { landingContent } from "@/signature-recovery-protocol/content/landing";
 import { SRP_ROUTES } from "@/signature-recovery-protocol/constants/routes";
-
-const { hero } = landingContent;
-
-const pillars = hero.mantra[0]
-  .split(".")
-  .map((word) => word.trim())
-  .filter(Boolean);
+import { useSrpContent } from "@/signature-recovery-protocol/i18n/useSrpContent";
 
 export default function HeroSection() {
+  const { landing } = useSrpContent();
+  const { hero } = landing;
+
+  const pillars = hero.mantra[0]
+    .split(".")
+    .map((word) => word.trim())
+    .filter(Boolean);
+
   return (
     <section className="srp-section srp-hero" id="section-hero">
       <div className="srp-hero-ambient" aria-hidden="true" />
       <p className="srp-hero-ghost" aria-hidden="true">
-        Récupérer
+        {hero.ghostWord}
       </p>
 
       <div className="srp-container">
         <header className="srp-hero-intro">
           <div className="srp-hero-meta">
-            <span>
-              § I <span className="slash">/ VIII</span>
-            </span>
+            <span>{hero.sectionNum}</span>
             <span>METCARE®</span>
           </div>
 
@@ -46,13 +47,12 @@ export default function HeroSection() {
           <div className="srp-hero-rail-inner">
             {Array.from({ length: 2 }).map((_, loop) => (
               <Fragment key={loop}>
-                <span>PRÉPARER</span>
-                <span className="sep">·</span>
-                <span>SOUTENIR</span>
-                <span className="sep">·</span>
-                <span>ACCOMPAGNER</span>
-                <span className="sep">·</span>
-                <span>RÉCUPÉRER</span>
+                {hero.railWords.map((word, i) => (
+                  <Fragment key={`${loop}-${word}`}>
+                    <span>{word}</span>
+                    {i < hero.railWords.length - 1 ? <span className="sep">·</span> : null}
+                  </Fragment>
+                ))}
                 <span className="sep">·</span>
               </Fragment>
             ))}
@@ -62,33 +62,30 @@ export default function HeroSection() {
         <div className="srp-hero-story">
           <div className="srp-hero-story-lead">
             <p className="srp-hero-story-text">
-              Parce qu&apos;une intervention esthétique ne se résume pas uniquement à
-              l&apos;acte chirurgical,{" "}
-              <span className="srp-hero-story-mark">METCARE®</span> a imaginé une
-              approche globale pensée pour accompagner votre corps, votre peau et votre
-              confort{" "}
-              <span className="srp-hero-story-em">avant, pendant et après</span> votre
-              intervention.
+              {hero.storyLeadBefore}
+              <span className="srp-hero-story-mark">METCARE®</span>
+              {hero.storyLeadMiddle}
+              <span className="srp-hero-story-em">{hero.storyLeadEmphasis}</span>
+              {hero.storyLeadAfter}
             </p>
           </div>
 
           <div className="srp-hero-story-accent">
             <p className="srp-hero-story-kicker">
-              <span className="srp-hero-story-kicker-num">24</span>
-              <span className="srp-hero-story-kicker-unit">heures</span>
+              <span className="srp-hero-story-kicker-num">{hero.storyHoursValue}</span>
+              <span className="srp-hero-story-kicker-unit">{hero.storyHoursUnit}</span>
             </p>
             <p className="srp-hero-story-text srp-hero-story-text--secondary">
-              Le{" "}
-              <span className="srp-hero-story-protocol">SIGNATURE RECOVERY PROTOCOL™</span>{" "}
-              associe nutrition ciblée, confort tissulaire, récupération cutanée et
-              stratégie de récupération pensée sur 24 heures afin de transformer cette phase
-              souvent inconfortable en une{" "}
-              <span className="srp-hero-story-em">véritable expérience de soin</span>.
+              {hero.storySecondaryBefore}
+              <span className="srp-hero-story-protocol">{hero.storySecondaryProtocol}</span>
+              {hero.storySecondaryMiddle}
+              <span className="srp-hero-story-em">{hero.storySecondaryEmphasis}</span>
+              {hero.storySecondaryAfter}
             </p>
           </div>
         </div>
 
-        <div className="srp-hero-mantra" aria-label="Les quatre piliers">
+        <div className="srp-hero-mantra" aria-label={hero.pillarsAriaLabel}>
           {pillars.map((word, i) => (
             <p className="srp-hero-mantra-line" key={word}>
               <span className="srp-hero-mantra-idx">

@@ -1,16 +1,18 @@
+"use client";
+
 import SrpSectionHead from "@/signature-recovery-protocol/components/SrpSectionHead";
 import SrpSectionMedia from "@/signature-recovery-protocol/components/SrpSectionMedia";
-import { landingContent } from "@/signature-recovery-protocol/content/landing";
-
-const { actives } = landingContent;
+import { useSrpContent } from "@/signature-recovery-protocol/i18n/useSrpContent";
 
 export default function ActivesSection() {
+  const { landing } = useSrpContent();
+  const { actives } = landing;
   return (
     <section className="srp-section" id="section-actives">
       <div className="srp-container">
         <SrpSectionHead
           sectionNum={actives.sectionNum}
-          title={actives.title}
+          title={actives.title || undefined}
           lede={actives.intro}
         />
 
