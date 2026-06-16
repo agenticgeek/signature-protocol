@@ -26,6 +26,33 @@
     0 24px 56px -32px rgba(43, 21, 23, 0.22);
 }
 
+.section-media--has-image .section-media__frame {
+  background: color-mix(in srgb, var(--beige) 18%, var(--snow));
+}
+
+.section-media__image {
+  object-position: center;
+}
+
+.section-media__image--cover {
+  object-fit: cover;
+}
+
+.section-media__image--contain {
+  object-fit: contain;
+  padding: clamp(12px, 2.5vw, 20px);
+  background: color-mix(in srgb, var(--beige) 12%, var(--snow));
+}
+
+.section-media--dark.section-media--has-image .section-media__frame {
+  border-color: rgba(236, 235, 233, 0.1);
+  background: color-mix(in srgb, var(--cherry) 88%, var(--silver-dark));
+}
+
+.section-media--dark .section-media__image--contain {
+  background: color-mix(in srgb, var(--cherry) 92%, #000);
+}
+
 .section-media--landscape .section-media__frame {
   aspect-ratio: 16 / 10;
 }

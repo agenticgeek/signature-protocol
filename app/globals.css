@@ -14,6 +14,13 @@
   --cherry-hover: #3a1d1f;
   --shadow-soft: 0 18px 60px -28px rgba(43, 21, 23, 0.25);
   --shadow-card: 0 24px 72px -32px rgba(43, 21, 23, 0.28);
+  --shadow-lift: 0 22px 56px -24px rgba(43, 21, 23, 0.18);
+  --surface-glass: linear-gradient(
+    155deg,
+    rgba(255, 255, 255, 0.78) 0%,
+    rgba(236, 235, 233, 0.52) 100%
+  );
+  --surface-glass-border: rgba(255, 255, 255, 0.72);
   --ease-cinematic: cubic-bezier(0.22, 0.61, 0.36, 1);
   --container: 1240px;
   --gutter: 24px;

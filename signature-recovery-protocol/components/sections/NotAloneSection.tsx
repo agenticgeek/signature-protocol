@@ -1,7 +1,9 @@
 "use client";
 
+import SrpParallaxBg from "@/signature-recovery-protocol/components/SrpParallaxBg";
 import SrpSectionHead from "@/signature-recovery-protocol/components/SrpSectionHead";
 import SrpSectionMedia from "@/signature-recovery-protocol/components/SrpSectionMedia";
+import { SRP_ASSETS, SRP_BACKGROUNDS } from "@/signature-recovery-protocol/constants/assets";
 import { useSrpContent } from "@/signature-recovery-protocol/i18n/useSrpContent";
 
 export default function NotAloneSection() {
@@ -12,6 +14,7 @@ export default function NotAloneSection() {
 
   return (
     <section className="srp-section srp-section--not-alone" id="section-not-alone">
+      <SrpParallaxBg src={SRP_BACKGROUNDS.cream} speed={0.38} opacity={0.18} align="left" />
       <div className="srp-not-alone-glow" aria-hidden="true" />
 
       <div className="srp-container">
@@ -26,8 +29,11 @@ export default function NotAloneSection() {
             <SrpSectionMedia
               aspect="portrait"
               tone="beige"
-              label="// Visuel — accompagnement"
-              title="Mains, peau, sororité · éditorial"
+              variant="product"
+              src={SRP_ASSETS.preparationMentale}
+              alt="Préparation mentale et émotionnelle — METCARE®"
+              label="// Préparation mentale & émotionnelle"
+              title="Accompagnement avant l'intervention"
             />
           </div>
 

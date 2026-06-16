@@ -1,9 +1,11 @@
 "use client";
 
 import DayNightPanel from "@/signature-recovery-protocol/components/DayNightPanel";
+import SrpParallaxBg from "@/signature-recovery-protocol/components/SrpParallaxBg";
 import SrpSectionHead from "@/signature-recovery-protocol/components/SrpSectionHead";
 import SrpSectionMedia from "@/signature-recovery-protocol/components/SrpSectionMedia";
 import VerbatimLines from "@/signature-recovery-protocol/components/VerbatimLines";
+import { SRP_ASSETS, SRP_BACKGROUNDS } from "@/signature-recovery-protocol/constants/assets";
 import { useSrpContent } from "@/signature-recovery-protocol/i18n/useSrpContent";
 
 export default function DayNightSection() {
@@ -11,6 +13,7 @@ export default function DayNightSection() {
   const { dayNight } = landing;
   return (
     <section className="srp-section srp-section--day-night" id="section-day-night">
+      <SrpParallaxBg src={SRP_BACKGROUNDS.gel} speed={0.3} opacity={0.12} align="left" />
       <div className="srp-daynight-ambient" aria-hidden="true">
         <span className="srp-daynight-ambient__sun" />
         <span className="srp-daynight-ambient__moon" />
@@ -29,8 +32,11 @@ export default function DayNightSection() {
               <SrpSectionMedia
                 aspect="square"
                 tone="light"
-                label="// Visuel — Day"
-                title="DAY RECOVERY PATCH™ · packshot"
+                variant="product"
+                src={SRP_ASSETS.dayCollagen}
+                alt="DAY COLLAGEN™ — Metabolic Booster"
+                label="// DAY COLLAGEN™"
+                title="Réparer · Drainer · Soutenir"
               />
             </div>
             <div className="srp-daynight-panel__body">
@@ -54,8 +60,11 @@ export default function DayNightSection() {
               <SrpSectionMedia
                 aspect="square"
                 tone="dark"
-                label="// Visuel — Night"
-                title="NIGHT RECOVERY PATCH™ · packshot"
+                variant="product"
+                src={SRP_ASSETS.nightCollagen}
+                alt="NIGHT COLLAGEN™ — Deep Restore"
+                label="// NIGHT COLLAGEN™"
+                title="Calmer · Régénérer · Reconstruire"
               />
             </div>
             <div className="srp-daynight-panel__body">

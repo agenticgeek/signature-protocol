@@ -1,7 +1,9 @@
 "use client";
 
+import SrpParallaxBg from "@/signature-recovery-protocol/components/SrpParallaxBg";
 import SrpSectionHead from "@/signature-recovery-protocol/components/SrpSectionHead";
 import SrpSectionMedia from "@/signature-recovery-protocol/components/SrpSectionMedia";
+import { SRP_ASSETS, SRP_BACKGROUNDS } from "@/signature-recovery-protocol/constants/assets";
 import { useSrpContent } from "@/signature-recovery-protocol/i18n/useSrpContent";
 
 export default function ActivesSection() {
@@ -9,6 +11,7 @@ export default function ActivesSection() {
   const { actives } = landing;
   return (
     <section className="srp-section" id="section-actives">
+      <SrpParallaxBg src={SRP_BACKGROUNDS.cream} speed={0.36} opacity={0.15} align="right" />
       <div className="srp-container">
         <SrpSectionHead
           sectionNum={actives.sectionNum}
@@ -20,8 +23,11 @@ export default function ActivesSection() {
           <SrpSectionMedia
             aspect="square"
             tone="dark"
-            label="// Visuel — actifs"
-            title="Macro patch · textures botaniques"
+            variant="product"
+            src={SRP_ASSETS.activeDrain}
+            alt="ACTIVE DRAIN™ — Metabolic Detox"
+            label="// ACTIVE DRAIN™"
+            title="Éliminer · Détoxifier · Relancer"
           />
 
           <div className="section-editorial__content">

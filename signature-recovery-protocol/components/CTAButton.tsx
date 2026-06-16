@@ -18,8 +18,8 @@ export default function CTAButton({
       className={`srp-cta${ghost ? " srp-cta--ghost" : ""} ${className}`.trim()}
       href={href}
     >
-      {label}
-      {!ghost ? <span aria-hidden="true">→</span> : null}
+      <span className="srp-cta__label">{label}</span>
+      {!ghost ? <span className="srp-cta__arrow" aria-hidden="true">→</span> : null}
     </Link>
   );
 }

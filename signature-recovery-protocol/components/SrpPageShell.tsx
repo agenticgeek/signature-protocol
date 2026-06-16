@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import SrpFooter from "@/signature-recovery-protocol/components/SrpFooter";
 import SrpNavbar from "@/signature-recovery-protocol/components/SrpNavbar";
+import SrpScrollParallax from "@/signature-recovery-protocol/components/SrpScrollParallax";
 import SrpScrollReveal from "@/signature-recovery-protocol/components/SrpScrollReveal";
 
 type SrpPageShellProps = {
@@ -17,6 +18,7 @@ export default function SrpPageShell({
   return (
     <>
       <SrpScrollReveal />
+      <SrpScrollParallax />
       <SrpNavbar variant={variant} />
       <main className={mainClassName}>{children}</main>
       <SrpFooter />

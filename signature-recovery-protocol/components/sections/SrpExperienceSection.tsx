@@ -1,8 +1,10 @@
 "use client";
 
+import SrpParallaxBg from "@/signature-recovery-protocol/components/SrpParallaxBg";
 import SrpSectionHead from "@/signature-recovery-protocol/components/SrpSectionHead";
 import SrpSectionMedia from "@/signature-recovery-protocol/components/SrpSectionMedia";
 import VerbatimLines from "@/signature-recovery-protocol/components/VerbatimLines";
+import { SRP_ASSETS, SRP_BACKGROUNDS } from "@/signature-recovery-protocol/constants/assets";
 import { useSrpContent } from "@/signature-recovery-protocol/i18n/useSrpContent";
 
 export default function SrpExperienceSection() {
@@ -11,6 +13,7 @@ export default function SrpExperienceSection() {
 
   return (
     <section className="srp-section srp-section--experience" id="section-experience">
+      <SrpParallaxBg src={SRP_BACKGROUNDS.quote} speed={-0.24} opacity={0.12} align="left" />
       <div className="srp-experience-ambient" aria-hidden="true">
         <span className="srp-experience-ambient__warm" />
         <span className="srp-experience-ambient__cool" />
@@ -29,8 +32,11 @@ export default function SrpExperienceSection() {
               className="srp-experience-media"
               aspect="portrait"
               tone="beige"
-              label="// Visuel — experience box"
-              title="SRP™ Experience · coffret premium réutilisable"
+              variant="product"
+              src={SRP_ASSETS.productKit}
+              alt="SRP™ Experience — coffret premium réutilisable"
+              label="// SRP™ Experience"
+              title="Coffret premium · prolongement METCARE®"
             />
           </div>
 

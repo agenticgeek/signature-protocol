@@ -36,14 +36,15 @@
 .srp-funnel.srp-reveal-enabled .srp-section:not(.srp-reveal--active) .srp-protocol-product,
 .srp-funnel.srp-reveal-enabled .srp-section:not(.srp-reveal--active) .srp-individual-pillar,
 .srp-funnel.srp-reveal-enabled .srp-section:not(.srp-reveal--active) .srp-experience-use,
-.srp-funnel.srp-reveal-enabled .srp-section:not(.srp-reveal--active) figure.section-media,
+.srp-funnel.srp-reveal-enabled .srp-section:not(.srp-reveal--active) figure.section-media:not(.section-media--product),
 .srp-funnel.srp-reveal-enabled .srp-section:not(.srp-reveal--active) .srp-phases-signature,
 .srp-funnel.srp-reveal-enabled .srp-section:not(.srp-reveal--active) .srp-not-alone-signature,
 .srp-funnel.srp-reveal-enabled .srp-section:not(.srp-reveal--active) .srp-philosophy-signature,
 .srp-funnel.srp-reveal-enabled .srp-section:not(.srp-reveal--active) .srp-sensory-signature,
 .srp-funnel.srp-reveal-enabled .srp-section:not(.srp-reveal--active) .srp-experience-signature,
 .srp-funnel.srp-reveal-enabled .srp-section:not(.srp-reveal--active) .srp-expert-footer,
-.srp-funnel.srp-reveal-enabled .srp-section:not(.srp-reveal--active) .srp-phases-banner,
+.srp-funnel.srp-reveal-enabled .srp-section:not(.srp-reveal--active) .srp-phases-kit,
+.srp-funnel.srp-reveal-enabled .srp-section:not(.srp-reveal--active) .srp-product-showcase,
 .srp-funnel.srp-reveal-enabled .srp-checkout:not(.srp-reveal--active) .srp-form-card,
 .srp-funnel.srp-reveal-enabled .srp-checkout:not(.srp-reveal--active) .srp-summary,
 .srp-funnel.srp-reveal-enabled .srp-checkout:not(.srp-reveal--active) .srp-trust-badge,
@@ -79,14 +80,33 @@
 .srp-funnel.srp-reveal-enabled .srp-section .srp-protocol-product,
 .srp-funnel.srp-reveal-enabled .srp-section .srp-individual-pillar,
 .srp-funnel.srp-reveal-enabled .srp-section .srp-experience-use,
-.srp-funnel.srp-reveal-enabled .srp-section figure.section-media,
+.srp-funnel.srp-reveal-enabled .srp-section:not(.srp-reveal--active) figure.section-media--product,
+.srp-funnel.srp-reveal-enabled .srp-section:not(.srp-reveal--active) .srp-hero-showcase__slot,
+.srp-funnel.srp-reveal-enabled .srp-section:not(.srp-reveal--active) .srp-individual-gallery,
+.srp-funnel.srp-reveal-enabled .srp-section:not(.srp-reveal--active) .srp-protocol-product__thumb {
+  opacity: 0;
+  transform: translateY(72px) scale(0.9);
+}
+
+.srp-funnel.srp-reveal-enabled .srp-section figure.section-media--product,
+.srp-funnel.srp-reveal-enabled .srp-section .srp-hero-showcase__slot,
+.srp-funnel.srp-reveal-enabled .srp-section .srp-individual-gallery,
+.srp-funnel.srp-reveal-enabled .srp-section .srp-protocol-product__thumb {
+  transition:
+    opacity 1s var(--ease-cinematic),
+    transform 1s var(--ease-cinematic);
+  will-change: opacity, transform;
+}
+
+.srp-funnel.srp-reveal-enabled .srp-section figure.section-media:not(.section-media--product),
 .srp-funnel.srp-reveal-enabled .srp-section .srp-phases-signature,
 .srp-funnel.srp-reveal-enabled .srp-section .srp-not-alone-signature,
 .srp-funnel.srp-reveal-enabled .srp-section .srp-philosophy-signature,
 .srp-funnel.srp-reveal-enabled .srp-section .srp-sensory-signature,
 .srp-funnel.srp-reveal-enabled .srp-section .srp-experience-signature,
 .srp-funnel.srp-reveal-enabled .srp-section .srp-expert-footer,
-.srp-funnel.srp-reveal-enabled .srp-section .srp-phases-banner,
+.srp-funnel.srp-reveal-enabled .srp-section .srp-phases-kit,
+.srp-funnel.srp-reveal-enabled .srp-section .srp-product-showcase,
 .srp-funnel.srp-reveal-enabled .srp-checkout > .srp-checkout-title,
 .srp-funnel.srp-reveal-enabled .srp-checkout > .srp-lede,
 .srp-funnel.srp-reveal-enabled .srp-checkout > .srp-trust-strip,
@@ -156,7 +176,8 @@
   transition-delay: 940ms;
 }
 
-.srp-funnel.srp-reveal-enabled .srp-reveal--active .srp-phases-banner {
+.srp-funnel.srp-reveal-enabled .srp-reveal--active .srp-phases-kit,
+.srp-funnel.srp-reveal-enabled .srp-reveal--active .srp-product-showcase {
   transition-delay: 220ms;
 }
 
@@ -231,6 +252,23 @@
 }
 .srp-funnel.srp-reveal-enabled .srp-reveal--active .srp-daynight-panel--night {
   transition-delay: 480ms;
+}
+
+.srp-funnel.srp-reveal-enabled .srp-reveal--active .srp-sensory-patch,
+.srp-funnel.srp-reveal-enabled .srp-reveal--active figure.section-media--product {
+  transition-delay: 280ms;
+}
+
+.srp-funnel.srp-reveal-enabled .srp-reveal--active .srp-hero-showcase__primary {
+  transition-delay: 340ms;
+}
+
+.srp-funnel.srp-reveal-enabled .srp-reveal--active .srp-hero-showcase__secondary {
+  transition-delay: 480ms;
+}
+
+.srp-funnel.srp-reveal-enabled .srp-reveal--active .srp-individual-gallery {
+  transition-delay: 220ms;
 }
 
 .srp-funnel.srp-reveal-enabled .srp-reveal--active figure.section-media {
@@ -326,7 +364,8 @@
 .srp-funnel.srp-reveal-enabled .srp-reveal--active .srp-sensory-signature,
 .srp-funnel.srp-reveal-enabled .srp-reveal--active .srp-experience-signature,
 .srp-funnel.srp-reveal-enabled .srp-reveal--active .srp-expert-footer,
-.srp-funnel.srp-reveal-enabled .srp-reveal--active .srp-phases-banner,
+.srp-funnel.srp-reveal-enabled .srp-reveal--active .srp-phases-kit,
+.srp-funnel.srp-reveal-enabled .srp-reveal--active .srp-product-showcase,
 .srp-funnel.srp-reveal-enabled .srp-checkout.srp-reveal--active .srp-checkout-title,
 .srp-funnel.srp-reveal-enabled .srp-checkout.srp-reveal--active > .srp-lede,
 .srp-funnel.srp-reveal-enabled .srp-checkout.srp-reveal--active > .srp-trust-strip,

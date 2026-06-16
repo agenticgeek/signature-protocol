@@ -1,7 +1,9 @@
 "use client";
 
+import SrpParallaxBg from "@/signature-recovery-protocol/components/SrpParallaxBg";
 import SrpSectionHead from "@/signature-recovery-protocol/components/SrpSectionHead";
 import SrpSectionMedia from "@/signature-recovery-protocol/components/SrpSectionMedia";
+import { SRP_ASSETS, SRP_BACKGROUNDS } from "@/signature-recovery-protocol/constants/assets";
 import { useSrpContent } from "@/signature-recovery-protocol/i18n/useSrpContent";
 
 export default function PhilosophySection() {
@@ -9,6 +11,7 @@ export default function PhilosophySection() {
   const { philosophy } = landing;
   return (
     <section className="srp-section srp-section--philosophy" id="section-philosophy">
+      <SrpParallaxBg src={SRP_BACKGROUNDS.quote} speed={0.45} opacity={0.14} align="right" />
       <div className="srp-philosophy-glow" aria-hidden="true" />
 
       <div className="srp-container">
@@ -47,8 +50,11 @@ export default function PhilosophySection() {
             <SrpSectionMedia
               aspect="portrait"
               tone="light"
-              label="// Visuel — philosophie"
-              title="Clinique sensorielle · patch & soin"
+              variant="product"
+              src={SRP_ASSETS.productDayGel}
+              alt="DRAINAGE ACTIVATION GEL™ — Day"
+              label="// DRAINAGE ACTIVATION GEL™"
+              title="Recovery is strategy · rituel jour"
             />
           </div>
         </div>

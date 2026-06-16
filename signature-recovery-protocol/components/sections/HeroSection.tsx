@@ -1,7 +1,10 @@
 "use client";
 
 import { Fragment } from "react";
+import Image from "next/image";
 import CTAButton from "@/signature-recovery-protocol/components/CTAButton";
+import SrpParallaxBg from "@/signature-recovery-protocol/components/SrpParallaxBg";
+import { SRP_ASSETS, SRP_BACKGROUNDS } from "@/signature-recovery-protocol/constants/assets";
 import { SRP_ROUTES } from "@/signature-recovery-protocol/constants/routes";
 import { useSrpContent } from "@/signature-recovery-protocol/i18n/useSrpContent";
 
@@ -16,7 +19,15 @@ export default function HeroSection() {
 
   return (
     <section className="srp-section srp-hero" id="section-hero">
-      <div className="srp-hero-ambient" aria-hidden="true" />
+      <SrpParallaxBg src={SRP_BACKGROUNDS.gel} speed={0.42} opacity={0.22} align="right" />
+      <SrpParallaxBg
+        src={SRP_BACKGROUNDS.quote}
+        speed={-0.28}
+        opacity={0.1}
+        align="left"
+        scale={1.28}
+        className="srp-parallax-bg--hero-quote"
+      />
       <p className="srp-hero-ghost" aria-hidden="true">
         {hero.ghostWord}
       </p>
@@ -42,6 +53,29 @@ export default function HeroSection() {
 
           <p className="srp-hero-tagline">{hero.tagline}</p>
         </header>
+
+        <div className="srp-hero-showcase" aria-hidden="true">
+          <div className="srp-hero-showcase__slot srp-hero-showcase__primary">
+            <Image
+              src={SRP_ASSETS.productDrainBooster}
+              alt=""
+              fill
+              sizes="(max-width: 900px) 72vw, 420px"
+              className="srp-hero-showcase__image"
+              priority
+            />
+          </div>
+          <div className="srp-hero-showcase__slot srp-hero-showcase__secondary">
+            <Image
+              src={SRP_ASSETS.productKit}
+              alt=""
+              fill
+              sizes="(max-width: 900px) 40vw, 220px"
+              className="srp-hero-showcase__image"
+              priority
+            />
+          </div>
+        </div>
 
         <div className="srp-hero-rail" aria-hidden="true">
           <div className="srp-hero-rail-inner">

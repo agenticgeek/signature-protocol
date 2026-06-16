@@ -1,0 +1,211 @@
+/* METCARE® — premium component refinements (evolution layer) */
+
+/* ---------- Editorial rhythm ---------- */
+.srp-funnel .srp-section {
+  padding-block: clamp(60px, 8.5vw, 100px);
+}
+
+.srp-funnel .srp-section-head {
+  gap: clamp(14px, 2vw, 20px);
+  margin-bottom: clamp(32px, 5.5vw, 56px);
+  max-width: 68ch;
+}
+
+.srp-funnel .srp-section-title {
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+}
+
+.srp-funnel .srp-lede {
+  font-weight: 300;
+  line-height: 1.78;
+  opacity: 0.78;
+}
+
+.srp-funnel .srp-divider {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(43, 21, 23, 0.1) 18%,
+    rgba(106, 136, 164, 0.14) 50%,
+    rgba(43, 21, 23, 0.1) 82%,
+    transparent 100%
+  );
+}
+
+/* ---------- Shared glass surface (recovery cards) ---------- */
+.srp-funnel .srp-phases-step,
+.srp-funnel .srp-not-alone-moment,
+.srp-funnel .srp-philosophy-factor,
+.srp-funnel .srp-sensory-sense,
+.srp-funnel .srp-pill,
+.srp-funnel .srp-experience-use,
+.srp-funnel .srp-individual-pillar {
+  background: var(--surface-glass);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-color: var(--surface-glass-border);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.88),
+    var(--shadow-lift);
+  transition:
+    transform 0.45s var(--ease-cinematic),
+    box-shadow 0.45s var(--ease-cinematic),
+    border-color 0.4s ease;
+}
+
+@media (hover: hover) {
+  .srp-funnel .srp-phases-step:hover,
+  .srp-funnel .srp-not-alone-moment:hover,
+  .srp-funnel .srp-philosophy-factor:hover,
+  .srp-funnel .srp-sensory-sense:hover,
+  .srp-funnel .srp-pill:hover,
+  .srp-funnel .srp-experience-use:hover,
+  .srp-funnel .srp-individual-pillar:hover {
+    transform: translateY(-4px);
+    border-color: color-mix(in srgb, var(--silver-blue) 28%, white);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.95),
+      0 28px 64px -28px rgba(43, 21, 23, 0.16),
+      0 10px 28px -12px rgba(106, 136, 164, 0.14);
+  }
+}
+
+/* ---------- CTA — calm luxury interaction ---------- */
+.srp-funnel .srp-cta {
+  box-shadow: 0 16px 44px -20px rgba(43, 21, 23, 0.42);
+  transition:
+    transform 0.35s var(--ease-cinematic),
+    box-shadow 0.35s var(--ease-cinematic),
+    background-color 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.srp-funnel .srp-cta:hover {
+  background: var(--cherry-hover);
+  transform: translateY(-3px);
+  box-shadow: 0 20px 52px -18px rgba(43, 21, 23, 0.38);
+}
+
+.srp-funnel .srp-cta:focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--silver-blue) 65%, white);
+  outline-offset: 3px;
+}
+
+.srp-funnel .srp-cta--ghost {
+  background: color-mix(in srgb, var(--snow) 55%, transparent);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-color: rgba(43, 21, 23, 0.12);
+}
+
+.srp-funnel .srp-cta__arrow {
+  transition: transform 0.35s var(--ease-cinematic);
+}
+
+.srp-funnel .srp-cta:hover .srp-cta__arrow {
+  transform: translateX(3px);
+}
+
+.srp-funnel .srp-cta--ghost:hover {
+  background: color-mix(in srgb, var(--beige) 35%, var(--snow));
+  color: var(--cherry);
+}
+
+/* ---------- Protocol journey catalog ---------- */
+.srp-funnel .srp-section--protocol-contents .srp-section-head {
+  max-width: 52ch;
+}
+
+.srp-funnel .srp-protocol-catalog {
+  padding: clamp(20px, 3vw, 28px);
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  background: color-mix(in srgb, var(--snow) 72%, transparent);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.82),
+    var(--shadow-lift);
+}
+
+.srp-funnel .srp-protocol-product__frame {
+  border-radius: 6px 16px 16px 6px;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.88) 0%,
+    rgba(236, 235, 233, 0.58) 100%
+  );
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.srp-funnel .srp-protocol-product:hover .srp-protocol-product__frame {
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    0 24px 52px -26px rgba(43, 21, 23, 0.18);
+}
+
+/* ---------- Product showcase frames ---------- */
+.srp-product-showcase__frame,
+.section-media--product .section-media__frame {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.srp-funnel .srp-hero-showcase__slot {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* ---------- Signature / emphasis callouts ---------- */
+.srp-funnel .srp-phases-signature-em-wrap,
+.srp-funnel .srp-not-alone-signature-em-wrap,
+.srp-funnel .srp-philosophy-signature-em-wrap,
+.srp-funnel .srp-sensory-signature-em-wrap,
+.srp-funnel .srp-expert-emphasis {
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.14),
+    0 28px 72px -32px rgba(43, 21, 23, 0.32);
+}
+
+.srp-funnel .srp-phases-signature,
+.srp-funnel .srp-not-alone-signature,
+.srp-funnel .srp-philosophy-signature,
+.srp-funnel .srp-sensory-signature {
+  padding-top: clamp(28px, 4vw, 40px);
+  border-top-color: rgba(43, 21, 23, 0.06);
+}
+
+/* ---------- Day & night ritual panels ---------- */
+.srp-funnel .srp-daynight-panel__frame {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* ---------- Hero editorial polish ---------- */
+.srp-funnel .srp-hero-tagline {
+  font-weight: 300;
+  letter-spacing: 0.02em;
+}
+
+.srp-funnel .srp-hero-closing {
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .srp-funnel .srp-cta,
+  .srp-funnel .srp-phases-step,
+  .srp-funnel .srp-not-alone-moment,
+  .srp-funnel .srp-philosophy-factor,
+  .srp-funnel .srp-sensory-sense,
+  .srp-funnel .srp-pill,
+  .srp-funnel .srp-experience-use,
+  .srp-funnel .srp-individual-pillar,
+  .srp-funnel .srp-protocol-product {
+    transition: none;
+    transform: none;
+  }
+}

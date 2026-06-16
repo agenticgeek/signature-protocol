@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Poppins, Raleway } from "next/font/google";
 import "./globals.css";
 import "@/signature-recovery-protocol/styles/srp.css";
+import "@/signature-recovery-protocol/styles/parallax.css";
+import "@/signature-recovery-protocol/styles/srp-premium.css";
 import { LanguageProvider } from "@/signature-recovery-protocol/i18n/LanguageProvider";
 
 const poppins = Poppins({

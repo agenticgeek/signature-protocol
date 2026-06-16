@@ -1,17 +1,23 @@
 "use client";
 
+import SrpParallaxBg from "@/signature-recovery-protocol/components/SrpParallaxBg";
+import SrpProductShowcase from "@/signature-recovery-protocol/components/SrpProductShowcase";
 import SrpSectionHead from "@/signature-recovery-protocol/components/SrpSectionHead";
-import SrpSectionMedia from "@/signature-recovery-protocol/components/SrpSectionMedia";
+import { SRP_ASSETS, SRP_BACKGROUNDS } from "@/signature-recovery-protocol/constants/assets";
+import { SRP_PRODUCT_DIMENSIONS } from "@/signature-recovery-protocol/constants/product-dimensions";
 import { useSrpContent } from "@/signature-recovery-protocol/i18n/useSrpContent";
 
 export default function SensorySection() {
   const { landing } = useSrpContent();
   const { sensory } = landing;
+  const patch = SRP_PRODUCT_DIMENSIONS.fillerPatch;
 
   const signatureBody = sensory.closing.slice(0, 1);
   const signatureEmphasis = sensory.closing.slice(1);
+
   return (
     <section className="srp-section srp-section--sensory" id="section-sensory">
+      <SrpParallaxBg src={SRP_BACKGROUNDS.cream} speed={0.48} opacity={0.2} align="right" />
       <div className="srp-sensory-ambient" aria-hidden="true">
         <span className="srp-sensory-ambient__sheen" />
         <span className="srp-sensory-ambient__mist" />
@@ -41,11 +47,15 @@ export default function SensorySection() {
           </div>
 
           <div className="srp-sensory-visual">
-            <SrpSectionMedia
-              aspect="landscape"
-              tone="beige"
-              label="// Visuel — sensoriel"
-              title="Textures, patchs & matière"
+            <SrpProductShowcase
+              className="srp-sensory-patch"
+              src={SRP_ASSETS.fillerPatch}
+              width={patch.width}
+              height={patch.height}
+              alt="SKIN RECOVERY PATCH™ — application"
+              label="// SKIN RECOVERY PATCH™"
+              title="Patch sensoriel · application peau"
+              sizes="(max-width: 900px) 100vw, (max-width: 1240px) 46vw, 560px"
             />
           </div>
         </div>
