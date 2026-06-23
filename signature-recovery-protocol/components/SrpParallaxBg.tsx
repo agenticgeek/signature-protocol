@@ -7,6 +7,7 @@ type SrpParallaxBgProps = {
   align?: "left" | "center" | "right";
   scale?: number;
   className?: string;
+  priority?: boolean;
 };
 
 export default function SrpParallaxBg({
@@ -16,6 +17,7 @@ export default function SrpParallaxBg({
   align = "right",
   scale = 1.18,
   className = "",
+  priority = false,
 }: SrpParallaxBgProps) {
   return (
     <div className={`srp-parallax-bg ${className}`.trim()} aria-hidden="true">
@@ -26,7 +28,14 @@ export default function SrpParallaxBg({
         data-parallax-scale={scale}
         style={{ opacity }}
       >
-        <Image src={src} alt="" fill sizes="100vw" className="srp-parallax-bg__image" />
+        <Image
+          src={src}
+          alt=""
+          fill
+          sizes="100vw"
+          className="srp-parallax-bg__image"
+          priority={priority}
+        />
       </div>
       <div className="srp-parallax-bg__veil" />
     </div>

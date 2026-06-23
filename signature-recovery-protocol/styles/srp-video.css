@@ -1,0 +1,159 @@
+/* Signature Recovery Protocol™ — cinematic video moments */
+
+.srp-funnel .srp-video-moment {
+  position: relative;
+  width: 100%;
+}
+
+.srp-funnel .srp-video-moment__inner {
+  width: 100%;
+}
+
+.srp-funnel .srp-stream-video {
+  position: relative;
+  overflow: hidden;
+  background: color-mix(in srgb, var(--cherry) 8%, var(--snow));
+  opacity: 0;
+  transition: opacity 0.8s var(--ease-cinematic);
+}
+
+.srp-funnel .srp-stream-video--ready {
+  opacity: 1;
+}
+
+.srp-funnel .srp-stream-video__el {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.srp-funnel .srp-stream-video--chromeless .srp-stream-video__el {
+  pointer-events: none;
+}
+
+.srp-funnel .srp-stream-video--chromeless .srp-stream-video__el::-webkit-media-controls,
+.srp-funnel .srp-stream-video--chromeless .srp-stream-video__el::-webkit-media-controls-enclosure,
+.srp-funnel .srp-stream-video--chromeless .srp-stream-video__el::-webkit-media-controls-panel {
+  display: none !important;
+  -webkit-appearance: none;
+}
+
+.srp-funnel .srp-stream-video__veil {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    rgba(236, 235, 233, 0.08) 0%,
+    transparent 22%,
+    transparent 72%,
+    rgba(43, 21, 23, 0.12) 100%
+  );
+}
+
+/* Opener — contained cinematic intro at tunnel top */
+.srp-funnel .srp-video-moment--opener {
+  padding-block: clamp(24px, 4vw, 44px) clamp(8px, 1.5vw, 16px);
+}
+
+.srp-funnel .srp-video-moment--opener .srp-video-moment__inner {
+  width: min(var(--srp-max), 100% - var(--srp-pad) * 2);
+  margin-inline: auto;
+}
+
+.srp-funnel .srp-video-moment--opener .srp-stream-video {
+  aspect-ratio: 16 / 9;
+  border-radius: 24px;
+  border: 1px solid rgba(43, 21, 23, 0.1);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.55),
+    0 28px 72px -36px rgba(43, 21, 23, 0.28);
+}
+
+.srp-funnel .srp-video-moment--opener .srp-stream-video__veil {
+  border-radius: inherit;
+  background: linear-gradient(
+    145deg,
+    rgba(236, 235, 233, 0.04) 0%,
+    transparent 42%,
+    rgba(43, 21, 23, 0.05) 100%
+  );
+}
+
+/* Interlude — contained editorial pause mid-funnel */
+.srp-funnel .srp-video-moment--interlude {
+  padding-block: clamp(32px, 5vw, 56px);
+}
+
+.srp-funnel .srp-video-moment--interlude .srp-video-moment__inner {
+  width: min(var(--srp-max), 100% - var(--srp-pad) * 2);
+  margin-inline: auto;
+}
+
+.srp-funnel .srp-video-moment--interlude .srp-stream-video {
+  aspect-ratio: 16 / 9;
+  border-radius: 24px;
+  border: 1px solid rgba(43, 21, 23, 0.1);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.55),
+    0 28px 72px -36px rgba(43, 21, 23, 0.28);
+}
+
+.srp-funnel .srp-video-moment--interlude .srp-stream-video__veil {
+  border-radius: inherit;
+  background: linear-gradient(
+    145deg,
+    rgba(236, 235, 233, 0.06) 0%,
+    transparent 40%,
+    rgba(43, 21, 23, 0.06) 100%
+  );
+}
+
+/* Closer — cinematic send-off before footer */
+.srp-funnel .srp-video-moment--closer {
+  padding-block: clamp(40px, 6vw, 72px);
+  background: linear-gradient(
+    180deg,
+    var(--snow) 0%,
+    color-mix(in srgb, var(--beige) 24%, var(--snow)) 100%
+  );
+}
+
+.srp-funnel .srp-video-moment--closer .srp-video-moment__inner {
+  width: min(calc(var(--srp-max) + 80px), 100% - var(--srp-pad));
+  margin-inline: auto;
+}
+
+.srp-funnel .srp-video-moment--closer .srp-stream-video {
+  aspect-ratio: 21 / 9;
+  min-height: clamp(200px, 36vw, 440px);
+  border-radius: 28px;
+  border: 1px solid rgba(43, 21, 23, 0.08);
+  box-shadow: 0 32px 80px -40px rgba(43, 21, 23, 0.32);
+}
+
+.srp-funnel .srp-video-moment--closer .srp-stream-video__veil {
+  border-radius: inherit;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    transparent 60%,
+    rgba(43, 21, 23, 0.14) 100%
+  );
+}
+
+@media (max-width: 899px) {
+  .srp-funnel .srp-video-moment--opener .srp-stream-video,
+  .srp-funnel .srp-video-moment--interlude .srp-stream-video,
+  .srp-funnel .srp-video-moment--closer .srp-stream-video {
+    border-radius: 18px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .srp-funnel .srp-stream-video {
+    transition: none;
+  }
+}

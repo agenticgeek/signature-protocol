@@ -1,15 +1,16 @@
 "use client";
 
 import { Fragment } from "react";
-import Image from "next/image";
 import CTAButton from "@/signature-recovery-protocol/components/CTAButton";
 import SrpParallaxBg from "@/signature-recovery-protocol/components/SrpParallaxBg";
-import { SRP_ASSETS, SRP_BACKGROUNDS } from "@/signature-recovery-protocol/constants/assets";
+import SrpStreamVideo from "@/signature-recovery-protocol/components/SrpStreamVideo";
+import { SRP_BACKGROUNDS } from "@/signature-recovery-protocol/constants/assets";
 import { SRP_ROUTES } from "@/signature-recovery-protocol/constants/routes";
+import { SRP_VIDEOS } from "@/signature-recovery-protocol/constants/videos";
 import { useSrpContent } from "@/signature-recovery-protocol/i18n/useSrpContent";
 
 export default function HeroSection() {
-  const { landing } = useSrpContent();
+  const { landing, ui } = useSrpContent();
   const { hero } = landing;
 
   const pillars = hero.mantra[0]
@@ -19,7 +20,13 @@ export default function HeroSection() {
 
   return (
     <section className="srp-section srp-hero" id="section-hero">
-      <SrpParallaxBg src={SRP_BACKGROUNDS.gel} speed={0.42} opacity={0.22} align="right" />
+      <SrpParallaxBg
+        src={SRP_BACKGROUNDS.gel}
+        speed={0.42}
+        opacity={0.22}
+        align="right"
+        priority
+      />
       <SrpParallaxBg
         src={SRP_BACKGROUNDS.quote}
         speed={-0.28}
@@ -33,46 +40,37 @@ export default function HeroSection() {
       </p>
 
       <div className="srp-container">
-        <header className="srp-hero-intro">
-          <div className="srp-hero-meta">
-            <span>{hero.sectionNum}</span>
-            <span>METCARE®</span>
-          </div>
+        <div className="srp-hero-stage">
+          <header className="srp-hero-intro">
+            <div className="srp-hero-meta">
+              <span>{hero.sectionNum}</span>
+              <span>METCARE®</span>
+            </div>
 
-          <h1 className="srp-hero-title">
-            <span className="srp-hero-title-line srp-hero-title-line--signature">
-              SIGNATURE
-            </span>
-            <span className="srp-hero-title-line srp-hero-title-line--recovery">
-              RECOVERY
-            </span>
-            <span className="srp-hero-title-line srp-hero-title-line--protocol">
-              PROTOCOL<span className="tm">™</span>
-            </span>
-          </h1>
+            <h1 className="srp-hero-title">
+              <span className="srp-hero-title-line srp-hero-title-line--signature">
+                SIGNATURE
+              </span>
+              <span className="srp-hero-title-line srp-hero-title-line--recovery">
+                RECOVERY
+              </span>
+              <span className="srp-hero-title-line srp-hero-title-line--protocol">
+                PROTOCOL<span className="tm">™</span>
+              </span>
+            </h1>
 
-          <p className="srp-hero-tagline">{hero.tagline}</p>
-        </header>
+            <p className="srp-hero-tagline">{hero.tagline}</p>
+          </header>
 
-        <div className="srp-hero-showcase" aria-hidden="true">
-          <div className="srp-hero-showcase__slot srp-hero-showcase__primary">
-            <Image
-              src={SRP_ASSETS.productDrainBooster}
-              alt=""
-              fill
-              sizes="(max-width: 900px) 72vw, 420px"
-              className="srp-hero-showcase__image"
-              priority
-            />
-          </div>
-          <div className="srp-hero-showcase__slot srp-hero-showcase__secondary">
-            <Image
-              src={SRP_ASSETS.productKit}
-              alt=""
-              fill
-              sizes="(max-width: 900px) 40vw, 220px"
-              className="srp-hero-showcase__image"
-              priority
+          <div className="srp-hero-video" aria-label={ui.video.opener}>
+            <SrpStreamVideo
+              src={SRP_VIDEOS.opener}
+              className="srp-stream-video--hero"
+              autoplay
+              loop
+              muted
+              controls={false}
+              playsWhenVisible
             />
           </div>
         </div>

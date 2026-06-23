@@ -20,6 +20,11 @@ const uiFr = {
     french: "FR",
     english: "EN",
   },
+  video: {
+    opener: "Vidéo d'ouverture METCARE®",
+    interlude: "Vidéo METCARE®",
+    closer: "Vidéo de clôture METCARE®",
+  },
 } as const;
 
 const uiEn = {
@@ -41,6 +46,11 @@ const uiEn = {
     switchAriaLabel: "Switch language",
     french: "FR",
     english: "EN",
+  },
+  video: {
+    opener: "METCARE® opening film",
+    interlude: "METCARE® film",
+    closer: "METCARE® closing film",
   },
 } as const;
 
