@@ -3,7 +3,7 @@
 import SrpParallaxBg from "@/signature-recovery-protocol/components/SrpParallaxBg";
 import SrpSectionHead from "@/signature-recovery-protocol/components/SrpSectionHead";
 import SrpSectionMedia from "@/signature-recovery-protocol/components/SrpSectionMedia";
-import { SRP_ASSETS, SRP_BACKGROUNDS } from "@/signature-recovery-protocol/constants/assets";
+import { SECTION_FEATURED_IMAGES, SRP_BACKGROUNDS } from "@/signature-recovery-protocol/constants/assets";
 import { useSrpContent } from "@/signature-recovery-protocol/i18n/useSrpContent";
 
 export default function NotAloneSection() {
@@ -30,7 +30,7 @@ export default function NotAloneSection() {
               aspect="portrait"
               tone="beige"
               variant="product"
-              src={SRP_ASSETS.preparationMentale}
+              src={SECTION_FEATURED_IMAGES.notAlone}
               alt="Préparation mentale et émotionnelle — METCARE®"
               label="// Préparation mentale & émotionnelle"
               title="Accompagnement avant l'intervention"

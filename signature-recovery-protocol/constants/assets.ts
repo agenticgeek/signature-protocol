@@ -32,6 +32,28 @@ export const PROTOCOL_PRODUCT_IMAGES: Partial<Record<number, string>> = {
   5: SRP_ASSETS.cremeNight,
   6: SRP_ASSETS.fillerPatch,
   7: SRP_ASSETS.productKit,
-  8: SRP_ASSETS.productDayGel,
+  8: SRP_ASSETS.cremeNight,
   9: SRP_ASSETS.preparationMentale,
 };
+
+/** Large editorial visuals — one primary asset per section (hero keeps its own pair). */
+export const SECTION_FEATURED_IMAGES = {
+  hero: {
+    primary: SRP_ASSETS.productDrainBooster,
+    secondary: SRP_ASSETS.productKit,
+  },
+  notAlone: SRP_ASSETS.preparationMentale,
+  philosophy: SRP_ASSETS.productDayGel,
+  phases: SRP_ASSETS.activeDrain,
+  actives: SRP_ASSETS.fillerPatch,
+  dayNight: {
+    day: SRP_ASSETS.dayCollagen,
+    night: SRP_ASSETS.nightCollagen,
+  },
+  sensory: SRP_ASSETS.cremeNight,
+  individual: {
+    primary: SRP_ASSETS.activeDrain,
+    day: SRP_ASSETS.productDayGel,
+    night: SRP_ASSETS.cremeNight,
+  },
+} as const;

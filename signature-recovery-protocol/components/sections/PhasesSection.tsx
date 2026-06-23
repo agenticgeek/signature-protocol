@@ -3,14 +3,14 @@
 import SrpParallaxBg from "@/signature-recovery-protocol/components/SrpParallaxBg";
 import SrpProductShowcase from "@/signature-recovery-protocol/components/SrpProductShowcase";
 import SrpSectionHead from "@/signature-recovery-protocol/components/SrpSectionHead";
-import { SRP_ASSETS, SRP_BACKGROUNDS } from "@/signature-recovery-protocol/constants/assets";
+import { SECTION_FEATURED_IMAGES, SRP_BACKGROUNDS } from "@/signature-recovery-protocol/constants/assets";
 import { SRP_PRODUCT_DIMENSIONS } from "@/signature-recovery-protocol/constants/product-dimensions";
 import { useSrpContent } from "@/signature-recovery-protocol/i18n/useSrpContent";
 
 export default function PhasesSection() {
   const { landing } = useSrpContent();
   const { phases } = landing;
-  const kit = SRP_PRODUCT_DIMENSIONS.productKit;
+  const kit = SRP_PRODUCT_DIMENSIONS.activeDrain;
 
   const signatureBody = phases.paragraphs.slice(0, 2);
   const signatureEmphasis = phases.paragraphs.slice(2);
@@ -27,10 +27,10 @@ export default function PhasesSection() {
           <div className="srp-phases-kit">
             <SrpProductShowcase
               className="srp-phases-kit__showcase"
-              src={SRP_ASSETS.productKit}
+              src={SECTION_FEATURED_IMAGES.phases}
               width={kit.width}
               height={kit.height}
-              alt="Coffret complet SIGNATURE RECOVERY PROTOCOL™"
+              alt="ACTIVE DRAIN™ — phase de récupération active"
               label="// Protocole complet"
               title="Les quatre phases · rituel Recovery 24h"
               sizes="(max-width: 900px) 100vw, (max-width: 1240px) 44vw, 560px"

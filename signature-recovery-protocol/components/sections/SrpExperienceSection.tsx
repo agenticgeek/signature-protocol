@@ -4,7 +4,7 @@ import SrpParallaxBg from "@/signature-recovery-protocol/components/SrpParallaxB
 import SrpSectionHead from "@/signature-recovery-protocol/components/SrpSectionHead";
 import SrpSectionMedia from "@/signature-recovery-protocol/components/SrpSectionMedia";
 import VerbatimLines from "@/signature-recovery-protocol/components/VerbatimLines";
-import { SRP_ASSETS, SRP_BACKGROUNDS } from "@/signature-recovery-protocol/constants/assets";
+import { SRP_BACKGROUNDS } from "@/signature-recovery-protocol/constants/assets";
 import { useSrpContent } from "@/signature-recovery-protocol/i18n/useSrpContent";
 
 export default function SrpExperienceSection() {
@@ -32,9 +32,6 @@ export default function SrpExperienceSection() {
               className="srp-experience-media"
               aspect="portrait"
               tone="beige"
-              variant="product"
-              src={SRP_ASSETS.productKit}
-              alt="SRP™ Experience — coffret premium réutilisable"
               label="// SRP™ Experience"
               title="Coffret premium · prolongement METCARE®"
             />

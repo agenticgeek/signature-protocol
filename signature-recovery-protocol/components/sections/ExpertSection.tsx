@@ -5,7 +5,7 @@ import SrpParallaxBg from "@/signature-recovery-protocol/components/SrpParallaxB
 import SrpSectionHead from "@/signature-recovery-protocol/components/SrpSectionHead";
 import SrpSectionMedia from "@/signature-recovery-protocol/components/SrpSectionMedia";
 import VerbatimLines from "@/signature-recovery-protocol/components/VerbatimLines";
-import { SRP_ASSETS, SRP_BACKGROUNDS } from "@/signature-recovery-protocol/constants/assets";
+import { SRP_BACKGROUNDS } from "@/signature-recovery-protocol/constants/assets";
 import { SRP_ROUTES } from "@/signature-recovery-protocol/constants/routes";
 import { useSrpContent } from "@/signature-recovery-protocol/i18n/useSrpContent";
 
@@ -30,9 +30,6 @@ export default function ExpertSection() {
             <SrpSectionMedia
               aspect="portrait"
               tone="beige"
-              variant="product"
-              src={SRP_ASSETS.preparationMentale}
-              alt="Accompagnement expert METCARE®"
               label="// Accompagnement expert"
               title="Préparation mentale & émotionnelle"
             />

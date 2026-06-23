@@ -5,7 +5,7 @@ import SrpParallaxBg from "@/signature-recovery-protocol/components/SrpParallaxB
 import SrpSectionHead from "@/signature-recovery-protocol/components/SrpSectionHead";
 import SrpSectionMedia from "@/signature-recovery-protocol/components/SrpSectionMedia";
 import VerbatimLines from "@/signature-recovery-protocol/components/VerbatimLines";
-import { SRP_ASSETS, SRP_BACKGROUNDS } from "@/signature-recovery-protocol/constants/assets";
+import { SECTION_FEATURED_IMAGES, SRP_BACKGROUNDS } from "@/signature-recovery-protocol/constants/assets";
 import { useSrpContent } from "@/signature-recovery-protocol/i18n/useSrpContent";
 
 export default function DayNightSection() {
@@ -33,7 +33,7 @@ export default function DayNightSection() {
                 aspect="square"
                 tone="light"
                 variant="product"
-                src={SRP_ASSETS.dayCollagen}
+                src={SECTION_FEATURED_IMAGES.dayNight.day}
                 alt="DAY COLLAGEN™ — Metabolic Booster"
                 label="// DAY COLLAGEN™"
                 title="Réparer · Drainer · Soutenir"
@@ -61,7 +61,7 @@ export default function DayNightSection() {
                 aspect="square"
                 tone="dark"
                 variant="product"
-                src={SRP_ASSETS.nightCollagen}
+                src={SECTION_FEATURED_IMAGES.dayNight.night}
                 alt="NIGHT COLLAGEN™ — Deep Restore"
                 label="// NIGHT COLLAGEN™"
                 title="Calmer · Régénérer · Reconstruire"

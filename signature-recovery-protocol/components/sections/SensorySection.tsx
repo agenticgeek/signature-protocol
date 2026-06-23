@@ -3,7 +3,7 @@
 import SrpParallaxBg from "@/signature-recovery-protocol/components/SrpParallaxBg";
 import SrpProductShowcase from "@/signature-recovery-protocol/components/SrpProductShowcase";
 import SrpSectionHead from "@/signature-recovery-protocol/components/SrpSectionHead";
-import { SRP_ASSETS, SRP_BACKGROUNDS } from "@/signature-recovery-protocol/constants/assets";
+import { SECTION_FEATURED_IMAGES, SRP_BACKGROUNDS } from "@/signature-recovery-protocol/constants/assets";
 import { SRP_PRODUCT_DIMENSIONS } from "@/signature-recovery-protocol/constants/product-dimensions";
 import { useSrpContent } from "@/signature-recovery-protocol/i18n/useSrpContent";
 
@@ -49,7 +49,7 @@ export default function SensorySection() {
           <div className="srp-sensory-visual">
             <SrpProductShowcase
               className="srp-sensory-patch"
-              src={SRP_ASSETS.fillerPatch}
+              src={SECTION_FEATURED_IMAGES.sensory}
               width={patch.width}
               height={patch.height}
               alt="SKIN RECOVERY PATCH™ — application"

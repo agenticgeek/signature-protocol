@@ -3,7 +3,7 @@
 import SrpParallaxBg from "@/signature-recovery-protocol/components/SrpParallaxBg";
 import SrpSectionHead from "@/signature-recovery-protocol/components/SrpSectionHead";
 import SrpSectionMedia from "@/signature-recovery-protocol/components/SrpSectionMedia";
-import { SRP_ASSETS, SRP_BACKGROUNDS } from "@/signature-recovery-protocol/constants/assets";
+import { SECTION_FEATURED_IMAGES, SRP_BACKGROUNDS } from "@/signature-recovery-protocol/constants/assets";
 import { useSrpContent } from "@/signature-recovery-protocol/i18n/useSrpContent";
 
 export default function PhilosophySection() {
@@ -51,7 +51,7 @@ export default function PhilosophySection() {
               aspect="portrait"
               tone="light"
               variant="product"
-              src={SRP_ASSETS.productDayGel}
+              src={SECTION_FEATURED_IMAGES.philosophy}
               alt="DRAINAGE ACTIVATION GEL™ — Day"
               label="// DRAINAGE ACTIVATION GEL™"
               title="Recovery is strategy · rituel jour"
