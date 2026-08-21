@@ -11,6 +11,7 @@ export default function LanguageSwitch() {
   const options: { value: Locale; label: string }[] = [
     { value: "fr", label: ui.language.french },
     { value: "en", label: ui.language.english },
+    { value: "es", label: ui.language.spanish },
   ];
 
   return (

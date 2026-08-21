@@ -19,11 +19,13 @@ type LanguageContextValue = {
 
 const LanguageContext = createContext<LanguageContextValue | null>(null);
 
+const LOCALE_CYCLE: Locale[] = ["fr", "en", "es"];
+
 function readStoredLocale(): Locale {
   if (typeof window === "undefined") return DEFAULT_LOCALE;
   try {
     const stored = localStorage.getItem(LOCALE_STORAGE_KEY);
-    return stored === "en" ? "en" : DEFAULT_LOCALE;
+    return stored === "en" || stored === "es" ? stored : DEFAULT_LOCALE;
   } catch {
     return DEFAULT_LOCALE;
   }
@@ -50,7 +52,9 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const toggleLocale = useCallback(() => {
-    setLocaleState((current) => (current === "fr" ? "en" : "fr"));
+    setLocaleState(
+      (current) => LOCALE_CYCLE[(LOCALE_CYCLE.indexOf(current) + 1) % LOCALE_CYCLE.length],
+    );
   }, []);
 
   const value = useMemo(

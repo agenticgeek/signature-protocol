@@ -9,18 +9,41 @@ import { protocoleContent as protocoleEn } from "./en/protocole";
 import { checkoutContent as checkoutEn } from "./en/checkout";
 import { upsellContent as upsellEn } from "./en/upsell";
 import { merciContent as merciEn } from "./en/merci";
+import { landingContent as landingEs } from "./es/landing";
+import { protocoleContent as protocoleEs } from "./es/protocole";
+import { checkoutContent as checkoutEs } from "./es/checkout";
+import { upsellContent as upsellEs } from "./es/upsell";
+import { merciContent as merciEs } from "./es/merci";
 import { getUiContent } from "./ui";
 import { getFooterDisclaimer } from "./footer";
 
-export function getSrpContent(locale: Locale) {
-  const isEn = locale === "en";
+const byLocale = {
+  fr: {
+    landing: landingFr,
+    protocole: protocoleFr,
+    checkout: checkoutFr,
+    upsell: upsellFr,
+    merci: merciFr,
+  },
+  en: {
+    landing: landingEn,
+    protocole: protocoleEn,
+    checkout: checkoutEn,
+    upsell: upsellEn,
+    merci: merciEn,
+  },
+  es: {
+    landing: landingEs,
+    protocole: protocoleEs,
+    checkout: checkoutEs,
+    upsell: upsellEs,
+    merci: merciEs,
+  },
+} as const satisfies Record<Locale, Record<string, unknown>>;
 
+export function getSrpContent(locale: Locale) {
   return {
-    landing: isEn ? landingEn : landingFr,
-    protocole: isEn ? protocoleEn : protocoleFr,
-    checkout: isEn ? checkoutEn : checkoutFr,
-    upsell: isEn ? upsellEn : upsellFr,
-    merci: isEn ? merciEn : merciFr,
+    ...byLocale[locale],
     ui: getUiContent(locale),
     footerDisclaimer: getFooterDisclaimer(locale),
   };

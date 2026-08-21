@@ -19,6 +19,7 @@ const uiFr = {
     switchAriaLabel: "Changer de langue",
     french: "FR",
     english: "EN",
+    spanish: "ES",
   },
   video: {
     opener: "Vidéo d'ouverture METCARE®",
@@ -46,6 +47,7 @@ const uiEn = {
     switchAriaLabel: "Switch language",
     french: "FR",
     english: "EN",
+    spanish: "ES",
   },
   video: {
     opener: "METCARE® opening film",
@@ -54,6 +56,36 @@ const uiEn = {
   },
 } as const;
 
+const uiEs = {
+  nav: {
+    mainAriaLabel: "Navegación principal",
+    quickAriaLabel: "Navegación rápida",
+    openMenu: "Abrir menú",
+    closeMenu: "Cerrar menú",
+    philosophy: "Filosofía",
+    protocol: "El protocolo",
+    order: "Pedir",
+    backHome: "← Volver al inicio",
+    back: "← Volver",
+    home: "Inicio",
+    confirmation: "Confirmación",
+    backHomeShort: "Volver al inicio",
+  },
+  language: {
+    switchAriaLabel: "Cambiar idioma",
+    french: "FR",
+    english: "EN",
+    spanish: "ES",
+  },
+  video: {
+    opener: "Vídeo de apertura METCARE®",
+    interlude: "Vídeo METCARE®",
+    closer: "Vídeo de cierre METCARE®",
+  },
+} as const;
+
 export function getUiContent(locale: Locale) {
-  return locale === "en" ? uiEn : uiFr;
+  if (locale === "en") return uiEn;
+  if (locale === "es") return uiEs;
+  return uiFr;
 }
