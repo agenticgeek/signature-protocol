@@ -8,10 +8,10 @@ export default function LanguageSwitch() {
   const { locale, setLocale } = useLocale();
   const { ui } = useSrpContent();
 
+  // ES is hidden until the client sends Spanish copy (Q-3 / Y1).
   const options: { value: Locale; label: string }[] = [
     { value: "fr", label: ui.language.french },
     { value: "en", label: ui.language.english },
-    { value: "es", label: ui.language.spanish },
   ];
 
   return (

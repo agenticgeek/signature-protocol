@@ -6,18 +6,15 @@ import CTAButton from "@/signature-recovery-protocol/components/CTAButton";
 import SrpParallaxBg from "@/signature-recovery-protocol/components/SrpParallaxBg";
 import SrpStreamVideo from "@/signature-recovery-protocol/components/SrpStreamVideo";
 import { SECTION_FEATURED_IMAGES, SRP_BACKGROUNDS } from "@/signature-recovery-protocol/constants/assets";
-import { SRP_ROUTES } from "@/signature-recovery-protocol/constants/routes";
+import { AMBASSADOR_LINKS } from "@/signature-recovery-protocol/constants/routes";
 import { SRP_VIDEOS } from "@/signature-recovery-protocol/constants/videos";
 import { useSrpContent } from "@/signature-recovery-protocol/i18n/useSrpContent";
+
+const TITLE_LINE_MODIFIERS = ["signature", "recovery", "protocol"] as const;
 
 export default function HeroSection() {
   const { landing, ui } = useSrpContent();
   const { hero } = landing;
-
-  const pillars = hero.mantra[0]
-    .split(".")
-    .map((word) => word.trim())
-    .filter(Boolean);
 
   return (
     <section className="srp-section srp-hero" id="section-hero">
@@ -29,16 +26,13 @@ export default function HeroSection() {
         priority
       />
       <SrpParallaxBg
-        src={SRP_BACKGROUNDS.quote}
+        src={SRP_BACKGROUNDS.cream}
         speed={-0.28}
         opacity={0.1}
         align="left"
         scale={1.28}
         className="srp-parallax-bg--hero-quote"
       />
-      <p className="srp-hero-ghost" aria-hidden="true">
-        {hero.ghostWord}
-      </p>
 
       <div className="srp-container">
         <div className="srp-hero-layout">
@@ -50,15 +44,16 @@ export default function HeroSection() {
               </div>
 
               <h1 className="srp-hero-title">
-                <span className="srp-hero-title-line srp-hero-title-line--signature">
-                  SIGNATURE
-                </span>
-                <span className="srp-hero-title-line srp-hero-title-line--recovery">
-                  RECOVERY
-                </span>
-                <span className="srp-hero-title-line srp-hero-title-line--protocol">
-                  PROTOCOL<span className="tm">™</span>
-                </span>
+                {hero.titleLines.map((line, i) => (
+                  <span
+                    key={line}
+                    className={`srp-hero-title-line srp-hero-title-line--${
+                      TITLE_LINE_MODIFIERS[i] ?? "protocol"
+                    }`}
+                  >
+                    {line}
+                  </span>
+                ))}
               </h1>
 
               <p className="srp-hero-tagline">{hero.tagline}</p>
@@ -80,34 +75,14 @@ export default function HeroSection() {
               </div>
             </div>
 
-            <div className="srp-hero-story">
+            <div className="srp-hero-story srp-hero-story--solo">
               <div className="srp-hero-story-lead">
-                <p className="srp-hero-story-text">
-                  {hero.storyLeadBefore}
-                  <span className="srp-hero-story-mark">METCARE®</span>
-                  {hero.storyLeadMiddle}
-                  <span className="srp-hero-story-em">{hero.storyLeadEmphasis}</span>
-                  {hero.storyLeadAfter}
-                </p>
-              </div>
-
-              <div className="srp-hero-story-accent">
-                <p className="srp-hero-story-kicker">
-                  <span className="srp-hero-story-kicker-num">{hero.storyHoursValue}</span>
-                  <span className="srp-hero-story-kicker-unit">{hero.storyHoursUnit}</span>
-                </p>
-                <p className="srp-hero-story-text srp-hero-story-text--secondary">
-                  {hero.storySecondaryBefore}
-                  <span className="srp-hero-story-protocol">{hero.storySecondaryProtocol}</span>
-                  {hero.storySecondaryMiddle}
-                  <span className="srp-hero-story-em">{hero.storySecondaryEmphasis}</span>
-                  {hero.storySecondaryAfter}
-                </p>
+                <p className="srp-hero-story-text">{hero.intro}</p>
               </div>
             </div>
 
-            <div className="srp-hero-mantra" aria-label={hero.pillarsAriaLabel}>
-              {pillars.map((word, i) => (
+            <div className="srp-hero-mantra" aria-label={hero.stepsAriaLabel}>
+              {hero.steps.map((word, i) => (
                 <p className="srp-hero-mantra-line" key={word}>
                   <span className="srp-hero-mantra-idx">
                     {String(i + 1).padStart(2, "0")}
@@ -117,11 +92,11 @@ export default function HeroSection() {
               ))}
             </div>
 
-            <div className="srp-hero-outro">
-              <p className="srp-hero-closing">{hero.closing}</p>
+            <div className="srp-hero-outro srp-hero-outro--solo">
               <CTAButton
                 className="srp-hero-cta"
-                href={SRP_ROUTES.protocole}
+                id="cta-join-hero"
+                href={AMBASSADOR_LINKS.registration}
                 label={hero.ctaLabel}
               />
             </div>
@@ -144,7 +119,7 @@ export default function HeroSection() {
               <div className="srp-hero-showcase__slot srp-hero-showcase__primary">
                 <Image
                   src={SECTION_FEATURED_IMAGES.hero.primary}
-                  alt="DRAIN BOOSTER™ — SIGNATURE RECOVERY PROTOCOL™"
+                  alt="METCARE®"
                   fill
                   sizes="(max-width: 900px) 72vw, 420px"
                   className="srp-hero-showcase__image"
@@ -154,7 +129,7 @@ export default function HeroSection() {
               <div className="srp-hero-showcase__slot srp-hero-showcase__secondary">
                 <Image
                   src={SECTION_FEATURED_IMAGES.hero.secondary}
-                  alt="Coffret SIGNATURE RECOVERY PROTOCOL™"
+                  alt="METCARE®"
                   fill
                   sizes="(max-width: 900px) 40vw, 220px"
                   className="srp-hero-showcase__image"

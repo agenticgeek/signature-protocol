@@ -12,9 +12,6 @@ export default function SensorySection() {
   const { sensory } = landing;
   const patch = SRP_PRODUCT_DIMENSIONS.fillerPatch;
 
-  const signatureBody = sensory.closing.slice(0, 1);
-  const signatureEmphasis = sensory.closing.slice(1);
-
   return (
     <section className="srp-section srp-section--sensory" id="section-sensory">
       <SrpParallaxBg src={SRP_BACKGROUNDS.cream} speed={0.48} opacity={0.2} align="right" />
@@ -24,11 +21,15 @@ export default function SensorySection() {
       </div>
 
       <div className="srp-container">
-        <SrpSectionHead sectionNum={sensory.sectionNum} title={sensory.title} />
+        <SrpSectionHead
+          sectionNum={sensory.sectionNum}
+          title={sensory.title}
+          lede={sensory.intro}
+        />
 
         <div className="srp-sensory-stage">
           <div className="srp-sensory-content">
-            <div className="srp-sensory-senses" aria-label="Expérience sensorielle">
+            <div className="srp-sensory-senses" aria-label={sensory.title}>
               {sensory.features.map((txt, i) => (
                 <article
                   key={txt}
@@ -52,26 +53,17 @@ export default function SensorySection() {
               src={SECTION_FEATURED_IMAGES.sensory}
               width={patch.width}
               height={patch.height}
-              alt="SKIN RECOVERY PATCH™ — application"
-              label="// SKIN RECOVERY PATCH™"
-              title="Patch sensoriel · application peau"
+              alt="METCARE®"
               sizes="(max-width: 900px) 100vw, (max-width: 1240px) 46vw, 560px"
             />
           </div>
         </div>
 
-        <div className="srp-sensory-signature">
-          <div className="srp-sensory-signature-copy">
-            {signatureBody.map((line) => (
-              <p key={line}>{line}</p>
-            ))}
-          </div>
+        <div className="srp-sensory-signature srp-signature--solo">
           <div className="srp-sensory-signature-em-wrap">
             <span className="srp-sensory-signature-orbit" aria-hidden="true" />
             <div className="srp-sensory-signature-em">
-              {signatureEmphasis.map((line) => (
-                <p key={line}>{line}</p>
-              ))}
+              <p>{sensory.closing}</p>
             </div>
           </div>
         </div>

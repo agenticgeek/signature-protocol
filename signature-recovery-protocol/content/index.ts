@@ -9,7 +9,6 @@ import { protocoleContent as protocoleEn } from "./en/protocole";
 import { checkoutContent as checkoutEn } from "./en/checkout";
 import { upsellContent as upsellEn } from "./en/upsell";
 import { merciContent as merciEn } from "./en/merci";
-import { landingContent as landingEs } from "./es/landing";
 import { protocoleContent as protocoleEs } from "./es/protocole";
 import { checkoutContent as checkoutEs } from "./es/checkout";
 import { upsellContent as upsellEs } from "./es/upsell";
@@ -32,8 +31,11 @@ const byLocale = {
     upsell: upsellEn,
     merci: merciEn,
   },
+  // ES is parked until the client sends Spanish copy (Q-3 / Y1): the landing page
+  // falls back to French so the old SRP copy can never surface in Spanish.
+  // To restore, update content/es/landing.ts to the new shape and import it here.
   es: {
-    landing: landingEs,
+    landing: landingFr,
     protocole: protocoleEs,
     checkout: checkoutEs,
     upsell: upsellEs,

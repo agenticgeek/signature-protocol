@@ -5,7 +5,8 @@ type SrpProductShowcaseProps = {
   width: number;
   height: number;
   alt: string;
-  label: string;
+  /** Caption label. Omit both label and title to render no caption at all. */
+  label?: string;
   title?: string;
   priority?: boolean;
   className?: string;
@@ -42,10 +43,12 @@ export default function SrpProductShowcase({
           className="srp-product-showcase__image"
         />
       </div>
-      <figcaption className="srp-product-showcase__caption">
-        <span className="srp-product-showcase__label">{label}</span>
-        {title ? <span className="srp-product-showcase__title">{title}</span> : null}
-      </figcaption>
+      {label || title ? (
+        <figcaption className="srp-product-showcase__caption">
+          {label ? <span className="srp-product-showcase__label">{label}</span> : null}
+          {title ? <span className="srp-product-showcase__title">{title}</span> : null}
+        </figcaption>
+      ) : null}
     </figure>
   );
 }

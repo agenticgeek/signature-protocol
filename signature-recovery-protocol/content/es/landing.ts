@@ -1,3 +1,6 @@
+// PARKED — Signature Recovery Protocol copy, kept for reference only (Q-3 / Y1).
+// Not imported: content/index.ts maps the ES landing page to the French content
+// until the client supplies Spanish copy for the Pro Ambassador program.
 export const landingContent = {
   hero: {
     sectionNum: "§ 01",

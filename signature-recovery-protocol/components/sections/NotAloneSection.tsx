@@ -9,8 +9,6 @@ import { useSrpContent } from "@/signature-recovery-protocol/i18n/useSrpContent"
 export default function NotAloneSection() {
   const { landing } = useSrpContent();
   const { notAlone } = landing;
-  const closingBody = notAlone.paragraphs.slice(0, 2);
-  const closingEmphasis = notAlone.paragraphs[2];
 
   return (
     <section className="srp-section srp-section--not-alone" id="section-not-alone">
@@ -31,16 +29,14 @@ export default function NotAloneSection() {
               tone="beige"
               variant="product"
               src={SECTION_FEATURED_IMAGES.notAlone}
-              alt="Préparation mentale et émotionnelle — METCARE®"
-              label="// Préparation mentale & émotionnelle"
-              title="Accompagnement avant l'intervention"
+              alt="METCARE®"
             />
           </div>
 
           <div className="srp-not-alone-content">
             <p className="srp-not-alone-lead">{notAlone.listIntro}</p>
 
-            <div className="srp-not-alone-moments" aria-label="Ce que représente une intervention">
+            <div className="srp-not-alone-moments" aria-label={notAlone.listIntro}>
               {notAlone.listItems.map((item, i) => (
                 <article
                   key={item}
@@ -59,15 +55,10 @@ export default function NotAloneSection() {
           </div>
         </div>
 
-        <div className="srp-not-alone-signature">
-          <div className="srp-not-alone-signature-copy">
-            {closingBody.map((line) => (
-              <p key={line}>{line}</p>
-            ))}
-          </div>
+        <div className="srp-not-alone-signature srp-signature--solo srp-signature--solo-full">
           <div className="srp-not-alone-signature-em-wrap">
             <span className="srp-not-alone-signature-orbit" aria-hidden="true" />
-            <p className="srp-not-alone-signature-em">{closingEmphasis}</p>
+            <p className="srp-not-alone-signature-em">{notAlone.closing}</p>
           </div>
         </div>
       </div>

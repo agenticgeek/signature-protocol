@@ -209,3 +209,161 @@
     transform: none;
   }
 }
+
+/* ==========================================================================
+   Pro Ambassador — layout adjustments for hidden slots + the two new sections.
+   No new fonts or colours: everything below reuses existing tokens and the
+   hero / section components already on the page.
+   ========================================================================== */
+
+/* Hero: the "24 heures" block is hidden, so the intro keeps the left column. */
+.srp-funnel .srp-hero-story--solo {
+  margin-bottom: clamp(28px, 4vw, 44px);
+}
+
+@media (min-width: 900px) {
+  .srp-funnel .srp-hero-story--solo {
+    grid-template-columns: minmax(0, 1.12fr);
+  }
+}
+
+/* Hero: the tagline beside the button is hidden, so the button sits at the
+   left edge of the text column instead of starting the row with a gap. */
+.srp-funnel .srp-hero-outro--solo {
+  justify-content: flex-start;
+}
+
+/* Section signatures whose left paragraph is hidden. The highlight keeps its
+   place on the right (sections 3, 4 and 7) or fills the box (section 2). */
+@media (min-width: 768px) {
+  .srp-funnel .srp-signature--solo > *:only-child {
+    grid-column: 2;
+  }
+
+  .srp-funnel .srp-signature--solo-full {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .srp-funnel .srp-signature--solo-full > *:only-child {
+    grid-column: 1;
+    padding-left: 0;
+    border-left: 0;
+  }
+}
+
+/* Section 6: the 24H badge and its vertical rule are hidden. */
+@media (min-width: 900px) {
+  .srp-funnel .srp-daynight-stage--no-axis {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: clamp(20px, 4vw, 28px);
+  }
+}
+
+/* Section 5: the two products stacked in the lead area. */
+.srp-funnel .srp-actives-products {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 68ch;
+  margin-bottom: clamp(28px, 4vw, 40px);
+}
+
+.srp-funnel .srp-actives-product__name {
+  margin: 0 0 4px;
+  font-family: var(--font-poppins), "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: clamp(16px, 1.7vw, 19px);
+  letter-spacing: -0.01em;
+  color: var(--cherry);
+}
+
+.srp-funnel .srp-actives-product__tagline {
+  margin: 0 0 8px;
+  font-family: var(--font-raleway), "Raleway", sans-serif;
+  font-style: italic;
+  font-size: clamp(14px, 1.3vw, 16px);
+  color: color-mix(in srgb, var(--cherry) 60%, var(--silver-blue));
+}
+
+.srp-funnel .srp-actives-product__text {
+  margin: 0;
+  font-family: var(--font-raleway), "Raleway", sans-serif;
+  font-weight: 300;
+  font-size: clamp(15px, 1.5vw, 18px);
+  line-height: 1.65;
+  color: color-mix(in srgb, var(--cherry) 78%, var(--silver-blue));
+}
+
+/* Section 8 — closing CTA. */
+.srp-funnel .srp-join-copy {
+  position: relative;
+  z-index: 1;
+  max-width: 68ch;
+  margin-bottom: clamp(28px, 4vw, 44px);
+}
+
+.srp-funnel .srp-join-copy .srp-lede + .srp-lede {
+  margin-top: 12px;
+}
+
+.srp-funnel .srp-join-title {
+  position: relative;
+  z-index: 1;
+  margin: 0 0 clamp(18px, 2.5vw, 26px);
+  font-family: var(--font-poppins), "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: clamp(22px, 4.2vw, 43px);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  color: var(--cherry);
+}
+
+/* Section 8 strapline — hero ticker styling, held still. */
+.srp-funnel .srp-hero-rail--static {
+  position: relative;
+  z-index: 1;
+}
+
+.srp-funnel .srp-hero-rail--static .srp-hero-rail-inner {
+  animation: none;
+  flex-wrap: wrap;
+  gap: 12px 20px;
+}
+
+.srp-funnel .srp-join-actions {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: clamp(24px, 3.5vw, 32px);
+}
+
+/* Section 9 — training CTA. */
+.srp-funnel .srp-further-highlight {
+  margin-bottom: clamp(20px, 3vw, 28px);
+}
+
+.srp-funnel .srp-further-lede {
+  position: relative;
+  z-index: 1;
+  max-width: 68ch;
+}
+
+/* Footer — signature line plus the new tagline underneath, right aligned. */
+.srp-funnel .footer-signature,
+.metcare-footer .footer-signature {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  text-align: right;
+}
+
+.srp-funnel .footer-signature__tagline,
+.metcare-footer .footer-signature__tagline {
+  text-transform: none;
+  letter-spacing: 0.02em;
+  opacity: 0.75;
+}

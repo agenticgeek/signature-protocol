@@ -13,11 +13,17 @@ export default function ActivesSection() {
     <section className="srp-section" id="section-actives">
       <SrpParallaxBg src={SRP_BACKGROUNDS.cream} speed={0.36} opacity={0.15} align="right" />
       <div className="srp-container">
-        <SrpSectionHead
-          sectionNum={actives.sectionNum}
-          title={actives.title || undefined}
-          lede={actives.intro}
-        />
+        <SrpSectionHead sectionNum={actives.sectionNum} title={actives.title || undefined} />
+
+        <div className="srp-actives-products">
+          {actives.products.map((product) => (
+            <article className="srp-actives-product" key={product.name}>
+              <h3 className="srp-actives-product__name">{product.name}</h3>
+              <p className="srp-actives-product__tagline">{product.tagline}</p>
+              <p className="srp-actives-product__text">{product.description}</p>
+            </article>
+          ))}
+        </div>
 
         <div className="srp-section-stage srp-actives-stage section-editorial section-editorial--reverse">
           <SrpSectionMedia
@@ -25,9 +31,7 @@ export default function ActivesSection() {
             tone="dark"
             variant="product"
             src={SECTION_FEATURED_IMAGES.actives}
-            alt="ACTIVE DRAIN™ — Metabolic Detox"
-            label="// ACTIVE DRAIN™"
-            title="Éliminer · Détoxifier · Relancer"
+            alt="METCARE®"
           />
 
           <div className="section-editorial__content">
@@ -35,11 +39,11 @@ export default function ActivesSection() {
               {actives.listIntro}
             </p>
 
-            <div className="srp-pill-grid" aria-label="Actifs sélectionnés">
-              {actives.ingredients.map((name, i) => (
-                <article className="srp-pill" key={name}>
+            <div className="srp-pill-grid" aria-label={actives.benefitsAriaLabel}>
+              {actives.benefits.map((benefit, i) => (
+                <article className="srp-pill" key={benefit}>
                   <span className="srp-pill-idx">{String(i + 1).padStart(2, "0")}</span>
-                  <h3 className="srp-pill-name">{name}</h3>
+                  <h4 className="srp-pill-name">{benefit}</h4>
                 </article>
               ))}
             </div>

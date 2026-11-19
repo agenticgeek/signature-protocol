@@ -38,6 +38,11 @@ export default function SrpNavbar({ variant = "home" }: SrpNavbarProps) {
     return () => mq.removeEventListener("change", onChange);
   }, [close]);
 
+  // The three home links (Philosophie / Le protocole / Commander) all point at the
+  // SRP offer and no new labels were supplied, so they are not rendered (Q-4 / Y2).
+  // To restore, re-add them here and in the mobile panel below.
+  const hasNavLinks = variant !== "home";
+
   const brand = (
     <>
       METCARE<span className="sup">®</span>
@@ -57,6 +62,7 @@ export default function SrpNavbar({ variant = "home" }: SrpNavbarProps) {
       <div className="topbar-end">
         <LanguageSwitch />
 
+        {hasNavLinks ? (
         <button
           type="button"
           className="topbar-menu-btn"
@@ -69,74 +75,46 @@ export default function SrpNavbar({ variant = "home" }: SrpNavbarProps) {
           </span>
           <span className="topbar-menu-icon" aria-hidden="true" />
         </button>
+        ) : null}
 
-        <nav className="topbar-right" aria-label={ui.nav.quickAriaLabel}>
-          {variant === "home" && (
-            <>
-              <a href="#section-philosophy">{ui.nav.philosophy}</a>
-              <Link href={SRP_ROUTES.protocole}>{ui.nav.protocol}</Link>
-              <Link href={SRP_ROUTES.checkout}>{ui.nav.order}</Link>
-            </>
-          )}
-          {(variant === "checkout" || variant === "upsell") && (
-            <Link href={SRP_ROUTES.landing}>{ui.nav.back}</Link>
-          )}
-          {variant === "thankyou" && (
-            <span style={{ opacity: 0.55 }}>{ui.nav.confirmation}</span>
-          )}
-        </nav>
-      </div>
-
-      <nav id="srp-nav" className="topbar-nav" aria-label={ui.nav.mainAriaLabel}>
-        <div className="topbar-nav__panel">
-          <ul className="topbar-nav__list">
-            {variant === "home" && (
-              <>
-                <li>
-                  <a
-                    href="#section-philosophy"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      close();
-                      document.querySelector("#section-philosophy")?.scrollIntoView({
-                        behavior: "smooth",
-                      });
-                    }}
-                  >
-                    {ui.nav.philosophy}
-                  </a>
-                </li>
-                <li>
-                  <Link href={SRP_ROUTES.protocole} onClick={close}>
-                    {ui.nav.protocol}
-                  </Link>
-                </li>
-                <li>
-                  <Link className="topbar-nav__cta" href={SRP_ROUTES.checkout} onClick={close}>
-                    {ui.nav.order}
-                  </Link>
-                </li>
-              </>
-            )}
+        {hasNavLinks ? (
+          <nav className="topbar-right" aria-label={ui.nav.quickAriaLabel}>
             {(variant === "checkout" || variant === "upsell") && (
-              <li>
-                <Link href={SRP_ROUTES.landing} onClick={close}>
-                  {ui.nav.backHome}
-                </Link>
-              </li>
+              <Link href={SRP_ROUTES.landing}>{ui.nav.back}</Link>
             )}
             {variant === "thankyou" && (
-              <li>
-                <Link href={SRP_ROUTES.landing} onClick={close}>
-                  {ui.nav.home}
-                </Link>
-              </li>
+              <span style={{ opacity: 0.55 }}>{ui.nav.confirmation}</span>
             )}
-          </ul>
-        </div>
-      </nav>
+          </nav>
+        ) : null}
+      </div>
 
-      <div className="topbar-backdrop" aria-hidden={!open} onClick={close} />
+      {hasNavLinks ? (
+        <nav id="srp-nav" className="topbar-nav" aria-label={ui.nav.mainAriaLabel}>
+          <div className="topbar-nav__panel">
+            <ul className="topbar-nav__list">
+              {(variant === "checkout" || variant === "upsell") && (
+                <li>
+                  <Link href={SRP_ROUTES.landing} onClick={close}>
+                    {ui.nav.backHome}
+                  </Link>
+                </li>
+              )}
+              {variant === "thankyou" && (
+                <li>
+                  <Link href={SRP_ROUTES.landing} onClick={close}>
+                    {ui.nav.home}
+                  </Link>
+                </li>
+              )}
+            </ul>
+          </div>
+        </nav>
+      ) : null}
+
+      {hasNavLinks ? (
+        <div className="topbar-backdrop" aria-hidden={!open} onClick={close} />
+      ) : null}
     </header>
   );
 }

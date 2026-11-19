@@ -21,9 +21,14 @@ const raleway = Raleway({
 });
 
 export const metadata: Metadata = {
-  title: "SIGNATURE RECOVERY PROTOCOL™ — METCARE®",
+  title: "Programme Ambassadeur Pro | METCARE®",
   description:
-    "La récupération esthétique nouvelle génération. SIGNATURE RECOVERY PROTOCOL™ par METCARE®.",
+    "Prolongez l'expérience de vos clientes. Développez votre activité.",
+  openGraph: {
+    title: "Programme Ambassadeur Pro | METCARE®",
+    description:
+      "Prolongez l'expérience de vos clientes. Développez votre activité.",
+  },
 };
 
 export default function RootLayout({
