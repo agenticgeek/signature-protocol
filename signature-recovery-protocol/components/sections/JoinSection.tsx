@@ -5,7 +5,7 @@ import CTAButton from "@/signature-recovery-protocol/components/CTAButton";
 import SrpParallaxBg from "@/signature-recovery-protocol/components/SrpParallaxBg";
 import SrpSectionHead from "@/signature-recovery-protocol/components/SrpSectionHead";
 import { SRP_BACKGROUNDS } from "@/signature-recovery-protocol/constants/assets";
-import { AMBASSADOR_LINKS } from "@/signature-recovery-protocol/constants/routes";
+import { useAmbassadorForm } from "@/signature-recovery-protocol/components/ambassador/AmbassadorFormProvider";
 import { useSrpContent } from "@/signature-recovery-protocol/i18n/useSrpContent";
 
 /**
@@ -15,6 +15,7 @@ import { useSrpContent } from "@/signature-recovery-protocol/i18n/useSrpContent"
  */
 export default function JoinSection() {
   const { landing } = useSrpContent();
+  const { open: openAmbassadorForm } = useAmbassadorForm();
   const { join } = landing;
 
   return (
@@ -49,7 +50,7 @@ export default function JoinSection() {
           <CTAButton
             className="srp-hero-cta"
             id="cta-join-closing"
-            href={AMBASSADOR_LINKS.registration}
+            onClick={openAmbassadorForm}
             label={join.ctaLabel}
           />
         </div>

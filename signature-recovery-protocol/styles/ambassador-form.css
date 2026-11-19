@@ -1,0 +1,506 @@
+/* ==========================================================================
+   Ambassador Pro registration form — modal opened by CTA 1 and CTA 2.
+   Reuses the page tokens and the existing .srp-field / .srp-cta / .srp-lede
+   components; only the dialog shell and the choice rows are new.
+   ========================================================================== */
+
+html:has(.amb-dialog[open]) {
+  overflow: hidden;
+}
+
+.amb-dialog {
+  width: min(680px, 100% - 24px);
+  max-width: none;
+  height: fit-content;
+  max-height: min(92dvh, 100% - 24px);
+  margin: auto;
+  padding: 0;
+  border: 0;
+  border-radius: 24px;
+  background: var(--snow);
+  color: var(--cherry);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+}
+
+/* Fixed bar on top, form scrolling underneath: the close button never sits
+   on the fields. (display only when open — a closed dialog stays hidden.) */
+.amb-dialog[open] {
+  display: flex;
+  flex-direction: column;
+}
+
+.amb-dialog::backdrop {
+  background: rgba(43, 21, 23, 0.55);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.amb-dialog[open] {
+  animation: amb-in 0.4s var(--ease-cinematic);
+}
+
+.amb-dialog[open]::backdrop {
+  animation: amb-fade 0.3s ease;
+}
+
+@keyframes amb-in {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.985);
+  }
+}
+
+@keyframes amb-fade {
+  from {
+    opacity: 0;
+  }
+}
+
+.amb-bar {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 10px 12px 10px clamp(24px, 5vw, 44px);
+  border-bottom: 1px solid rgba(43, 21, 23, 0.08);
+}
+
+.amb-bar__brand {
+  font-family: var(--font-poppins), "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 0.04em;
+}
+
+.amb-bar__brand sup {
+  font-size: 0.6em;
+}
+
+.amb-panel {
+  flex: 1 1 auto;
+  min-height: 0;
+  padding: clamp(22px, 4vw, 36px) clamp(24px, 5vw, 44px) clamp(24px, 5vw, 44px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.amb-panel:focus {
+  outline: none;
+}
+
+.amb-close {
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  color: var(--cherry);
+  font-size: 26px;
+  line-height: 1;
+  transition: background-color 0.25s ease;
+}
+
+.amb-close:hover {
+  background: color-mix(in srgb, var(--beige) 45%, var(--snow));
+}
+
+.amb-close:focus-visible {
+  outline: 2px solid var(--silver-blue);
+  outline-offset: -2px;
+}
+
+
+.amb-dialog a:focus-visible {
+  outline: 2px solid var(--silver-blue);
+  outline-offset: 2px;
+}
+
+.amb-head {
+  display: grid;
+  gap: 14px;
+  margin-bottom: clamp(24px, 4vw, 32px);
+}
+
+.srp-funnel .amb-title {
+  margin: 0;
+  font-family: var(--font-poppins), "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: clamp(22px, 3.4vw, 30px);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--cherry);
+  text-wrap: balance;
+}
+
+.amb-title:focus {
+  outline: none;
+}
+
+/* ---------- Groups ---------- */
+.amb-group {
+  min-width: 0;
+  margin: 0;
+  padding: clamp(20px, 3vw, 26px) 0 0;
+  border: 0;
+  border-top: 1px solid rgba(43, 21, 23, 0.08);
+}
+
+.amb-group + .amb-group {
+  margin-top: 10px;
+}
+
+.amb-group-title {
+  float: left;
+  width: 100%;
+  margin: 0 0 16px;
+  padding: 0;
+  font-family: var(--font-poppins), "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--cherry);
+}
+
+.amb-group-title + * {
+  clear: both;
+}
+
+/* ---------- Fields (extends .srp-field) ---------- */
+.srp-funnel .amb-field label,
+.amb-choices__legend {
+  color: var(--silver-dark);
+}
+
+.srp-funnel .amb-field input,
+.srp-funnel .amb-field select {
+  min-height: 48px;
+  color: var(--cherry);
+  /* 16px keeps iOS from zooming the page when a field takes focus. */
+  font-size: 16px;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.srp-funnel .amb-field input::placeholder {
+  color: color-mix(in srgb, var(--cherry) 40%, transparent);
+}
+
+.srp-funnel .amb-field input:focus-visible,
+.srp-funnel .amb-field select:focus-visible {
+  outline: none;
+  border-color: var(--silver-blue);
+  box-shadow: 0 0 0 3px var(--silver-blue-soft);
+}
+
+.srp-funnel .amb-field--error input:not([type="checkbox"]),
+.srp-funnel .amb-field--error select {
+  border-color: #b71c1c;
+}
+
+/* Browser autofill paints fields blue — keep them white like the others. */
+.srp-funnel .amb-field input:-webkit-autofill,
+.srp-funnel .amb-field input:autofill {
+  -webkit-text-fill-color: var(--cherry);
+  box-shadow: 0 0 0 1000px #fff inset;
+  caret-color: var(--cherry);
+}
+
+.srp-funnel .amb-field input:-webkit-autofill:focus-visible {
+  box-shadow:
+    0 0 0 1000px #fff inset,
+    0 0 0 3px var(--silver-blue-soft);
+}
+
+/* ---------- Phone: country picker + number ---------- */
+.amb-phone {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 8px;
+}
+
+.amb-flag {
+  flex: 0 0 auto;
+  width: 24px;
+  height: 16px;
+  border-radius: 2px;
+  box-shadow: 0 0 0 1px rgba(43, 21, 23, 0.1);
+  object-fit: cover;
+}
+
+.amb-phone__dial {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 48px;
+  padding: 0 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(43, 21, 23, 0.12);
+  background: #fff;
+  color: var(--cherry);
+  font-size: 16px;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.amb-phone__dial:focus-visible {
+  outline: none;
+  border-color: var(--silver-blue);
+  box-shadow: 0 0 0 3px var(--silver-blue-soft);
+}
+
+.amb-phone__caret {
+  width: 7px;
+  height: 7px;
+  margin: -3px 2px 0 2px;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: rotate(45deg);
+  opacity: 0.6;
+}
+
+.amb-country {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  z-index: 5;
+  width: min(360px, 100%);
+  padding: 8px;
+  border-radius: 14px;
+  border: 1px solid rgba(43, 21, 23, 0.1);
+  background: #fff;
+  box-shadow: var(--shadow-card);
+}
+
+.srp-funnel .amb-field .amb-country__search {
+  min-height: 44px;
+  margin-bottom: 6px;
+  background: var(--snow);
+}
+
+.amb-country__list {
+  max-height: 232px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.amb-country__option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.amb-country__option.is-active {
+  background: color-mix(in srgb, var(--beige) 35%, #fff);
+}
+
+.amb-country__option[aria-selected="true"] {
+  font-weight: 600;
+}
+
+.amb-country__name {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.amb-country__dial {
+  color: var(--silver-dark);
+  font-variant-numeric: tabular-nums;
+}
+
+.amb-country__empty {
+  padding: 14px 10px;
+  font-size: 14px;
+  color: var(--silver-dark);
+}
+
+.srp-funnel .amb-field--error .amb-phone__dial {
+  border-color: #b71c1c;
+}
+
+.amb-hint,
+.amb-error,
+.amb-required-note,
+.amb-reassurance {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.amb-hint,
+.amb-required-note {
+  color: color-mix(in srgb, var(--cherry) 65%, var(--snow));
+}
+
+.amb-error {
+  color: #b71c1c;
+}
+
+/* ---------- Choices ---------- */
+.amb-choices {
+  min-width: 0;
+  margin: 0 0 14px;
+  padding: 0;
+  border: 0;
+}
+
+.amb-choices__legend {
+  margin-bottom: 8px;
+  padding: 0;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.amb-choices__list {
+  display: grid;
+  gap: 8px;
+}
+
+@media (min-width: 600px) {
+  .amb-choices__list {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.amb-choices .amb-error {
+  margin-top: 8px;
+}
+
+.amb-check {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 48px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(43, 21, 23, 0.12);
+  background: #fff;
+  font-size: 15px;
+  line-height: 1.45;
+  cursor: pointer;
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.amb-check:has(input:checked) {
+  border-color: var(--cherry);
+  background: color-mix(in srgb, var(--beige) 22%, #fff);
+}
+
+.amb-check:has(input:focus-visible) {
+  border-color: var(--silver-blue);
+  box-shadow: 0 0 0 3px var(--silver-blue-soft);
+}
+
+.amb-check input {
+  flex: 0 0 auto;
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  accent-color: var(--cherry);
+}
+
+.amb-check--consent {
+  align-items: flex-start;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.amb-check--consent input {
+  margin-top: 3px;
+}
+
+.amb-check--consent a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.amb-field--error > .amb-check,
+.amb-field--error .amb-choices__list .amb-check:not(:has(input:checked)) {
+  border-color: #b71c1c;
+}
+
+.amb-field--error > .amb-error {
+  margin-top: 8px;
+}
+
+.amb-hp {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+/* ---------- Actions ---------- */
+.amb-actions {
+  display: grid;
+  gap: 12px;
+  margin-top: clamp(22px, 3.5vw, 28px);
+  text-align: center;
+}
+
+.srp-funnel .amb-submit {
+  min-height: 54px;
+  cursor: pointer;
+}
+
+.srp-funnel .amb-submit:disabled {
+  opacity: 0.6;
+  cursor: progress;
+  transform: none;
+}
+
+.amb-reassurance {
+  font-family: var(--font-raleway), "Raleway", sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--silver-dark);
+}
+
+/* ---------- Confirmation ---------- */
+.amb-success {
+  display: grid;
+  gap: 16px;
+  padding-block: clamp(12px, 3vw, 28px);
+}
+
+.amb-success .amb-submit {
+  margin-top: 12px;
+}
+
+@media (max-width: 599px) {
+  .amb-dialog {
+    width: 100%;
+    max-height: 94dvh;
+    margin-bottom: 0;
+    border-radius: 24px 24px 0 0;
+  }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .amb-dialog[open],
+  .amb-dialog[open]::backdrop {
+    animation: none;
+  }
+}

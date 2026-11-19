@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "hls.js": "^1.6.16",
+    "libphonenumber-js": "^1.13.17",
     "next": "^16.2.7",
     "react": "^19.2.0",
     "react-dom": "^19.2.0"
