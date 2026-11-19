@@ -26,6 +26,15 @@ const uiFr = {
     interlude: "Vidéo METCARE®",
     closer: "Vidéo de clôture METCARE®",
   },
+  footer: {
+    copyright: "© 2026 METCARE® — My Esthetic Travel®",
+    signature: "METCARE® — Recovery & Longevity™",
+    tagline: "L'expertise au service des professionnels de l'esthétique et du bien-être.",
+  },
+  meta: {
+    title: "Programme Ambassadeur Pro | METCARE®",
+    description: "Prolongez l'expérience de vos clientes. Développez votre activité.",
+  },
 } as const;
 
 const uiEn = {
@@ -54,6 +63,15 @@ const uiEn = {
     interlude: "METCARE® film",
     closer: "METCARE® closing film",
   },
+  footer: {
+    copyright: "© 2026 METCARE® — My Esthetic Travel®",
+    signature: "METCARE® | Recovery & Longevity™",
+    tagline: "Expertise serving beauty and wellness professionals.",
+  },
+  meta: {
+    title: "Pro Ambassador Program | METCARE®",
+    description: "Extend your clients' experience. Grow your business.",
+  },
 } as const;
 
 const uiEs = {
@@ -81,6 +99,16 @@ const uiEs = {
     opener: "Vídeo de apertura METCARE®",
     interlude: "Vídeo METCARE®",
     closer: "Vídeo de cierre METCARE®",
+  },
+  // Parked with the French wording until Spanish copy arrives (Q-3 / Y1).
+  footer: {
+    copyright: "© 2026 METCARE® — My Esthetic Travel®",
+    signature: "METCARE® — Recovery & Longevity™",
+    tagline: "L'expertise au service des professionnels de l'esthétique et du bien-être.",
+  },
+  meta: {
+    title: "Programme Ambassadeur Pro | METCARE®",
+    description: "Prolongez l'expérience de vos clientes. Développez votre activité.",
   },
 } as const;
 

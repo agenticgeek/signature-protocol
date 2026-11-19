@@ -1,7 +1,8 @@
 import Image from "next/image";
 
 type SrpSectionMediaProps = {
-  label: string;
+  /** Caption label. Omit both label and title to render no caption at all. */
+  label?: string;
   title?: string;
   src?: string;
   alt?: string;
@@ -25,7 +26,8 @@ export default function SrpSectionMedia({
   priority = false,
   className = "",
 }: SrpSectionMediaProps) {
-  const imageAlt = alt ?? title ?? label;
+  const imageAlt = alt ?? title ?? label ?? "";
+  const hasCaption = Boolean(label || title);
   const isProduct = variant === "product";
   const imageFit =
     isProduct && (aspect === "square" || aspect === "portrait") ? "contain" : fit;
@@ -64,10 +66,12 @@ export default function SrpSectionMedia({
           </>
         )}
       </div>
-      <figcaption className="section-media__caption">
-        <span className="section-media__label">{label}</span>
-        {title ? <span className="section-media__title">{title}</span> : null}
-      </figcaption>
+      {hasCaption ? (
+        <figcaption className="section-media__caption">
+          {label ? <span className="section-media__label">{label}</span> : null}
+          {title ? <span className="section-media__title">{title}</span> : null}
+        </figcaption>
+      ) : null}
     </figure>
   );
 }

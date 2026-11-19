@@ -9,6 +9,7 @@ import {
   useState,
   type ReactNode,
 } from "react";
+import { getUiContent } from "@/signature-recovery-protocol/content/ui";
 import { DEFAULT_LOCALE, LOCALE_STORAGE_KEY, type Locale } from "./types";
 
 type LanguageContextValue = {
@@ -19,13 +20,15 @@ type LanguageContextValue = {
 
 const LanguageContext = createContext<LanguageContextValue | null>(null);
 
-const LOCALE_CYCLE: Locale[] = ["fr", "en", "es"];
+// ES is hidden until the client sends Spanish copy (Q-3 / Y1).
+const LOCALE_CYCLE: Locale[] = ["fr", "en"];
 
 function readStoredLocale(): Locale {
   if (typeof window === "undefined") return DEFAULT_LOCALE;
   try {
     const stored = localStorage.getItem(LOCALE_STORAGE_KEY);
-    return stored === "en" || stored === "es" ? stored : DEFAULT_LOCALE;
+    // A stored "es" from the SRP version falls back to French.
+    return stored === "en" ? stored : DEFAULT_LOCALE;
   } catch {
     return DEFAULT_LOCALE;
   }
@@ -40,6 +43,15 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     document.documentElement.lang = locale;
+
+    // Locale lives in the client, so the tab title and description follow it here.
+    // The static <head> (and therefore link previews) stays on the French default.
+    const { meta } = getUiContent(locale);
+    document.title = meta.title;
+    document
+      .querySelector('meta[name="description"]')
+      ?.setAttribute("content", meta.description);
+
     try {
       localStorage.setItem(LOCALE_STORAGE_KEY, locale);
     } catch {

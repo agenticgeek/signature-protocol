@@ -12,9 +12,6 @@ export default function PhasesSection() {
   const { phases } = landing;
   const kit = SRP_PRODUCT_DIMENSIONS.activeDrain;
 
-  const signatureBody = phases.paragraphs.slice(0, 2);
-  const signatureEmphasis = phases.paragraphs.slice(2);
-
   return (
     <section className="srp-section srp-section--phases" id="section-phases">
       <SrpParallaxBg src={SRP_BACKGROUNDS.gel} speed={-0.32} opacity={0.16} align="center" />
@@ -30,14 +27,12 @@ export default function PhasesSection() {
               src={SECTION_FEATURED_IMAGES.phases}
               width={kit.width}
               height={kit.height}
-              alt="ACTIVE DRAIN™ — phase de récupération active"
-              label="// Protocole complet"
-              title="Les quatre phases · rituel Recovery 24h"
+              alt="METCARE®"
               sizes="(max-width: 900px) 100vw, (max-width: 1240px) 44vw, 560px"
             />
           </div>
 
-          <div className="srp-phases-stage" aria-label="Phases du protocole">
+          <div className="srp-phases-stage" aria-label={phases.title}>
             {phases.items.map((item, i) => (
               <article
                 key={item}
@@ -55,18 +50,11 @@ export default function PhasesSection() {
           </div>
         </div>
 
-        <div className="srp-phases-signature">
-          <div className="srp-phases-signature-copy">
-            {signatureBody.map((line) => (
-              <p key={line}>{line}</p>
-            ))}
-          </div>
+        <div className="srp-phases-signature srp-signature--solo">
           <div className="srp-phases-signature-em-wrap">
             <span className="srp-phases-signature-orbit" aria-hidden="true" />
             <div className="srp-phases-signature-em">
-              {signatureEmphasis.map((line) => (
-                <p key={line}>{line}</p>
-              ))}
+              <p>{phases.closing}</p>
             </div>
           </div>
         </div>

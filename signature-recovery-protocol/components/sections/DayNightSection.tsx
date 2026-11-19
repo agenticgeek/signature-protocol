@@ -4,7 +4,6 @@ import DayNightPanel from "@/signature-recovery-protocol/components/DayNightPane
 import SrpParallaxBg from "@/signature-recovery-protocol/components/SrpParallaxBg";
 import SrpSectionHead from "@/signature-recovery-protocol/components/SrpSectionHead";
 import SrpSectionMedia from "@/signature-recovery-protocol/components/SrpSectionMedia";
-import VerbatimLines from "@/signature-recovery-protocol/components/VerbatimLines";
 import { SECTION_FEATURED_IMAGES, SRP_BACKGROUNDS } from "@/signature-recovery-protocol/constants/assets";
 import { useSrpContent } from "@/signature-recovery-protocol/i18n/useSrpContent";
 
@@ -20,13 +19,9 @@ export default function DayNightSection() {
       </div>
 
       <div className="srp-container">
-        <SrpSectionHead
-          sectionNum={dayNight.sectionNum}
-          title={dayNight.title}
-          lede={dayNight.subtitle}
-        />
+        <SrpSectionHead sectionNum={dayNight.sectionNum} title={dayNight.title} />
 
-        <div className="srp-daynight-stage">
+        <div className="srp-daynight-stage srp-daynight-stage--no-axis">
           <DayNightPanel variant="day">
             <div className="srp-daynight-panel__visual">
               <SrpSectionMedia
@@ -34,26 +29,15 @@ export default function DayNightSection() {
                 tone="light"
                 variant="product"
                 src={SECTION_FEATURED_IMAGES.dayNight.day}
-                alt="DAY COLLAGEN™ — Metabolic Booster"
-                label="// DAY COLLAGEN™"
-                title="Réparer · Drainer · Soutenir"
+                alt="METCARE®"
               />
             </div>
             <div className="srp-daynight-panel__body">
-              <span className="srp-daynight-panel__tag">Day</span>
+              <span className="srp-daynight-panel__tag">{dayNight.day.tag}</span>
               <h3>{dayNight.day.name}</h3>
-              <VerbatimLines lines={dayNight.day.lines} className="srp-body" />
+              <p className="srp-body">{dayNight.day.text}</p>
             </div>
           </DayNightPanel>
-
-          <div className="srp-daynight-axis" aria-hidden="true">
-            <span className="srp-daynight-axis__line" />
-            <span className="srp-daynight-axis__dial">
-              <span className="srp-daynight-axis__dial-ring" />
-              <span className="srp-daynight-axis__dial-core" />
-            </span>
-            <span className="srp-daynight-axis__label">24h</span>
-          </div>
 
           <DayNightPanel variant="night">
             <div className="srp-daynight-panel__visual">
@@ -62,15 +46,13 @@ export default function DayNightSection() {
                 tone="dark"
                 variant="product"
                 src={SECTION_FEATURED_IMAGES.dayNight.night}
-                alt="NIGHT COLLAGEN™ — Deep Restore"
-                label="// NIGHT COLLAGEN™"
-                title="Calmer · Régénérer · Reconstruire"
+                alt="METCARE®"
               />
             </div>
             <div className="srp-daynight-panel__body">
-              <span className="srp-daynight-panel__tag">Night</span>
+              <span className="srp-daynight-panel__tag">{dayNight.night.tag}</span>
               <h3>{dayNight.night.name}</h3>
-              <VerbatimLines lines={dayNight.night.lines} className="srp-body" />
+              <p className="srp-body">{dayNight.night.text}</p>
             </div>
           </DayNightPanel>
         </div>

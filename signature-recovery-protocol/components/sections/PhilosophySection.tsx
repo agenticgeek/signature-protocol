@@ -11,7 +11,7 @@ export default function PhilosophySection() {
   const { philosophy } = landing;
   return (
     <section className="srp-section srp-section--philosophy" id="section-philosophy">
-      <SrpParallaxBg src={SRP_BACKGROUNDS.quote} speed={0.45} opacity={0.14} align="right" />
+      <SrpParallaxBg src={SRP_BACKGROUNDS.cream} speed={0.45} opacity={0.14} align="right" />
       <div className="srp-philosophy-glow" aria-hidden="true" />
 
       <div className="srp-container">
@@ -27,7 +27,7 @@ export default function PhilosophySection() {
 
             <div
               className="srp-philosophy-factors"
-              aria-label="Piliers de la philosophie"
+              aria-label={philosophy.listIntro}
             >
               {philosophy.listItems.map((item, i) => (
                 <article
@@ -52,25 +52,16 @@ export default function PhilosophySection() {
               tone="light"
               variant="product"
               src={SECTION_FEATURED_IMAGES.philosophy}
-              alt="DRAINAGE ACTIVATION GEL™ — Day"
-              label="// DRAINAGE ACTIVATION GEL™"
-              title="Recovery is strategy · rituel jour"
+              alt="METCARE®"
             />
           </div>
         </div>
 
-        <div className="srp-philosophy-signature">
-          <div className="srp-philosophy-signature-copy">
-            {philosophy.paragraphs.map((line) => (
-              <p key={line}>{line}</p>
-            ))}
-          </div>
+        <div className="srp-philosophy-signature srp-signature--solo">
           <div className="srp-philosophy-signature-em-wrap">
             <span className="srp-philosophy-signature-orbit" aria-hidden="true" />
             <div className="srp-philosophy-signature-em">
-              {philosophy.closing.map((line) => (
-                <p key={line}>{line}</p>
-              ))}
+              <p>{philosophy.closing}</p>
             </div>
           </div>
         </div>

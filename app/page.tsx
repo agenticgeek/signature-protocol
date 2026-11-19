@@ -8,12 +8,19 @@ import PhasesSection from "@/signature-recovery-protocol/components/sections/Pha
 import ActivesSection from "@/signature-recovery-protocol/components/sections/ActivesSection";
 import DayNightSection from "@/signature-recovery-protocol/components/sections/DayNightSection";
 import SensorySection from "@/signature-recovery-protocol/components/sections/SensorySection";
+import JoinSection from "@/signature-recovery-protocol/components/sections/JoinSection";
+import FurtherSection from "@/signature-recovery-protocol/components/sections/FurtherSection";
 import { SRP_VIDEOS } from "@/signature-recovery-protocol/constants/videos";
 
 export const metadata: Metadata = {
-  title: "SIGNATURE RECOVERY PROTOCOL™ — METCARE®",
+  title: "Programme Ambassadeur Pro | METCARE®",
   description:
-    "La récupération esthétique nouvelle génération. SIGNATURE RECOVERY PROTOCOL™ par METCARE®.",
+    "Prolongez l'expérience de vos clientes. Développez votre activité.",
+  openGraph: {
+    title: "Programme Ambassadeur Pro | METCARE®",
+    description:
+      "Prolongez l'expérience de vos clientes. Développez votre activité.",
+  },
 };
 
 export default function HomePage() {
@@ -34,6 +41,9 @@ export default function HomePage() {
       <div className="srp-divider" />
       <SensorySection />
       <SrpVideoMoment src={SRP_VIDEOS.closer} placement="closer" />
+      <JoinSection />
+      <div className="srp-divider" />
+      <FurtherSection />
     </SrpPageShell>
   );
 }

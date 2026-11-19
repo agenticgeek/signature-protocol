@@ -3,7 +3,7 @@
 import { useSrpContent } from "@/signature-recovery-protocol/i18n/useSrpContent";
 
 export default function SrpFooter() {
-  const { footerDisclaimer } = useSrpContent();
+  const { footerDisclaimer, ui } = useSrpContent();
 
   return (
     <footer className="metcare-footer" data-screen-label="Footer">
@@ -18,8 +18,11 @@ export default function SrpFooter() {
           {footerDisclaimer}
         </p>
         <div className="footer-meta">
-          <span>© 2026 METCARE® — My Esthetic Travel®</span>
-          <span>SIGNATURE RECOVERY PROTOCOL™</span>
+          <span>{ui.footer.copyright}</span>
+          <span className="footer-signature">
+            <span className="footer-signature__line">{ui.footer.signature}</span>
+            <span className="footer-signature__tagline">{ui.footer.tagline}</span>
+          </span>
         </div>
       </div>
     </footer>
