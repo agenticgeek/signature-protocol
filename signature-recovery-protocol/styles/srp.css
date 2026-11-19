@@ -601,6 +601,19 @@
     margin-left: 0;
   }
 
+  /* Phone: the stacked title lines were touching at 0.88 — open them up,
+     and give the tagline room to breathe when it wraps. */
+  .srp-funnel .srp-hero-title {
+    gap: 4px;
+    line-height: 1.08;
+    letter-spacing: -0.03em;
+  }
+
+  .srp-funnel .srp-hero-tagline {
+    max-width: 26ch;
+    line-height: 1.45;
+  }
+
   .srp-funnel .srp-hero-mantra-line:nth-child(even) .srp-hero-mantra-word {
     margin-left: 16px;
   }
