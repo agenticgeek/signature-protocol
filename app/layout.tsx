@@ -4,6 +4,8 @@ import "./globals.css";
 import "@/signature-recovery-protocol/styles/srp.css";
 import "@/signature-recovery-protocol/styles/parallax.css";
 import "@/signature-recovery-protocol/styles/srp-premium.css";
+import "@/signature-recovery-protocol/styles/ambassador-form.css";
+import { AmbassadorFormProvider } from "@/signature-recovery-protocol/components/ambassador/AmbassadorFormProvider";
 import { LanguageProvider } from "@/signature-recovery-protocol/i18n/LanguageProvider";
 
 const poppins = Poppins({
@@ -38,7 +40,9 @@ export default function RootLayout({
     <html lang="fr" className={`${poppins.variable} ${raleway.variable}`}>
       <body>
         <LanguageProvider>
-          <div className="srp-funnel">{children}</div>
+          <div className="srp-funnel">
+            <AmbassadorFormProvider>{children}</AmbassadorFormProvider>
+          </div>
         </LanguageProvider>
       </body>
     </html>

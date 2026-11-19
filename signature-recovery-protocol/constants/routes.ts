@@ -11,13 +11,19 @@ export const SRP_ROUTES = {
 /**
  * Pro Ambassador destinations.
  *
- * Both are placeholders ("#") until the client supplies them:
- *  - registration: Ambassador Pro registration form (R2) — CTA 1 + CTA 2
- *  - training:     Recovery & Longevity™ training funnel (R3) — CTA 3
+ * CTA 1 (hero) and CTA 2 (section 8) open the registration form modal, so they
+ * need no link. The links below are placeholders ("#") until the client supplies them:
+ *  - affiliateSignup: official account creation page on the METCARE® affiliation
+ *                     platform — "Créer mon compte METCARE®" button shown after the
+ *                     form is sent. Same link as in the GHL welcome e-mail.
+ *  - privacyPolicy:   privacy policy page, linked from the consent line. While it is
+ *                     "#" the words are shown as plain text.
+ *  - training:        Recovery & Longevity™ training funnel (R3) — CTA 3
  *
- * NEVER deploy to production while these are still "#".
+ * NEVER deploy to production while affiliateSignup or training are still "#".
  */
 export const AMBASSADOR_LINKS = {
-  registration: "#",
+  affiliateSignup: "#",
+  privacyPolicy: "#",
   training: "#",
 } as const;

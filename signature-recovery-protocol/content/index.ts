@@ -15,6 +15,7 @@ import { upsellContent as upsellEs } from "./es/upsell";
 import { merciContent as merciEs } from "./es/merci";
 import { getUiContent } from "./ui";
 import { getFooterDisclaimer } from "./footer";
+import { getAmbassadorFormContent } from "./ambassador-form";
 
 const byLocale = {
   fr: {
@@ -48,6 +49,7 @@ export function getSrpContent(locale: Locale) {
     ...byLocale[locale],
     ui: getUiContent(locale),
     footerDisclaimer: getFooterDisclaimer(locale),
+    ambassadorForm: getAmbassadorFormContent(locale),
   };
 }
 
