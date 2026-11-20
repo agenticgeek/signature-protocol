@@ -9,4 +9,6 @@ export const SRP_PRODUCT_DIMENSIONS = {
   productDrainBooster: { width: 1000, height: 1000 },
   productKit: { width: 1254, height: 1254 },
   productDayGel: { width: 1681, height: 2351 },
+  maderoDuo: { width: 1080, height: 1350 },
+  storyCellulite: { width: 899, height: 1599 },
 } as const;

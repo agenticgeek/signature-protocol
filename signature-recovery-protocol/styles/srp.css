@@ -246,9 +246,9 @@
 }
 
 .srp-funnel .srp-hero-showcase__image {
-  object-fit: contain;
+  object-fit: cover;
   object-position: center;
-  padding: clamp(12px, 2vw, 20px);
+  padding: 0;
 }
 
 .srp-funnel .srp-hero-ghost {
@@ -2987,7 +2987,9 @@
 }
 
 .srp-funnel .srp-sensory-visual .srp-product-showcase {
-  margin: 0;
+  /* 9:16 story visual: shown whole, sized so it always fits the screen height. */
+  max-width: min(100%, 380px, calc((100vh - 150px) * 0.5625));
+  margin: 0 auto;
   transform-style: preserve-3d;
   transform: rotateY(-3deg) rotateX(1.5deg);
   transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);

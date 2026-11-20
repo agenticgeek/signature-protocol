@@ -28,6 +28,7 @@ export default function NotAloneSection() {
               aspect="portrait"
               tone="beige"
               variant="product"
+              photo
               src={SECTION_FEATURED_IMAGES.notAlone}
               alt="METCARE®"
             />

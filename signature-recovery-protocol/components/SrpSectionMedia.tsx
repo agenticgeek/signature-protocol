@@ -10,6 +10,10 @@ type SrpSectionMediaProps = {
   tone?: "light" | "dark" | "beige";
   fit?: "cover" | "contain";
   variant?: "product" | "editorial";
+  /** Full-bleed photograph: always fills the frame, never letterboxed. */
+  photo?: boolean;
+  /** CSS object-position — which part of the photo to keep when it is cropped. */
+  position?: string;
   priority?: boolean;
   className?: string;
 };
@@ -23,14 +27,19 @@ export default function SrpSectionMedia({
   tone = "light",
   fit = "cover",
   variant = "editorial",
+  photo = false,
+  position,
   priority = false,
   className = "",
 }: SrpSectionMediaProps) {
   const imageAlt = alt ?? title ?? label ?? "";
   const hasCaption = Boolean(label || title);
   const isProduct = variant === "product";
-  const imageFit =
-    isProduct && (aspect === "square" || aspect === "portrait") ? "contain" : fit;
+  const imageFit = photo
+    ? "cover"
+    : isProduct && (aspect === "square" || aspect === "portrait")
+      ? "contain"
+      : fit;
 
   return (
     <figure
@@ -41,6 +50,7 @@ export default function SrpSectionMedia({
         "srp-section-media",
         src ? "section-media--has-image" : "",
         isProduct ? "section-media--product" : "",
+        photo ? "section-media--photo" : "",
         className,
       ]
         .filter(Boolean)
@@ -55,6 +65,7 @@ export default function SrpSectionMedia({
             sizes="(max-width: 640px) 100vw, (max-width: 900px) 88vw, 720px"
             quality={90}
             className={`section-media__image section-media__image--${imageFit}`}
+            style={position ? { objectPosition: position } : undefined}
             priority={priority}
           />
         ) : (
