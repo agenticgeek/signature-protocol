@@ -145,9 +145,23 @@
 
 .srp-funnel .srp-hero-showcase__slot .section-media__image,
 .srp-funnel .srp-hero-showcase__image {
-  object-fit: contain;
+  object-fit: cover;
   object-position: center;
-  padding: clamp(12px, 2vw, 20px);
+  padding: 0;
+}
+
+/* Photographs fill their frame edge to edge (product cut-outs keep the padding). */
+.section-media--photo .section-media__image {
+  padding: 0;
+  background: transparent;
+}
+
+/* On phones and tablets the photo keeps its true 4:5 shape instead of being
+   squashed by the portrait height cap, so the subject is never cut. */
+@media (max-width: 899px) {
+  .section-media--photo.section-media--portrait .section-media__frame {
+    max-height: none;
+  }
 }
 
 /* Crisp intrinsic product frames (no fill upscaling) */

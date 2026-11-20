@@ -51,6 +51,8 @@ export default function PhilosophySection() {
               aspect="portrait"
               tone="light"
               variant="product"
+              photo
+              position="50% 30%"
               src={SECTION_FEATURED_IMAGES.philosophy}
               alt="METCARE®"
             />

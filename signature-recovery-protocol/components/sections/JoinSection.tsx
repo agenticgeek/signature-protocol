@@ -50,7 +50,7 @@ export default function JoinSection() {
           <CTAButton
             className="srp-hero-cta"
             id="cta-join-closing"
-            onClick={openAmbassadorForm}
+            onClick={() => openAmbassadorForm("join")}
             label={join.ctaLabel}
           />
         </div>

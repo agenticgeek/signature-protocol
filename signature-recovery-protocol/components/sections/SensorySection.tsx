@@ -10,7 +10,7 @@ import { useSrpContent } from "@/signature-recovery-protocol/i18n/useSrpContent"
 export default function SensorySection() {
   const { landing } = useSrpContent();
   const { sensory } = landing;
-  const patch = SRP_PRODUCT_DIMENSIONS.fillerPatch;
+  const patch = SRP_PRODUCT_DIMENSIONS.storyCellulite;
 
   return (
     <section className="srp-section srp-section--sensory" id="section-sensory">
@@ -54,7 +54,8 @@ export default function SensorySection() {
               width={patch.width}
               height={patch.height}
               alt="METCARE®"
-              sizes="(max-width: 900px) 100vw, (max-width: 1240px) 46vw, 560px"
+              fluid
+              sizes="(max-width: 900px) 92vw, 380px"
             />
           </div>
         </div>

@@ -27,9 +27,11 @@ export default function ActivesSection() {
 
         <div className="srp-section-stage srp-actives-stage section-editorial section-editorial--reverse">
           <SrpSectionMedia
-            aspect="square"
+            aspect="portrait"
             tone="dark"
             variant="product"
+            photo
+            position="50% 16%"
             src={SECTION_FEATURED_IMAGES.actives}
             alt="METCARE®"
           />

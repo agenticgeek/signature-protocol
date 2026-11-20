@@ -28,6 +28,8 @@ export default function DayNightSection() {
                 aspect="square"
                 tone="light"
                 variant="product"
+                photo
+                position="50% 36%"
                 src={SECTION_FEATURED_IMAGES.dayNight.day}
                 alt="METCARE®"
               />
@@ -45,6 +47,8 @@ export default function DayNightSection() {
                 aspect="square"
                 tone="dark"
                 variant="product"
+                photo
+                position="50% 48%"
                 src={SECTION_FEATURED_IMAGES.dayNight.night}
                 alt="METCARE®"
               />

@@ -9,23 +9,26 @@ import {
   useState,
   type ReactNode,
 } from "react";
+import type { AmbassadorCtaSource } from "@/signature-recovery-protocol/lib/ambassador-form";
 import AmbassadorFormModal from "./AmbassadorFormModal";
 
 type AmbassadorFormContextValue = {
   /** Opens the Ambassador Pro registration form (CTA 1 and CTA 2). */
-  open: () => void;
+  open: (source: AmbassadorCtaSource) => void;
 };
 
 const AmbassadorFormContext = createContext<AmbassadorFormContextValue | null>(null);
 
 export function AmbassadorFormProvider({ children }: { children: ReactNode }) {
   const [isOpen, setIsOpen] = useState(false);
+  const [source, setSource] = useState<AmbassadorCtaSource>("hero");
   const triggerRef = useRef<HTMLElement | null>(null);
 
-  const open = useCallback(() => {
+  const open = useCallback((from: AmbassadorCtaSource) => {
     // Remember the button that opened the form so focus can go back to it.
     triggerRef.current =
       document.activeElement instanceof HTMLElement ? document.activeElement : null;
+    setSource(from);
     setIsOpen(true);
   }, []);
 
@@ -39,7 +42,7 @@ export function AmbassadorFormProvider({ children }: { children: ReactNode }) {
   return (
     <AmbassadorFormContext.Provider value={value}>
       {children}
-      <AmbassadorFormModal isOpen={isOpen} onClose={close} />
+      <AmbassadorFormModal isOpen={isOpen} source={source} onClose={close} />
     </AmbassadorFormContext.Provider>
   );
 }

@@ -26,6 +26,16 @@ export type AmbassadorFormValues = {
   consent: boolean;
 };
 
+/** Which button opened the form — sent to the CRM as `cta_source`. */
+export const AMBASSADOR_CTA_SOURCES = ["hero", "join"] as const;
+export type AmbassadorCtaSource = (typeof AMBASSADOR_CTA_SOURCES)[number];
+
+/** Human-readable CTA names for the CRM. */
+export const AMBASSADOR_CTA_LABELS: Record<AmbassadorCtaSource, string> = {
+  hero: "CTA 1 — Hero",
+  join: "CTA 2 — Section finale",
+};
+
 export type AmbassadorFieldName =
   | "firstName"
   | "lastName"

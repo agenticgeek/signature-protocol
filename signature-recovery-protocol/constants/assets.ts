@@ -14,6 +14,19 @@ export const SRP_ASSETS = {
   quoteRecovery: "/assets/quote-image.png",
 } as const;
 
+/** METCARE® Pro Ambassador landing — lifestyle and product photography. */
+export const AMBASSADOR_ASSETS = {
+  patchBoxCloseup: "/assets/ambassador/patch-box-closeup.jpg",
+  patchArmBox: "/assets/ambassador/patch-arm-box.jpg",
+  maderoFlatlay: "/assets/ambassador/madero-flatlay.jpg",
+  ambassadorPatchBox: "/assets/ambassador/ambassador-patch-box.jpg",
+  maderoDuo: "/assets/ambassador/madero-duo.jpg",
+  ambassadorMadero: "/assets/ambassador/ambassador-madero.jpg",
+  patchApplicationWaist: "/assets/ambassador/patch-application-waist.jpg",
+  patchWristActives: "/assets/ambassador/patch-wrist-actives.jpg",
+  storyCellulite: "/assets/ambassador/story-cellulite.jpg",
+} as const;
+
 export const SRP_BACKGROUNDS = {
   cream: SRP_ASSETS.backgroundCream,
   gel: SRP_ASSETS.backgroundGel,
@@ -39,18 +52,18 @@ export const PROTOCOL_PRODUCT_IMAGES: Partial<Record<number, string>> = {
 /** Large editorial visuals — one primary asset per section (hero keeps its own pair). */
 export const SECTION_FEATURED_IMAGES = {
   hero: {
-    primary: SRP_ASSETS.productDrainBooster,
-    secondary: SRP_ASSETS.productKit,
+    primary: AMBASSADOR_ASSETS.patchBoxCloseup,
+    secondary: AMBASSADOR_ASSETS.patchArmBox,
   },
-  notAlone: SRP_ASSETS.preparationMentale,
-  philosophy: SRP_ASSETS.productDayGel,
-  phases: SRP_ASSETS.activeDrain,
-  actives: SRP_ASSETS.fillerPatch,
+  notAlone: AMBASSADOR_ASSETS.maderoFlatlay,
+  philosophy: AMBASSADOR_ASSETS.ambassadorPatchBox,
+  phases: AMBASSADOR_ASSETS.maderoDuo,
+  actives: AMBASSADOR_ASSETS.ambassadorMadero,
   dayNight: {
-    day: SRP_ASSETS.dayCollagen,
-    night: SRP_ASSETS.nightCollagen,
+    day: AMBASSADOR_ASSETS.patchApplicationWaist,
+    night: AMBASSADOR_ASSETS.patchWristActives,
   },
-  sensory: SRP_ASSETS.cremeNight,
+  sensory: AMBASSADOR_ASSETS.storyCellulite,
   individual: {
     primary: SRP_ASSETS.activeDrain,
     day: SRP_ASSETS.productDayGel,

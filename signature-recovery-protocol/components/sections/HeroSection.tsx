@@ -97,7 +97,7 @@ export default function HeroSection() {
               <CTAButton
                 className="srp-hero-cta"
                 id="cta-join-hero"
-                onClick={openAmbassadorForm}
+                onClick={() => openAmbassadorForm("hero")}
                 label={hero.ctaLabel}
               />
             </div>
@@ -122,7 +122,8 @@ export default function HeroSection() {
                   src={SECTION_FEATURED_IMAGES.hero.primary}
                   alt="METCARE®"
                   fill
-                  sizes="(max-width: 900px) 72vw, 420px"
+                  sizes="(max-width: 900px) 72vw, 520px"
+                  quality={90}
                   className="srp-hero-showcase__image"
                   priority
                 />
@@ -132,8 +133,10 @@ export default function HeroSection() {
                   src={SECTION_FEATURED_IMAGES.hero.secondary}
                   alt="METCARE®"
                   fill
-                  sizes="(max-width: 900px) 40vw, 220px"
+                  sizes="(max-width: 900px) 40vw, 300px"
+                  quality={90}
                   className="srp-hero-showcase__image"
+                  style={{ objectPosition: "50% 78%" }}
                   priority
                 />
               </div>

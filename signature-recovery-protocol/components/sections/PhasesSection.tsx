@@ -10,7 +10,7 @@ import { useSrpContent } from "@/signature-recovery-protocol/i18n/useSrpContent"
 export default function PhasesSection() {
   const { landing } = useSrpContent();
   const { phases } = landing;
-  const kit = SRP_PRODUCT_DIMENSIONS.activeDrain;
+  const kit = SRP_PRODUCT_DIMENSIONS.maderoDuo;
 
   return (
     <section className="srp-section srp-section--phases" id="section-phases">
