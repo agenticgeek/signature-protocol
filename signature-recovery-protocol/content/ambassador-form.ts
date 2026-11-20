@@ -93,7 +93,6 @@ const formFr = {
       "Votre formulaire a bien été envoyé.",
       "Finalisez votre inscription pour activer votre compte Ambassadeur Pro et accéder à vos avantages exclusifs.",
     ],
-    redirecting: "Redirection vers le Programme Ambassadeurs METCARE®…",
     cta: "Créer mon compte METCARE®",
   },
 } as const;
@@ -163,7 +162,6 @@ const formEn = {
       "Your form has been sent.",
       "Complete your registration to activate your Pro Ambassador account and unlock your exclusive benefits.",
     ],
-    redirecting: "Redirecting you to the METCARE® Ambassador Programme…",
     cta: "Create my METCARE® account",
   },
 } as const;
@@ -234,7 +232,6 @@ const formEs = {
       "Tu formulario se ha enviado correctamente.",
       "Finaliza tu inscripción para activar tu cuenta Embajador Pro y acceder a tus ventajas exclusivas.",
     ],
-    redirecting: "Redirigiéndote al Programa de Embajadores METCARE®…",
     cta: "Crear mi cuenta METCARE®",
   },
 } as const;

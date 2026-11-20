@@ -488,37 +488,6 @@ html:has(.amb-dialog[open]) {
   margin-top: 12px;
 }
 
-/* "Redirecting…" line shown while the visitor is sent to the programme page. */
-.amb-redirect {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin: 4px 0 0;
-  padding: 14px 16px;
-  border-radius: 12px;
-  background: color-mix(in srgb, var(--beige) 28%, #fff);
-  font-size: 15px;
-  font-weight: 600;
-  line-height: 1.45;
-  color: var(--cherry);
-}
-
-.amb-redirect__spinner {
-  flex: 0 0 auto;
-  width: 20px;
-  height: 20px;
-  border-radius: 999px;
-  border: 2px solid color-mix(in srgb, var(--cherry) 20%, transparent);
-  border-top-color: var(--cherry);
-  animation: amb-spin 0.8s linear infinite;
-}
-
-@keyframes amb-spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 @media (max-width: 599px) {
   .amb-dialog {
     width: 100%;
@@ -533,9 +502,5 @@ html:has(.amb-dialog[open]) {
   .amb-dialog[open],
   .amb-dialog[open]::backdrop {
     animation: none;
-  }
-
-  .amb-redirect__spinner {
-    animation-duration: 2.4s;
   }
 }
