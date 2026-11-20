@@ -97,7 +97,7 @@ export default function HeroSection() {
               <CTAButton
                 className="srp-hero-cta"
                 id="cta-join-hero"
-                onClick={openAmbassadorForm}
+                onClick={() => openAmbassadorForm("hero")}
                 label={hero.ctaLabel}
               />
             </div>

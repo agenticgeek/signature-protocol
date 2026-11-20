@@ -1,6 +1,9 @@
 import { NextResponse } from "next/server";
 import { ACTIVITY_CRM_LABELS } from "@/signature-recovery-protocol/content/ambassador-form";
 import {
+  AMBASSADOR_CTA_LABELS,
+  AMBASSADOR_CTA_SOURCES,
+  type AmbassadorCtaSource,
   parseAmbassadorValues,
   toInstagramHandle,
   toInternationalPhone,
@@ -19,6 +22,13 @@ import {
  * welcome e-mail. Field keys below are what to map in the workflow.
  */
 const GHL_TAG = "AMBASSADEUR PRO METCARE";
+
+const LANGUAGE_LABELS = { fr: "Français", en: "English", es: "Español" } as const;
+type Language = keyof typeof LANGUAGE_LABELS;
+
+/** Only http(s) links, trimmed to a sane length. */
+const safeUrl = (input: unknown) =>
+  typeof input === "string" && /^https?:\/\//i.test(input) ? input.slice(0, 500) : "";
 
 export async function POST(request: Request) {
   let body: Record<string, unknown>;
@@ -43,14 +53,27 @@ export async function POST(request: Request) {
     id === "other" ? `Autre : ${values.activityOther.trim()}` : ACTIVITY_CRM_LABELS[id],
   );
 
+  const language: Language =
+    typeof body.locale === "string" && body.locale in LANGUAGE_LABELS
+      ? (body.locale as Language)
+      : "fr";
+  const ctaSource = AMBASSADOR_CTA_SOURCES.includes(body.ctaSource as AmbassadorCtaSource)
+    ? (body.ctaSource as AmbassadorCtaSource)
+    : null;
+  const firstName = values.firstName.trim();
+  const lastName = values.lastName.trim();
+
   const payload = {
-    first_name: values.firstName.trim(),
-    last_name: values.lastName.trim(),
+    first_name: firstName,
+    last_name: lastName,
+    full_name: `${firstName} ${lastName}`,
     email: values.email.trim().toLowerCase(),
     phone: toInternationalPhone(values.dialIso, values.phone),
+    phone_country: values.dialIso,
     company_name: values.businessName.trim(),
     activity: activityLabels.join(", "),
     activities: activityLabels,
+    activity_other: values.activities.includes("other") ? values.activityOther.trim() : "",
     city: values.city.trim(),
     country: values.country.trim(),
     instagram: toInstagramHandle(values.instagram),
@@ -58,9 +81,13 @@ export async function POST(request: Request) {
     consent_at: new Date().toISOString(),
     tags: [GHL_TAG],
     form_name: "AMBASSADEUR PRO METCARE®",
-    language: body.locale === "en" ? "en" : "fr",
+    language,
+    language_label: LANGUAGE_LABELS[language],
+    cta_source: ctaSource ?? "",
+    cta_label: ctaSource ? AMBASSADOR_CTA_LABELS[ctaSource] : "",
     source: "Tunnel Ambassadeur Pro",
-    page_url: typeof body.pageUrl === "string" ? body.pageUrl.slice(0, 500) : "",
+    page_url: safeUrl(body.pageUrl),
+    submitted_at: new Date().toISOString(),
   };
 
   const webhookUrl = process.env.GHL_AMBASSADOR_WEBHOOK_URL;

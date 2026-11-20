@@ -13,6 +13,7 @@ import {
   AMBASSADOR_MAX_LENGTH,
   EMPTY_AMBASSADOR_VALUES,
   validateAmbassadorForm,
+  type AmbassadorCtaSource,
   type AmbassadorErrors,
   type AmbassadorFieldName,
   type AmbassadorFormValues,
@@ -20,6 +21,8 @@ import {
 
 type AmbassadorFormModalProps = {
   isOpen: boolean;
+  /** The CTA that opened the form (hero or closing section). */
+  source: AmbassadorCtaSource;
   onClose: () => void;
 };
 
@@ -60,7 +63,7 @@ const isExternal = (href: string) => /^https?:\/\//.test(href);
  * Ambassador Pro registration form, shown in a modal over the landing page.
  * Uses the native <dialog>: focus trap, Escape and the top layer come for free.
  */
-export default function AmbassadorFormModal({ isOpen, onClose }: AmbassadorFormModalProps) {
+export default function AmbassadorFormModal({ isOpen, source, onClose }: AmbassadorFormModalProps) {
   const { ambassadorForm: t } = useSrpContent();
   const { locale } = useLocale();
   const dialogRef = useRef<HTMLDialogElement>(null);
@@ -145,6 +148,7 @@ export default function AmbassadorFormModal({ isOpen, onClose }: AmbassadorFormM
           ...values,
           website: honeypot,
           locale,
+          ctaSource: source,
           pageUrl: window.location.href,
         }),
       });
