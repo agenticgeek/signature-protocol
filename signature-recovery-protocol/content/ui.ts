@@ -100,15 +100,14 @@ const uiEs = {
     interlude: "Vídeo METCARE®",
     closer: "Vídeo de cierre METCARE®",
   },
-  // Parked with the French wording until Spanish copy arrives (Q-3 / Y1).
   footer: {
     copyright: "© 2026 METCARE® — My Esthetic Travel®",
     signature: "METCARE® — Recovery & Longevity™",
-    tagline: "L'expertise au service des professionnels de l'esthétique et du bien-être.",
+    tagline: "La experiencia al servicio de los profesionales de la estética y el bienestar.",
   },
   meta: {
-    title: "Programme Ambassadeur Pro | METCARE®",
-    description: "Prolongez l'expérience de vos clientes. Développez votre activité.",
+    title: "Programa Embajador Pro | METCARE®",
+    description: "Prolonga la experiencia de tus clientas. Haz crecer tu negocio.",
   },
 } as const;
 

@@ -2,7 +2,7 @@ import type { Locale } from "@/signature-recovery-protocol/i18n/types";
 
 /**
  * Ambassador Pro registration form (modal opened by CTA 1 and CTA 2).
- * French copy is the client's wording, verbatim. English is a translation.
+ * French copy is the client's wording, verbatim. English and Spanish are translations.
  *
  * Activity `id`s are stable keys; the value sent to GoHighLevel is always the
  * French label (see ACTIVITY_CRM_LABELS) so the CRM stays in one language.
@@ -166,9 +166,80 @@ const formEn = {
   },
 } as const;
 
-/** ES is parked with the French wording, like the rest of the landing page (Q-3 / Y1). */
+const formEs = {
+  eyebrow: "Formulario de inscripción — Embajador Pro METCARE®",
+  title: "Únete al universo METCARE® y dale una nueva dimensión a tu negocio.",
+  intro:
+    "Completa este formulario para unirte a nuestro programa profesional, acceder a tus ventajas exclusivas y recibir tu kit digital gratis.",
+  close: "Cerrar el formulario",
+  requiredNote: "* Campos obligatorios",
+  sections: {
+    personal: "Información personal",
+    business: "Tu actividad profesional",
+    consent: "Consentimiento",
+  },
+  fields: {
+    firstName: "Nombre",
+    lastName: "Apellidos",
+    email: "Correo electrónico profesional",
+    phone: "Número de teléfono",
+    dialCode: "Prefijo del país",
+    dialSearch: "Buscar un país o un prefijo",
+    dialEmpty: "No se ha encontrado ningún país",
+    businessName: "Nombre de tu centro o establecimiento",
+    activity: "Tu actividad profesional",
+    activityOther: "Indica tu actividad",
+    city: "Ciudad",
+    country: "País",
+    instagram: "Cuenta de Instagram profesional",
+    instagramPlaceholder: "@tucuenta",
+    instagramHint: "Indica la cuenta de Instagram de tu centro o de tu actividad.",
+  },
+  activities: {
+    esthetician: "Esteticista / Centro de belleza",
+    massage: "Profesional de masajes y tratamientos corporales",
+    wellness: "Profesional del bienestar",
+    spa: "Spa / Centro de estética",
+    health: "Profesional de la salud",
+    other: "Otra (especificar)",
+  },
+  consent: {
+    before:
+      "Acepto que mis datos se utilicen para tramitar mi inscripción en el Programa Embajador Pro METCARE® y para que se pongan en contacto conmigo al respecto, de acuerdo con la ",
+    policy: "política de privacidad",
+    after: ".",
+  },
+  submit: "Hacerme Embajador Pro",
+  submitting: "Enviando…",
+  reassurance: ["Inscripción gratuita", "Sin stock", "Kit digital gratis"],
+  errors: {
+    required: "Este campo es obligatorio.",
+    email: "Introduce un correo electrónico válido.",
+    phone: "Este número no es válido para el país seleccionado.",
+    phoneShort: "Este número es demasiado corto para el país seleccionado.",
+    phoneLong: "Este número es demasiado largo para el país seleccionado.",
+    activity: "Selecciona al menos una actividad.",
+    instagram: "Introduce una cuenta de Instagram válida (p. ej. @tucuenta).",
+    consent: "Necesitamos tu consentimiento para tramitar tu inscripción.",
+    summary: "Hay campos que debes corregir.",
+    submit: "No se ha podido enviar el formulario. Comprueba tu conexión e inténtalo de nuevo.",
+    notConfigured:
+      "Las inscripciones aún no están abiertas. Vuelve a intentarlo un poco más tarde.",
+  },
+  success: {
+    title: "¡Te damos la bienvenida al universo METCARE®!",
+    lines: [
+      "Tu formulario se ha enviado correctamente.",
+      "Finaliza tu inscripción para activar tu cuenta Embajador Pro y acceder a tus ventajas exclusivas.",
+    ],
+    cta: "Crear mi cuenta METCARE®",
+  },
+} as const;
+
 export function getAmbassadorFormContent(locale: Locale) {
-  return locale === "en" ? formEn : formFr;
+  if (locale === "en") return formEn;
+  if (locale === "es") return formEs;
+  return formFr;
 }
 
 export type AmbassadorFormContent = ReturnType<typeof getAmbassadorFormContent>;
