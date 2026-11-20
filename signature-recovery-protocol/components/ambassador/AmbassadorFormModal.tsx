@@ -1,10 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState, type FormEvent, type ReactNode } from "react";
-import {
-  AMBASSADOR_LINKS,
-  AMBASSADOR_REDIRECT_DELAY_MS,
-} from "@/signature-recovery-protocol/constants/routes";
+import { AMBASSADOR_LINKS } from "@/signature-recovery-protocol/constants/routes";
 import {
   ACTIVITY_IDS,
   type ActivityId,
@@ -89,14 +86,7 @@ export default function AmbassadorFormModal({ isOpen, source, onClose }: Ambassa
   }, [isOpen]);
 
   useEffect(() => {
-    if (status !== "success") return;
-    successTitleRef.current?.focus();
-    // Form sent: show the "redirecting" screen, then go to the programme page.
-    // Closing the dialog resets the status, which cancels the redirect.
-    const timer = window.setTimeout(() => {
-      window.location.assign(AMBASSADOR_LINKS.affiliateSignup);
-    }, AMBASSADOR_REDIRECT_DELAY_MS);
-    return () => window.clearTimeout(timer);
+    if (status === "success") successTitleRef.current?.focus();
   }, [status]);
 
   const handleClosed = () => {
@@ -293,10 +283,6 @@ export default function AmbassadorFormModal({ isOpen, source, onClose }: Ambassa
                 {line}
               </p>
             ))}
-            <p className="amb-redirect">
-              <span className="amb-redirect__spinner" aria-hidden="true" />
-              <span>{t.success.redirecting}</span>
-            </p>
             <a className="srp-cta amb-submit" id="cta-create-account" href={AMBASSADOR_LINKS.affiliateSignup}>
               <span className="srp-cta__label">{t.success.cta}</span>
               <span className="srp-cta__arrow" aria-hidden="true">→</span>
