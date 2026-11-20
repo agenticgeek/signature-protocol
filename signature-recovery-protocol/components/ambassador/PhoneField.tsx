@@ -58,7 +58,7 @@ export default function PhoneField({
   const [active, setActive] = useState(0);
 
   const countries = useMemo(() => {
-    const names = new Intl.DisplayNames([locale === "en" ? "en" : "fr"], { type: "region" });
+    const names = new Intl.DisplayNames([locale === "en" || locale === "es" ? locale : "fr"], { type: "region" });
     const all = PHONE_COUNTRIES.map((iso) => {
       let name: string = iso;
       try {

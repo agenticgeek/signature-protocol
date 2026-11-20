@@ -20,15 +20,13 @@ type LanguageContextValue = {
 
 const LanguageContext = createContext<LanguageContextValue | null>(null);
 
-// ES is hidden until the client sends Spanish copy (Q-3 / Y1).
-const LOCALE_CYCLE: Locale[] = ["fr", "en"];
+const LOCALE_CYCLE: Locale[] = ["fr", "en", "es"];
 
 function readStoredLocale(): Locale {
   if (typeof window === "undefined") return DEFAULT_LOCALE;
   try {
     const stored = localStorage.getItem(LOCALE_STORAGE_KEY);
-    // A stored "es" from the SRP version falls back to French.
-    return stored === "en" ? stored : DEFAULT_LOCALE;
+    return LOCALE_CYCLE.includes(stored as Locale) ? (stored as Locale) : DEFAULT_LOCALE;
   } catch {
     return DEFAULT_LOCALE;
   }
