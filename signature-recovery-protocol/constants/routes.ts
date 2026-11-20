@@ -12,18 +12,18 @@ export const SRP_ROUTES = {
  * Pro Ambassador destinations.
  *
  * CTA 1 (hero) and CTA 2 (section 8) open the registration form modal, so they
- * need no link. The links below are placeholders ("#") until the client supplies them:
- *  - affiliateSignup: official account creation page on the METCARE® affiliation
- *                     platform — "Créer mon compte METCARE®" button shown after the
- *                     form is sent. Same link as in the GHL welcome e-mail.
+ * need no link.
+ *  - affiliateSignup: METCARE® ambassador programme page — the visitor is sent
+ *                     there automatically once the form is submitted.
  *  - privacyPolicy:   privacy policy page, linked from the consent line. While it is
- *                     "#" the words are shown as plain text.
- *  - training:        Recovery & Longevity™ training funnel (R3) — CTA 3
- *
- * NEVER deploy to production while affiliateSignup or training are still "#".
+ *                     "#" (not supplied yet) the words are shown as plain text.
+ *  - training:        Recovery & Longevity™ training site — CTA 3
  */
 export const AMBASSADOR_LINKS = {
-  affiliateSignup: "#",
+  affiliateSignup: "https://metcare.eu/pages/programme-ambassadeurs",
   privacyPolicy: "#",
-  training: "#",
+  training: "https://recovery-longevity-expert.metcare.fr/",
 } as const;
+
+/** How long the "redirecting" screen stays up after the form is sent. */
+export const AMBASSADOR_REDIRECT_DELAY_MS = 3000;

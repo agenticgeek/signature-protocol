@@ -34,6 +34,15 @@ export default function CTAButton({
     );
   }
 
+  // Another site (e.g. the training site) opens in a new tab, keeping this page.
+  if (/^https?:\/\//.test(href)) {
+    return (
+      <a className={classes} href={href} id={id} onClick={onClick} target="_blank" rel="noopener">
+        {content}
+      </a>
+    );
+  }
+
   return (
     <Link className={classes} href={href} id={id} onClick={onClick}>
       {content}
