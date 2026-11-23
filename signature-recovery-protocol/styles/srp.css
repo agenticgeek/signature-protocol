@@ -205,7 +205,7 @@
   );
   box-shadow:
     0 32px 80px -36px rgba(43, 21, 23, 0.32),
-    0 12px 32px -16px rgba(106, 136, 164, 0.2);
+    0 12px 32px -16px rgba(107, 58, 60, 0.2);
 }
 
 .srp-funnel .srp-hero-showcase__primary,
@@ -912,7 +912,7 @@
     circle 240px at var(--spot-x) var(--spot-y),
     rgba(255, 255, 255, 0.72) 0%,
     rgba(255, 255, 255, 0.28) 22%,
-    rgba(106, 136, 164, 0.1) 38%,
+    rgba(107, 58, 60, 0.1) 38%,
     transparent 62%
   );
   mix-blend-mode: soft-light;
@@ -922,7 +922,7 @@
   background: radial-gradient(
     circle 240px at var(--spot-x) var(--spot-y),
     rgba(255, 255, 255, 0.34) 0%,
-    rgba(106, 136, 164, 0.2) 24%,
+    rgba(107, 58, 60, 0.2) 24%,
     rgba(255, 255, 255, 0.06) 40%,
     transparent 62%
   );
@@ -941,7 +941,7 @@
     inset 0 1px 0 rgba(255, 255, 255, 0.95),
     inset 0 -18px 36px -24px rgba(43, 21, 23, 0.06),
     0 28px 72px -28px rgba(43, 21, 23, 0.22),
-    0 12px 32px -16px rgba(106, 136, 164, 0.18);
+    0 12px 32px -16px rgba(107, 58, 60, 0.18);
   backdrop-filter: blur(14px);
 }
 
@@ -957,12 +957,12 @@
     inset 0 1px 0 rgba(255, 255, 255, 0.12),
     inset 0 -20px 40px -24px rgba(0, 0, 0, 0.35),
     0 32px 80px -24px rgba(0, 0, 0, 0.45),
-    0 16px 40px -20px rgba(106, 136, 164, 0.2);
+    0 16px 40px -20px rgba(107, 58, 60, 0.2);
   backdrop-filter: blur(16px);
 }
 
 .srp-funnel .srp-daynight-panel:hover .srp-daynight-panel__frame {
-  border-color: rgba(106, 136, 164, 0.35);
+  border-color: rgba(107, 58, 60, 0.35);
 }
 
 .srp-funnel .srp-daynight-panel--day:hover .srp-daynight-panel__frame {
@@ -970,7 +970,7 @@
     inset 0 1px 0 rgba(255, 255, 255, 1),
     inset 0 -18px 36px -24px rgba(43, 21, 23, 0.04),
     0 40px 96px -32px rgba(43, 21, 23, 0.28),
-    0 20px 48px -20px rgba(106, 136, 164, 0.28);
+    0 20px 48px -20px rgba(107, 58, 60, 0.28);
 }
 
 .srp-funnel .srp-daynight-panel--night:hover .srp-daynight-panel__frame {
@@ -978,7 +978,7 @@
     inset 0 1px 0 rgba(255, 255, 255, 0.18),
     inset 0 -20px 40px -24px rgba(0, 0, 0, 0.28),
     0 44px 104px -28px rgba(0, 0, 0, 0.55),
-    0 20px 48px -20px rgba(106, 136, 164, 0.3);
+    0 20px 48px -20px rgba(107, 58, 60, 0.3);
 }
 
 .srp-funnel .srp-daynight-panel__visual {
@@ -1027,7 +1027,7 @@
 .srp-funnel .srp-daynight-panel--day .srp-daynight-panel__tag {
   color: var(--silver-blue);
   background: rgba(255, 255, 255, 0.65);
-  border: 1px solid rgba(106, 136, 164, 0.2);
+  border: 1px solid rgba(107, 58, 60, 0.2);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9);
 }
 
@@ -1128,7 +1128,7 @@
     inset 0 2px 4px rgba(255, 255, 255, 0.9),
     inset 0 -4px 8px rgba(43, 21, 23, 0.06),
     0 16px 40px -12px rgba(43, 21, 23, 0.25),
-    0 4px 12px rgba(106, 136, 164, 0.2);
+    0 4px 12px rgba(107, 58, 60, 0.2);
 }
 
 .srp-funnel .srp-daynight-axis__dial-ring {
@@ -1148,7 +1148,7 @@
     color-mix(in srgb, var(--cherry) 40%, var(--silver-blue))
   );
   box-shadow:
-    0 0 0 3px rgba(106, 136, 164, 0.15),
+    0 0 0 3px rgba(107, 58, 60, 0.15),
     0 2px 8px rgba(43, 21, 23, 0.2);
 }
 
@@ -1382,7 +1382,7 @@
 
 .srp-funnel .srp-experience-use:hover {
   transform: translateY(-2px);
-  border-color: rgba(106, 136, 164, 0.26);
+  border-color: rgba(107, 58, 60, 0.26);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.95),
     0 18px 40px -18px rgba(43, 21, 23, 0.18);
@@ -1598,7 +1598,7 @@
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.92),
     0 20px 52px -28px rgba(43, 21, 23, 0.16),
-    0 8px 24px -12px rgba(106, 136, 164, 0.12);
+    0 8px 24px -12px rgba(107, 58, 60, 0.12);
   transition:
     transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
     box-shadow 0.4s ease;
@@ -1609,7 +1609,7 @@
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 1),
     0 28px 64px -24px rgba(43, 21, 23, 0.2),
-    0 12px 32px -14px rgba(106, 136, 164, 0.18);
+    0 12px 32px -14px rgba(107, 58, 60, 0.18);
 }
 
 .srp-funnel .srp-individual-pillar--2 {
@@ -1883,7 +1883,7 @@
 }
 
 .srp-funnel .srp-protocol-product:hover .srp-protocol-product__frame {
-  border-color: rgba(106, 136, 164, 0.35);
+  border-color: rgba(107, 58, 60, 0.35);
   box-shadow: 0 22px 48px -28px rgba(43, 21, 23, 0.22);
 }
 
@@ -1915,7 +1915,7 @@
 .srp-funnel .srp-protocol-product--signature .srp-protocol-product__frame {
   min-height: 96px;
   border-radius: 16px;
-  border-color: rgba(106, 136, 164, 0.28);
+  border-color: rgba(107, 58, 60, 0.28);
   background: linear-gradient(
     128deg,
     color-mix(in srgb, var(--cherry) 88%, #120809) 0%,
@@ -1944,7 +1944,7 @@
 
 .srp-funnel .srp-protocol-product--finale .srp-protocol-product__frame {
   min-height: 88px;
-  border-color: rgba(106, 136, 164, 0.22);
+  border-color: rgba(107, 58, 60, 0.22);
   background: linear-gradient(
     100deg,
     color-mix(in srgb, var(--beige) 42%, white) 0%,
@@ -2090,7 +2090,7 @@
 
 .srp-funnel .srp-phases-step:hover {
   transform: translateY(-4px);
-  border-color: rgba(106, 136, 164, 0.28);
+  border-color: rgba(107, 58, 60, 0.28);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.95),
     0 24px 48px -24px rgba(43, 21, 23, 0.18);
@@ -2117,7 +2117,7 @@
   background: linear-gradient(
     135deg,
     rgba(43, 21, 23, 0.07),
-    rgba(106, 136, 164, 0.04)
+    rgba(107, 58, 60, 0.04)
   );
   -webkit-background-clip: text;
   background-clip: text;
@@ -2434,7 +2434,7 @@
   width: min(60vw, 520px);
   height: min(60vw, 520px);
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(106, 136, 164, 0.14), transparent 68%);
+  background: radial-gradient(circle, rgba(107, 58, 60, 0.14), transparent 68%);
   pointer-events: none;
 }
 
@@ -2512,7 +2512,7 @@
 
 .srp-funnel .srp-not-alone-moment:hover {
   transform: translateY(-4px);
-  border-color: rgba(106, 136, 164, 0.28);
+  border-color: rgba(107, 58, 60, 0.28);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.95),
     0 24px 48px -24px rgba(43, 21, 23, 0.18);
@@ -2531,7 +2531,7 @@
   background: linear-gradient(
     135deg,
     rgba(43, 21, 23, 0.07),
-    rgba(106, 136, 164, 0.04)
+    rgba(107, 58, 60, 0.04)
   );
   -webkit-background-clip: text;
   background-clip: text;
@@ -2610,7 +2610,7 @@
 
 @media (min-width: 768px) {
   .srp-funnel .srp-not-alone-signature-em-wrap {
-    border-left: 1px solid rgba(106, 136, 164, 0.22);
+    border-left: 1px solid rgba(107, 58, 60, 0.22);
     padding-left: clamp(24px, 3vw, 36px);
   }
 }
@@ -2622,7 +2622,7 @@
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  border: 1px solid rgba(106, 136, 164, 0.25);
+  border: 1px solid rgba(107, 58, 60, 0.25);
   transform: translateY(-50%);
   pointer-events: none;
 }
@@ -2636,7 +2636,7 @@
   height: 8px;
   border-radius: 50%;
   background: var(--silver-blue);
-  box-shadow: 0 0 16px rgba(106, 136, 164, 0.45);
+  box-shadow: 0 0 16px rgba(107, 58, 60, 0.45);
   transform: translate(-50%, -50%);
 }
 
@@ -2754,7 +2754,7 @@
 
 .srp-funnel .srp-philosophy-factor:hover {
   transform: translateY(-4px);
-  border-color: rgba(106, 136, 164, 0.28);
+  border-color: rgba(107, 58, 60, 0.28);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.95),
     0 24px 48px -24px rgba(43, 21, 23, 0.18);
@@ -2781,7 +2781,7 @@
   background: linear-gradient(
     135deg,
     rgba(43, 21, 23, 0.07),
-    rgba(106, 136, 164, 0.04)
+    rgba(107, 58, 60, 0.04)
   );
   -webkit-background-clip: text;
   background-clip: text;
@@ -3074,7 +3074,7 @@
     inset 0 1px 0 rgba(255, 255, 255, 0.92),
     inset 0 -14px 28px -18px rgba(43, 21, 23, 0.05),
     0 18px 48px -26px rgba(43, 21, 23, 0.16),
-    0 8px 24px -12px rgba(106, 136, 164, 0.14);
+    0 8px 24px -12px rgba(107, 58, 60, 0.14);
   backdrop-filter: blur(12px);
   display: flex;
   flex-direction: column;
@@ -3094,12 +3094,12 @@
 
 .srp-funnel .srp-sensory-sense:hover {
   transform: translateY(-5px) translateZ(12px);
-  border-color: rgba(106, 136, 164, 0.32);
+  border-color: rgba(107, 58, 60, 0.32);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 1),
     inset 0 -14px 28px -18px rgba(43, 21, 23, 0.03),
     0 28px 64px -24px rgba(43, 21, 23, 0.22),
-    0 14px 32px -14px rgba(106, 136, 164, 0.22);
+    0 14px 32px -14px rgba(107, 58, 60, 0.22);
 }
 
 .srp-funnel .srp-sensory-sense--5 {
@@ -3123,7 +3123,7 @@
   background: linear-gradient(
     135deg,
     rgba(43, 21, 23, 0.07),
-    rgba(106, 136, 164, 0.05)
+    rgba(107, 58, 60, 0.05)
   );
   -webkit-background-clip: text;
   background-clip: text;
