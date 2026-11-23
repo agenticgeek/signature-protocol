@@ -171,7 +171,7 @@ body.nav-open {
 
 .topbar-nav__list a:hover,
 .topbar-nav__list a:focus-visible {
-  background: rgba(106, 136, 164, 0.12);
+  background: rgba(107, 58, 60, 0.12);
   outline: none;
 }
 

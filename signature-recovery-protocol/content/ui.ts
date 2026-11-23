@@ -27,9 +27,8 @@ const uiFr = {
     closer: "Vidéo de clôture METCARE®",
   },
   footer: {
-    copyright: "© 2026 METCARE® — My Esthetic Travel®",
-    signature: "METCARE® — Recovery & Longevity™",
-    tagline: "L'expertise au service des professionnels de l'esthétique et du bien-être.",
+    copyright: "© 2026 METCARE®",
+    signature: "Recovery & Longevity™",
   },
   meta: {
     title: "Programme Ambassadeur Pro | METCARE®",
@@ -64,9 +63,8 @@ const uiEn = {
     closer: "METCARE® closing film",
   },
   footer: {
-    copyright: "© 2026 METCARE® — My Esthetic Travel®",
-    signature: "METCARE® | Recovery & Longevity™",
-    tagline: "Expertise serving beauty and wellness professionals.",
+    copyright: "© 2026 METCARE®",
+    signature: "Recovery & Longevity™",
   },
   meta: {
     title: "Pro Ambassador Program | METCARE®",
@@ -101,9 +99,8 @@ const uiEs = {
     closer: "Vídeo de cierre METCARE®",
   },
   footer: {
-    copyright: "© 2026 METCARE® — My Esthetic Travel®",
-    signature: "METCARE® — Recovery & Longevity™",
-    tagline: "La experiencia al servicio de los profesionales de la estética y el bienestar.",
+    copyright: "© 2026 METCARE®",
+    signature: "Recovery & Longevity™",
   },
   meta: {
     title: "Programa Embajador Pro | METCARE®",
