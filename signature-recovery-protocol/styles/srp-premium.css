@@ -412,3 +412,86 @@
     padding-right: 0;
   }
 }
+
+/* ==========================================================================
+   Numbered cards — cherry / light, alternating from one section to the next.
+   § 02, § 04 and § 07 use cherry cards with white text; § 03 and § 05 keep the
+   light glass surface. A cherry card only sets the --card-* variables; the
+   rules underneath read them and fall back to the light look.
+   ========================================================================== */
+.srp-funnel .srp-not-alone-moment,
+.srp-funnel .srp-phases-step,
+.srp-funnel .srp-sensory-sense {
+  --card-bg: linear-gradient(155deg, var(--cherry-hover) 0%, var(--cherry) 100%);
+  --card-border: rgba(255, 255, 255, 0.1);
+  --card-border-hover: rgba(255, 255, 255, 0.28);
+  --card-inset: rgba(255, 255, 255, 0.08);
+  --card-fg: #fff;
+  --card-fg-opacity: 1;
+  --card-idx: rgba(255, 255, 255, 0.9);
+  --card-ghost: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.08));
+}
+
+.srp-funnel .srp-not-alone-moment,
+.srp-funnel .srp-philosophy-factor,
+.srp-funnel .srp-phases-step,
+.srp-funnel .srp-sensory-sense,
+.srp-funnel .srp-pill {
+  background: var(--card-bg, var(--surface-glass));
+  border-color: var(--card-border, var(--surface-glass-border));
+  box-shadow:
+    inset 0 1px 0 var(--card-inset, rgba(255, 255, 255, 0.88)),
+    var(--shadow-lift);
+}
+
+@media (hover: hover) {
+  .srp-funnel .srp-not-alone-moment:hover,
+  .srp-funnel .srp-philosophy-factor:hover,
+  .srp-funnel .srp-phases-step:hover,
+  .srp-funnel .srp-sensory-sense:hover,
+  .srp-funnel .srp-pill:hover {
+    border-color: var(--card-border-hover, color-mix(in srgb, var(--silver-blue) 28%, white));
+    box-shadow:
+      inset 0 1px 0 var(--card-inset, rgba(255, 255, 255, 0.95)),
+      0 28px 64px -28px rgba(43, 21, 23, 0.16),
+      0 10px 28px -12px rgba(107, 58, 60, 0.14);
+  }
+}
+
+.srp-funnel .srp-not-alone-moment-text,
+.srp-funnel .srp-philosophy-factor-text,
+.srp-funnel .srp-phases-step-text,
+.srp-funnel .srp-sensory-sense-text,
+.srp-funnel .srp-pill-name {
+  color: var(--card-fg, var(--cherry));
+}
+
+/* The light cards soften their text slightly; on cherry it stays full white. */
+.srp-funnel .srp-not-alone-moment-text,
+.srp-funnel .srp-phases-step-text,
+.srp-funnel .srp-sensory-sense-text {
+  opacity: var(--card-fg-opacity, 0.88);
+}
+
+.srp-funnel .srp-not-alone-moment-text,
+.srp-funnel .srp-phases-step-text {
+  font-weight: 500;
+}
+
+.srp-funnel .srp-not-alone-moment-idx,
+.srp-funnel .srp-philosophy-factor-idx,
+.srp-funnel .srp-phases-step-idx,
+.srp-funnel .srp-sensory-sense-idx,
+.srp-funnel .srp-pill-idx {
+  color: var(--card-idx, var(--silver-blue));
+}
+
+.srp-funnel .srp-not-alone-moment-ghost,
+.srp-funnel .srp-philosophy-factor-ghost,
+.srp-funnel .srp-phases-step-ghost,
+.srp-funnel .srp-sensory-sense-ghost {
+  background-image: var(
+    --card-ghost,
+    linear-gradient(135deg, rgba(43, 21, 23, 0.07), rgba(107, 58, 60, 0.04))
+  );
+}
