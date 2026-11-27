@@ -8,6 +8,7 @@ import {
 } from "@/signature-recovery-protocol/content/ambassador-form";
 import { useLocale } from "@/signature-recovery-protocol/i18n/LanguageProvider";
 import { useSrpContent } from "@/signature-recovery-protocol/i18n/useSrpContent";
+import { trackInitiateCheckout, trackLead } from "@/signature-recovery-protocol/lib/metaCapi";
 import PhoneField from "./PhoneField";
 import {
   AMBASSADOR_MAX_LENGTH,
@@ -17,6 +18,7 @@ import {
   type AmbassadorErrors,
   type AmbassadorFieldName,
   type AmbassadorFormValues,
+  toInternationalPhone,
 } from "@/signature-recovery-protocol/lib/ambassador-form";
 
 type AmbassadorFormModalProps = {
@@ -79,11 +81,13 @@ export default function AmbassadorFormModal({ isOpen, source, onClose }: Ambassa
     if (!dialog) return;
     if (isOpen && !dialog.open) {
       dialog.showModal();
+      trackInitiateCheckout(source);
       // Start on the form itself rather than on the close button.
       bodyRef.current?.focus({ preventScroll: true });
     }
     if (!isOpen && dialog.open) dialog.close();
-  }, [isOpen]);
+    // `source` is set together with `isOpen`; re-running on its own change is harmless.
+  }, [isOpen, source]);
 
   useEffect(() => {
     if (status === "success") successTitleRef.current?.focus();
@@ -157,6 +161,18 @@ export default function AmbassadorFormModal({ isOpen, source, onClose }: Ambassa
       } | null;
 
       if (response.ok && result?.ok) {
+        // Honeypot hits get a fake "ok" from the API: not a lead.
+        if (!honeypot) {
+          trackLead(
+            {
+              email: values.email,
+              phone: toInternationalPhone(values.dialIso, values.phone) ?? undefined,
+              firstName: values.firstName,
+              lastName: values.lastName,
+            },
+            source,
+          );
+        }
         setStatus("success");
         bodyRef.current?.scrollTo({ top: 0 });
         return;
