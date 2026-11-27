@@ -1,11 +1,11 @@
 "use client";
 
 import { useEffect, useId, useMemo, useRef, useState, type KeyboardEvent } from "react";
-import { AsYouType, getCountryCallingCode, type CountryCode } from "libphonenumber-js";
+import { AsYouType, getCountryCallingCode, type CountryCode } from "libphonenumber-js/max";
 import {
   PHONE_COUNTRIES,
-  cleanPhoneInput,
-  isPhoneTooLong,
+  applyPhoneEdit,
+  fitPhoneToCountry,
 } from "@/signature-recovery-protocol/lib/ambassador-form";
 
 type PhoneFieldProps = {
@@ -109,6 +109,9 @@ export default function PhoneField({
 
   const choose = (iso: string) => {
     onDialChange(iso);
+    // A number too long for the new country is cut down to its limit.
+    const fitted = fitPhoneToCountry(iso, phone);
+    if (fitted !== phone) onPhoneChange(fitted);
     setOpen(false);
     numberRef.current?.focus();
   };
@@ -131,28 +134,17 @@ export default function PhoneField({
     }
   };
 
-  const handleNumber = (raw: string) => {
-    let next = cleanPhoneInput(raw);
-    let iso = dialIso;
+  const handleNumber = (raw: string, inputType?: string) => {
+    // Paste, drop or autofill: cut to the limit. Typing past it: refused.
+    const pasted =
+      inputType?.startsWith("insertFrom") ||
+      inputType === "insertReplacementText" ||
+      raw.replace(/\D/g, "").length - phone.replace(/\D/g, "").length > 1;
+    const edit = applyPhoneEdit(dialIso, phone, raw, pasted);
+    if (!edit) return;
 
-    // "+92 312…" typed or pasted: pick the country and keep the national part.
-    if (next.startsWith("+")) {
-      const typed = new AsYouType();
-      typed.input(next);
-      const detected = typed.getCountry();
-      if (detected) {
-        iso = detected;
-        next = typed.getNationalNumber();
-      } else if (next.replace(/\D/g, "").length > 4) {
-        return; // no country starts with these digits
-      }
-    }
-
-    // Per-country limit: refuse digits beyond the longest valid number.
-    if (isPhoneTooLong(iso, next) && next.length > phone.length) return;
-
-    if (iso !== dialIso) onDialChange(iso);
-    onPhoneChange(next);
+    if (edit.dialIso !== dialIso) onDialChange(edit.dialIso);
+    onPhoneChange(edit.phone);
   };
 
   const formatOnBlur = () => {
@@ -185,7 +177,7 @@ export default function PhoneField({
         inputMode="tel"
         autoComplete="tel-national"
         value={phone}
-        onChange={(e) => handleNumber(e.target.value)}
+        onChange={(e) => handleNumber(e.target.value, (e.nativeEvent as InputEvent).inputType)}
         onBlur={formatOnBlur}
       />
 
