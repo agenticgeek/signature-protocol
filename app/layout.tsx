@@ -8,6 +8,7 @@ import "@/signature-recovery-protocol/styles/ambassador-form.css";
 import { AmbassadorFormProvider } from "@/signature-recovery-protocol/components/ambassador/AmbassadorFormProvider";
 import { LanguageProvider } from "@/signature-recovery-protocol/i18n/LanguageProvider";
 import MetaPixel from "@/signature-recovery-protocol/components/MetaPixel";
+import GoogleAnalytics from "@/signature-recovery-protocol/components/GoogleAnalytics";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -41,6 +42,7 @@ export default function RootLayout({
     <html lang="fr" className={`${poppins.variable} ${raleway.variable}`}>
       <body>
         <MetaPixel />
+        <GoogleAnalytics />
         <LanguageProvider>
           <div className="srp-funnel">
             <AmbassadorFormProvider>{children}</AmbassadorFormProvider>

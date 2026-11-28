@@ -1,3 +1,4 @@
+import { gaEventOnce } from "./ga";
 // Browser-side helpers for Meta tracking: the Pixel (fbq) and the
 // Conversions API relay (/api/meta/capi). Every standard event is sent from
 // both sides with the same `eventId` so Meta dedupes the two copies.
@@ -125,6 +126,7 @@ const FORM_PARAMS = {
 
 /** The registration modal was opened. Once per session. */
 export function trackInitiateCheckout(ctaSource: string) {
+  gaEventOnce("form_start", "form_start", { form_name: "ambassador", cta_source: ctaSource });
   if (!META_PIXEL_ID || !oncePerSession(INITIATE_CHECKOUT_KEY)) return;
   trackMetaEvent("InitiateCheckout", { ...FORM_PARAMS, cta_source: ctaSource });
 }
@@ -135,6 +137,8 @@ export function trackInitiateCheckout(ctaSource: string) {
  * so a re-submit or a revisit does not count twice.
  */
 export function trackLead(user: MetaUser, ctaSource: string) {
+  // GA4 gets no personal data, only that a lead happened.
+  gaEventOnce("generate_lead", "generate_lead", { form_name: "ambassador", cta_source: ctaSource });
   if (!META_PIXEL_ID || !oncePerSession(LEAD_FIRED_KEY)) return;
   const eventId = newEventId();
   try {

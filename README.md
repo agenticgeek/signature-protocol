@@ -19,3 +19,13 @@ Events: `PageView` (every page and route change), `ViewContent` (landing page),
 `InitiateCheckout` (registration form opened, once per session), `Lead` (registration
 API answered OK, once per session; email, phone, first and last name are SHA-256 hashed
 on the server and never sent to the Pixel).
+
+## Google Analytics 4
+
+Measurement ID `G-RJ16CFPCHR` is built in (`signature-recovery-protocol/lib/ga.ts`); set `NEXT_PUBLIC_GA_MEASUREMENT_ID` only to override it. One `page_view` per route; no personal data is sent to GA.
+
+| Trigger | GA4 event |
+|---|---|
+| Every page load / route change | `page_view` |
+| Ambassador modal opened (once per session) | `form_start` |
+| `/api/ambassador` returned OK, honeypot excluded (once per session) | `generate_lead` |
